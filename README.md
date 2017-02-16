@@ -1,8 +1,17 @@
-# dotfiles
+# Danboruya's dotfiles
+====
 
-Private Linux dotfiles.
+Overview
 
-* Includeing .bashrc, .vimrc, .tmux_conf (.tmux_conf can use only Linux. Can't use Cygwin.)
-* Also including .vim (vim plugins)
+## Description
+Dotfiles for Linux environment. Set up the new environment.
 
-* tmux version is newer than 2.0.
+## Install
+Using git command.
+
+```bash
+cd;git clone git@github.com:danbourya/dotfiles
+```
+## Author
+
+[Danboruya](https://github.com/danboruya)
