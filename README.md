@@ -5,6 +5,7 @@ Overview
 
 ## Description
 Dotfiles for Linux environment. Set up the new environment.
+In addition, we provide some script files in "doc" directory.
 
 ## Install
 Using git command.
