@@ -13,6 +13,6 @@ dpkg --get-selections | grep linux-image
 echo ===============Remove Linux image command===================
 
 #Display remove command
-echo sudo apt-get autoremove --purge linux-image-x.x.x-xx-generic
+echo sudo apt autoremove --purge linux-image-x.x.x-xx-generic
 
 echo ============================================================

@@ -1,5 +1,4 @@
 # Danboruya's dotfiles
-====
 
 Overview
 
