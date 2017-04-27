@@ -1,8 +1,0 @@
-[push]
-	dafault = simple
-	default = matching
-[core]
-	editor = vim
-[user]
-	name = Mitsuhiro Komuro
-	email = applemitkom@gmail.com
