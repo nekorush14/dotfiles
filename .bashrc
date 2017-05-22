@@ -26,3 +26,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 # Set defaul text editor
 export EDITOR=vim
+
+# set user functions
+function open() {
+  xdg-open "$@" &
+}
+
+alias OPEN_G='open'
