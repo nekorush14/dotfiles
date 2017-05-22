@@ -1,15 +1,23 @@
-" vimrc 
+" vimrc
 "
 " Vim configration file.
 " Author: Mitsuhiro Komuro
-" 
+"
 " --Note--
 " Plugin is starting line 124
+" Plug plugin line 156
 "
 
 """""""""""""""""
 " Basic options "
 """""""""""""""""
+" Set text encodeing
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8 " 保存時の文字コード
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
+set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
+set ambiwidth=double "□や○文字が崩れる問題を解"
 
 " タグファイルの指定(でもタグジャンプは使ったことがない)
 set tags=~/.tags
@@ -88,11 +96,32 @@ syntax on
 " 行番号の色
 highlight LineNr ctermfg=yellow
 
-" カラースキーマの指定 
-colorscheme molokai_dark
+" カラースキーマの指定
+"colorscheme molokai_dark
 
 " ハイライトON
 set hlsearch
+
+" Jump settings
+set showmatch " 括弧の対応関係を一瞬表示する
+source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+
+" setting History size
+set history=5000
+
+" paste settings
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 """"""""""""""""""""
 " Disabled options "
@@ -121,12 +150,12 @@ nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 
 " " 「/」「?」「*」「#」が押されたらハイライトをONにしてから「/」「?」「*」「#」
 nnoremap / :<C-u>set hlsearch<Return>/
-nnoremap ? :<C-u>set hlsearch<Return>?                
+nnoremap ? :<C-u>set hlsearch<Return>?
 nnoremap * :<C-u>set hlsearch<Return>*
 nnoremap # :<C-u>set hlsearch<Return>#
 
 """"""""""""""""""
-" Plugin manager " 
+" Plugin manager "
 """"""""""""""""""
 if has('vim_starting')
     set rtp+=~/.vim/plugged/vim-plug
@@ -140,20 +169,20 @@ endif
 call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
-    
+
     " Vundle/NeoBundle と同じように
     Plug 'junegunn/seoul256.vim'
 
     " コマンド実行時に読み込む
     Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
-    
+
     " 指定したファイルタイプを開いたときに読み込む
     Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
-    
+
     " X | Y の時, X をインストールした後に Y をインストール
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    " Status bar 
+    " Status bar
     Plug 'itchyny/lightline.vim'
 
     " File tree
@@ -188,10 +217,19 @@ call plug#begin('~/.vim/plugged')
 
     " Auto close
     Plug 'Townk/vim-autoclose'
+
+    " Git plugin for vim
+    Plug 'tpope/vim-fugitive'
+
+    " Color theme
+    Plug 'tomasr/molokai'
+
+    "
+    Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
 
 """"""""""""""""""
-" Plugin setings " 
+" Plugin setings "
 """"""""""""""""""
 
 "============
@@ -200,6 +238,14 @@ call plug#end()
 "let g:molokai_original = 1
 let g:rehash256 = 1
 let g:onedark_termcolors=256
+
+"===============
+"molokaiの設定
+"===============
+colorscheme molokai " カラースキームにmolokaiを設定する
+
+set t_Co=256 " iTerm2など既に256色環境なら無くても良い
+syntax enable " 構文に色を付ける
 
 "==============
 "Help setings
@@ -300,7 +346,7 @@ let g:lightline = {
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \} 
+      \}
 
 function! LightlineModified()
     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -337,7 +383,7 @@ endfunction
 
 function! LightlineFileencoding()
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction                              
+endfunction
 
 function! LightlineMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
