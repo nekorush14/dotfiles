@@ -15,9 +15,9 @@
 set encoding=utf-8
 scriptencoding utf-8
 set fileencoding=utf-8 " 保存時の文字コード
-set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
-set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
-set ambiwidth=double "□や○文字が崩れる問題を解"
+"set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
+"set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
+"set ambiwidth=double "□や○文字が崩れる問題を解"
 
 " タグファイルの指定(でもタグジャンプは使ったことがない)
 set tags=~/.tags
@@ -103,8 +103,8 @@ highlight LineNr ctermfg=yellow
 set hlsearch
 
 " Jump settings
-set showmatch " 括弧の対応関係を一瞬表示する
-source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
+"set showmatch " 括弧の対応関係を一瞬表示する
+"source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 
 " setting History size
 set history=5000
