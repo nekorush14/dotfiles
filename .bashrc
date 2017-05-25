@@ -33,3 +33,4 @@ function open() {
 }
 
 alias OPEN_G='open'
+alias pbcopy='xsel --clipboard --input'
