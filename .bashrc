@@ -24,6 +24,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # Set library path for macab
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
+# Set local bainary path
+export PATH=$HOME/bin:$PATH
+
 # Set defaul text editor
 export EDITOR=vim
 
