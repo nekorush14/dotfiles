@@ -2,7 +2,6 @@
 
 ##########################################################
 #               Set up new environment                   #
-# Copyright(C) 2017 Mitsuhiro komuro All Rights Reserved #
 #                                                        #
 # This script set up environment for plean OSs.          #
 #                                                        #
@@ -13,13 +12,8 @@
 #   |  |- vim                                            #
 #   |  |- git                                            #
 #   |  |- screenfetch                                    #
-#   |  |- unity-tweek-tools                              #
 #   |                                                    #
 #   * other-app                                          #
-#      |- moc                                            #
-#      |- w3m                                            #
-#      |- w3m-img                                        #
-#      |- chromium                                       #
 #                                                        #
 # Following library will install                         #
 #                                                        #
@@ -51,10 +45,9 @@ sudo apt autoremove -n;
 
 # End of section #
 
-
 # Install applications section #
-sudo apt install lv vim git screenfetch unity-tweek-tools;
-sudo apt install moc w3m w3m-img chromium;
+sudo apt install lv vim git screenfetch;
+
 # End of section #
 
 # Add apt key
