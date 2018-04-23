@@ -4,11 +4,17 @@ HISTFILESIZE=2000
 
 # for PS1 settings
 if [ "$color_prompt" = yes ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[00m\]\$:'
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[00m\]\$:'
 else
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[00m\]\$:'
-
 fi
+
+# PS1 settings for macOS
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[31m\]$(__git_ps1)\[\033[00m\]\$:'
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[31m\]$(__git_ps1)\[\033[00m\]\$:'
+# fi
 unset color_prompt force_color_prompt
 
 # Set JAVA_HOME
@@ -35,5 +41,14 @@ function open() {
   xdg-open "$@" &
 }
 
-alias OPEN_G='open'
-alias pbcopy='xsel --clipboard --input'
+# Alias for Linux system
+# alias OPEN_G='open'
+# alias pbcopy='xsel --clipboard --input'
+
+# For macOS
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+

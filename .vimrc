@@ -5,7 +5,7 @@
 "
 " --Note--
 " Plugin is starting line 124
-" Plug plugin line 156
+" Plug plugin line 173
 "
 
 """""""""""""""""
@@ -152,7 +152,11 @@ nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 nnoremap / :<C-u>set hlsearch<Return>/
 nnoremap ? :<C-u>set hlsearch<Return>?
 nnoremap * :<C-u>set hlsearch<Return>*
+
 nnoremap # :<C-u>set hlsearch<Return>#
+
+set backspace=indent,eol,start
+set backspace=2
 
 """"""""""""""""""
 " Plugin manager "
@@ -183,7 +187,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     " Status bar
-    Plug 'itchyny/lightline.vim'
+    " Plug 'itchyny/lightline.vim'
+
+    " Status bar for power-line like theme
+    Plug 'vim-airline/vim-airline'
+
+    " vim-airline theme
+    Plug 'vim-airline/vim-airline-themes'
 
     " File tree
     Plug 'scrooloose/nerdtree'
@@ -224,7 +234,7 @@ call plug#begin('~/.vim/plugged')
     " Color theme
     Plug 'tomasr/molokai'
 
-    "
+    " Remove wihte space
     Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
 
@@ -232,12 +242,37 @@ call plug#end()
 " Plugin setings "
 """"""""""""""""""
 
+"===========
+"vimm-airline
+"===========
+let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" let g:airline_left_sep = '⮀'
+" let g:airline_left_alt_sep = '⮁'
+" let g:airline_right_sep = '⮂'
+" let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⭠'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = '∄'
+" let g:airline_symbols.whitespace = 'Ξ'
+
 "============
 "Colour theme
 "============
-"let g:molokai_original = 1
 let g:rehash256 = 1
 let g:onedark_termcolors=256
+colorscheme onedark
 
 "===============
 "molokaiの設定
@@ -272,7 +307,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "Indent visualiser
 "=================
 set list
-set listchars=tab:\|\ 
+" set listchars=tab:\|\
 hi SpecialKey guifg=#333333
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
@@ -329,62 +364,62 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "lightline setings
 "=================
 " \ 'colorscheme': 'landscape',
-let g:lightline = {
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'LightlineModified',
-      \   'readonly': 'LightlineReadonly',
-      \   'fugitive': 'LightlineFugitive',
-      \   'filename': 'LightlineFilename',
-      \   'fileformat': 'LightlineFileformat',
-      \   'filetype': 'LightlineFiletype',
-      \   'fileencoding': 'LightlineFileencoding',
-      \   'mode': 'LightlineMode',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \}
+" let g:lightline = {
+"      \ 'mode_map': { 'c': 'NORMAL' },
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+"      \ },
+"      \ 'component_function': {
+"      \   'modified': 'LightlineModified',
+"      \   'readonly': 'LightlineReadonly',
+"      \   'fugitive': 'LightlineFugitive',
+"      \   'filename': 'LightlineFilename',
+"      \   'fileformat': 'LightlineFileformat',
+"      \   'filetype': 'LightlineFiletype',
+"      \   'fileencoding': 'LightlineFileencoding',
+"      \   'mode': 'LightlineMode',
+"      \ },
+"      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"      \}
 
-function! LightlineModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
+" function! LightlineModified()
+"     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+" endfunction
 
-function! LightlineReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-endfunction
+" function! LightlineReadonly()
+"     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+" endfunction
 
-function! LightlineFilename()
-    return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-                \  &ft == 'unite' ? unite#get_status_string() :
-                \  &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
+" function! LightlineFilename()
+"     return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+"                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+"                \  &ft == 'unite' ? unite#get_status_string() :
+"                \  &ft == 'vimshell' ? vimshell#get_status_string() :
+"                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+"                \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+" endfunction
 
-function! LightlineFugitive()
-    if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-        let branch = fugitive#head()
-        return branch !=# '' ? '⭠ '.branch : ''
-    endif
-    return ''
-endfunction
+" function! LightlineFugitive()
+"    if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+"        let branch = fugitive#head()
+"        return branch !=# '' ? '⭠ '.branch : ''
+"    endif
+"    return ''
+" endfunction
 
-function! LightlineFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
-endfunction
+" function! LightlineFileformat()
+"     return winwidth(0) > 70 ? &fileformat : ''
+" endfunction
 
-function! LightlineFiletype()
-    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
+" function! LightlineFiletype()
+"     return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+" endfunction
 
-function! LightlineFileencoding()
-    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
+" function! LightlineFileencoding()
+"    return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+" endfunction
 
-function! LightlineMode()
-    return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
+" function! LightlineMode()
+"    return winwidth(0) > 60 ? lightline#mode() : ''
+" endfunction
