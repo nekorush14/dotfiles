@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Functions for tmux status-right
+
+function get_load_average() {
+  echo "$(uptime | awk '{print $(NF-2), $(NF-1), $(NF-0)}')"
+}
+
+function get_battery(){
+  if battery_info=$(/usr/bin/pmset -g ps | awk '{ if (NR == 2) print $3 " " $4 }' | sed -e "s/;//g" -e "s/%//") ; then
+    battery_quantity=$(echo $battery_info | awk '{print $1}')
+    if [[ ! $battery_info =~ "discharging" ]]; then
+      battery="#[bg=cyan,fg=black] ⚡ $battery_quantity% #[default]"
+    elif (( $battery_quantity < 16 )); then
+      battery="#[bg=red,fg=white] $battery_quantity% #[default]"
+    else
+      battery="#[bg=cyan,fg=black] $battery_quantity% #[default]"
+    fi
+    echo $battery
+  fi
+}
+
+function get_ssid() {
+  airport_path="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+
+  if air_info=($(eval "$airport_path" -I | grep -E "^ *(agrCtlRSSI|state|SSID):" | awk '{print $2}')) ; then
+
+    rssi=${air_info[0]}
+    state=${air_info[1]}
+    ssid=${air_info[2]}
+
+    case "$state" in
+      "running")
+        signals=(▁ ▂ ▄ ▆ █)
+        signal=""
+        rssi_=$(expr 5 - ${rssi} / -20)
+        for ((i=0; i < $rssi_; i++ )); do
+          signal="${signal}${signals[$i]}"
+        done
+        airport_="#[underscore]${ssid}#[default]#[fg=colour255,bg=colour236]||#[fg=colour226,bg=colour236]${signal}"
+      ;;
+      "init") airport_="#[fg=yellow] ... ";;
+      *) airport_="#[fg=red] ✘  ";;
+    esac
+    echo "${airport_}#[fg=colour255,bg=colour236]"
+  fi
+}
+
+function get_volume() {
+  if sound_info=$(osascript -e 'get volume settings') ; then
+    if [ "$(echo $sound_info | awk '{print $8}')" = "muted:false" ]; then
+      sound_volume=$(expr $(echo $sound_info | awk '{print $2}' | sed "s/[^0-9]//g") / 6 )
+      str=""
+      for i in $(seq 0 $(($sound_volume - 1))); do
+        str="${str}■"
+      done
+      for i in $(seq 0 $(($sound_volume - 2))); do
+        str="${str} "
+      done
+      sound="#[bold][$str]#[default]"
+    else
+      sound="#[bold][mute]#[default]"
+    fi
+    echo "$sound#[fg=colour255,bg=colour236]"
+  fi
+}
+
+command=$1
+eval $command

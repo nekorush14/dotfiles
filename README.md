@@ -1,17 +1,23 @@
 # Danboruya's dotfiles
 
-Overview
-
 ## Description
-Dotfiles for Linux environment. Set up the new environment.
-In addition, we provide some script files in "doc" directory.
+
+Dotfiles for each OS. Set up the new environment.
 
 ## Install
-Using git command.
+
+Download the repository.
 
 ```bash
-cd;git clone git@github.com:danbourya/dotfiles
+cd ; git clone git@github.com:danbourya/dotfiles
 ```
+
+Setup the environment.
+
+```bash
+./dotfiles/etc/setup.sh
+```
+
 ## Author
 
 [Danboruya](https://github.com/danboruya)
