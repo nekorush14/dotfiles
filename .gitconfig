@@ -1,0 +1,9 @@
+[user]
+	name = Mitsuhiro Komuro
+	email = applemitkom@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[alias]
+    agraph = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+    st = status
