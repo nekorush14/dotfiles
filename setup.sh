@@ -10,12 +10,22 @@
 
 path=$(cd $(dirname $0) && pwd)
 
+linker(){
+  if [ -L $1 ]; then
+    echo "$1 has already deployed"
+    return 1
+  elif [ -e $1 ]; then
+    rm $1 -rf
+  fi
+  return 0
+}
+
 slink() {
   if [ ! -e $path/$1 ];then
     echo "$path/$1 not exists"
     return 1
   fi
-  if remove_file_or_check_link $2/$(basename $1);then
+  if linker $2/$(basename $1);then
     ln -s $path/$1 $2/$(basename $1)
     echo "$(basename $1) was deployed to $2/"
     return 0
