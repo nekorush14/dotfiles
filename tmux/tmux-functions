@@ -21,7 +21,7 @@ function get_battery(){
 }
 
 function get_ssid() {
-  airport_path="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+   airport_path="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 
   if air_info=($(eval "$airport_path" -I | grep -E "^ *(agrCtlRSSI|state|SSID):" | awk '{print $2}')) ; then
 
@@ -57,9 +57,9 @@ function get_volume() {
       for i in $(seq 0 $(($sound_volume - 2))); do
         str="${str} "
       done
-      sound="#[bold][$str]#[default]"
+      sound="#[bold][#[fg=colour226,bg=colour236]$str#[fg=colour255,bg=colour236]]#[default]"
     else
-      sound="#[bold][mute]#[default]"
+      sound="#[bold][#[fg=colour226,bg=colour236]mute#[fg=colour255,bg=colour236]]#[default]"
     fi
     echo "$sound#[fg=colour255,bg=colour236]"
   fi

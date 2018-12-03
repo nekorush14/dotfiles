@@ -27,7 +27,7 @@ slink() {
 ####
 # General settings
 ####
-slink tmux/.tmuc.conf $HOME
+slink tmux/.tmux.conf $HOME
 slink .gitconfig $HOME
 slink .vimrc $HOME
 
