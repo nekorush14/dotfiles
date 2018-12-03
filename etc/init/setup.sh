@@ -27,23 +27,23 @@ slink() {
 ####
 # General settings
 ####
-slink tmux/.tmux.conf $HOME
-slink .gitconfig $HOME
-slink .vimrc $HOME
+slink ../../../tmux/.tmux.conf $HOME
+slink ../../../.gitconfig $HOME
+slink ../../../.vimrc $HOME
 
 ####
 ## OS dependented bashrc
 ####
 if [[ "$(uname)" = 'Darwin' ]]
 then
-  slink bashrcs/mac/.bash_profile $HOME
-  slink bashrcs/mac/.bashrc $HOME
+  slink ../../../bashrcs/mac/.bash_profile $HOME
+  slink ../../../bashrcs/mac/.bashrc $HOME
 
 elif [[ "$(uname)" = 'Linux' ]]
 then
-  slink bashrcs/linux/.bashrc $HOME
+  slink ../../../bashrcs/linux/.bashrc $HOME
 
 elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]
 then
-  slink bashrcs/wsl/.bashrc $HOME
+  slink ../../../bashrcs/wsl/.bashrc $HOME
 fi
