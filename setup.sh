@@ -12,7 +12,7 @@ path=$(cd $(dirname $0) && pwd)
 
 linker(){
   if [ -L $1 ]; then
-    echo "$1 has already deployed"
+    echo "$1 has already exist"
     return 1
   elif [ -e $1 ]; then
     rm $1 -rf
@@ -27,7 +27,7 @@ slink() {
   fi
   if linker $2/$(basename $1);then
     ln -s $path/$1 $2/$(basename $1)
-    echo "$(basename $1) was deployed to $2/"
+    echo "$(basename $1) was linked to $2/"
     return 0
   else
     return 1
