@@ -46,3 +46,4 @@ then
 elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]
 then
   slink bashrcs/wsl/.bashrc $HOME
+fi
