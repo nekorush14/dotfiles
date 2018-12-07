@@ -37,3 +37,5 @@ function open() {
 
 # Clipboard alias
 alias pbcopy='xsel --clipboard --input'
+alias py=python
+alias ct=cat

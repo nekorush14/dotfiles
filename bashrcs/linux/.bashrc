@@ -40,3 +40,5 @@ function open() {
 # Alias for Linux system
 alias OPEN_G='open'
 alias pbcopy='xsel --clipboard --input'
+alias py=python
+alias ct=cat

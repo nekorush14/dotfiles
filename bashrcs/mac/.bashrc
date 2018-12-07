@@ -26,3 +26,6 @@ share_history(){
 }
 PROMPT_COMMAND='share_history'
 
+# Alias
+alias py=python
+alias ct=cat

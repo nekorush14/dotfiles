@@ -263,8 +263,8 @@ colorscheme onedark
 " set t_Co=256
 
 " Helper
-nmap <F6> :h my-markdown-cheat-sheet.txt<CR>
-nmap <F7> :h my-help-vim.txt<CR>
+" nmap <F6> :h my-markdown-cheat-sheet.txt<CR>
+" nmap <F7> :h my-help-vim.txt<CR>
 
 " Indent visualiser
 set list
@@ -274,8 +274,8 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 
 " Markdown preview
-let g:previm_open_cmd = 'open -a Chrome'
-nmap <F5> :PrevimOpen<CR>
+" let g:previm_open_cmd = 'open -a Chrome'
+" nmap <F5> :PrevimOpen<CR>
 
 " neocomplete
 let g:acp_enableAtStartup = 0
@@ -288,7 +288,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
             \ }
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <silent><CR><C-r>=<SID>my_cr_function()<CR>
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     return neocomplcache#smart_close_popup()."\<CR>"
 endfunction
