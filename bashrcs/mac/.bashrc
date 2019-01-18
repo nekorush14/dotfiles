@@ -12,11 +12,14 @@ fi
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LC_CTYPE="en_US.UTF-8"
+export LESS='-R'
+export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
 
 export PATH=/usr/local/Cellar/git/2.19.0_2/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/Users/mitsuhiro/anaconda3/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
+export PATH=$HOME/Library/Flutter/bin:$PATH
 
 shopt -u histappend
 share_history(){
@@ -29,3 +32,4 @@ PROMPT_COMMAND='share_history'
 # Alias
 alias py=python
 alias ct=cat
+# alias gitagraph=git --no-pager agraph && echo ""

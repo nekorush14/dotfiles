@@ -61,8 +61,8 @@ set incsearch
 " Hide buffers when they are abandoned
 set hidden
 
-" Display the brank
-set list
+" Line feed code
+set nolist
 
 " Display the row number
 set number
@@ -267,7 +267,6 @@ colorscheme onedark
 " nmap <F7> :h my-help-vim.txt<CR>
 
 " Indent visualiser
-set list
 " set listchars=tab:\|\
 hi SpecialKey guifg=#333333
 let g:indentLine_color_term = 239
