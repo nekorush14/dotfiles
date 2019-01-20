@@ -52,11 +52,12 @@ function open() {
 }
 
 # Alias for Linux system
-alias OPEN_G='open'
 alias pbcopy='xsel --clipboard --input'
-alias py=python
-alias ct=cat
+alias py='python'
+alias ct='cat'
 alias ls='ls --color=auto'
+alias jn='jupyter notebook --port 8888'
+alias jl='jupyter lab --port 8889'
 
 # added by Anaconda3 2018.12 installer
 # >>> conda init >>>
