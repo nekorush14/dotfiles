@@ -34,6 +34,28 @@ slink() {
   fi
 }
 
+deploy() {
+  if [ -L $HOME/Utils ];then
+      echo "$HOME/Utils directory has already exist"
+      return 1
+  else
+      mkdir $HOME/Utils
+      cd $HOME/Utils
+      if [[ "$(uname)" = 'Darwin' ]]; then
+          curl -O https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+          curl -O https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+      elif [[ "$(uname)" = 'Linux' ]]; then
+          wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+          wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+      elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]; then
+          wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+          wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+      fi
+      return 0
+  fi
+}
+
+
 #################
 
 ####
@@ -42,6 +64,7 @@ slink() {
 slink tmux/.tmux.conf $HOME
 slink .gitconfig $HOME
 slink .vimrc $HOME
+deploy
 
 ####
 ## OS dependented bashrc

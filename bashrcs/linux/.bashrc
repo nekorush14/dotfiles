@@ -46,6 +46,19 @@ export PATH=/usr/local/cuda-9.0/bin:$PATH
 # Set defaul text editor
 export EDITOR=vim
 
+
+# git-completion.bash / git-prompt.sh
+if [ -f $HOME/Utils/git-completion.bash ]; then
+    source $HOME/Utils/git-completion.bash
+fi
+if [ -f $HOME/Utils/git-prompt.sh ]; then
+    source $HOME/Utils/git-prompt.sh
+fi
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+
 # set user functions
 function open() {
   xdg-open "$@" &
