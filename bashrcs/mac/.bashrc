@@ -30,6 +30,8 @@ share_history(){
 PROMPT_COMMAND='share_history'
 
 # Alias
-alias py=python
-alias ct=cat
-# alias gitagraph=git --no-pager agraph && echo ""
+alias py='python'
+alias ct='cat'
+alias jn='jupyter notebook --port 8888'
+alias jl='jupyter lab --port 8889'
+
