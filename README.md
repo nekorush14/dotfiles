@@ -6,12 +6,12 @@ Dotfiles for each OS. Set up the new environment.
 
 ## Install
 
-Download the repository.
+Download the repository with following command.
 
 ```bash
 cd && git clone git@github.com:Danboruya/dotfiles.git
 
-# or Using https
+# Or using https
 cd && git clone https://github.com/Danboruya/dotfiles.git
 ```
 
