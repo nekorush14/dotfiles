@@ -197,8 +197,11 @@ call plug#begin('~/.vim/plugged')
     " Git plugin for vim
     Plug 'tpope/vim-fugitive'
 
-    " Color theme
+    " Color theme [Molokai]
     Plug 'tomasr/molokai'
+
+    " Color theme [Dracula]
+    Plug 'dracula/vim'
 
     " Remove wihte space
     Plug 'bronson/vim-trailing-whitespace'
@@ -260,6 +263,7 @@ autocmd FileType python setlocal completeopt-=preview
 let g:rehash256 = 1
 let g:onedark_termcolors=256
 colorscheme onedark
+color dracula
 " set t_Co=256
 
 " Helper
