@@ -41,7 +41,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/bin:$PATH
-export PATH=/usr/local/cuda-9.0/bin:$PATH
+export PATH=/usr/local/cuda/bin:$PATH
 
 # Set defaul text editor
 export EDITOR=vim
