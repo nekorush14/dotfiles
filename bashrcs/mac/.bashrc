@@ -1,3 +1,12 @@
+#######                                                                            #######
+#    _               _                 __                                    ___  ____   #
+#   | |__   __ _ ___| |__  _ __ ___   / _| ___  _ __   _ __ ___   __ _  ___ / _ \/ ___|  #
+#   | '_ \ / _` / __| '_ \| '__/ __| | |_ / _ \| '__| | '_ ` _ \ / _` |/ __| | | \___ \  #
+#  _| |_) | (_| \__ \ | | | | | (__  |  _| (_) | |    | | | | | | (_| | (__| |_| |___) | #
+# (_)_.__/ \__,_|___/_| |_|_|  \___| |_|  \___/|_|    |_| |_| |_|\__,_|\___|\___/|____/  #
+#                                                                                        #
+#####                                                                              #######
+
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
@@ -30,6 +39,8 @@ share_history(){
 PROMPT_COMMAND='share_history'
 
 # Alias
-alias py=python
-alias ct=cat
-# alias gitagraph=git --no-pager agraph && echo ""
+alias py='python'
+alias ct='cat'
+alias jn='jupyter notebook --port 8888'
+alias jl='jupyter lab --port 8889'
+

@@ -6,16 +6,19 @@ Dotfiles for each OS. Set up the new environment.
 
 ## Install
 
-Download the repository.
+Download the repository with following command.
 
 ```bash
-cd ; git clone git@github.com:danbourya/dotfiles
+cd && git clone git@github.com:Danboruya/dotfiles.git
+
+# Or using https
+cd && git clone https://github.com/Danboruya/dotfiles.git
 ```
 
-Setup the environment.
+Onece done, run the following command to setup the environment.
 
 ```bash
-./dotfiles/etc/setup.sh
+./dotfiles/setup.sh
 ```
 
 ## Author

@@ -34,14 +34,51 @@ slink() {
   fi
 }
 
+deploy_git() {
+  slink .gitconfig $HOME
+  if [ -L $HOME/Utils ];then
+    echo "$HOME/Utils directory has already exist"
+    if [[ "$(uname)" = 'Darwin' ]]; then
+        which brew > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        which git > /dev/null 2>&1 || brew install git
+    elif [[ "$(uname)" = 'Linux' ]]; then
+        cd $HOME/Utils
+        wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+        wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+    elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]; then
+        cd $HOME/Utils
+        wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+        wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+    fi
+    return 0
+  else
+    if [[ "$(uname)" = 'Darwin' ]]; then
+        which brew > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        which git > /dev/null 2>&1 || brew install git
+    elif [[ "$(uname)" = 'Linux' ]]; then
+        mkdir $HOME/Utils
+        cd $HOME/Utils
+        wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+        wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+    elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]; then
+        mkdir $HOME/Utils
+        cd $HOME/Utils
+        wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+        wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+    fi
+    return 0
+  fi
+}
+
+
 #################
 
 ####
 # General settings
 ####
 slink tmux/.tmux.conf $HOME
-slink .gitconfig $HOME
 slink .vimrc $HOME
+deploy_git
 
 ####
 ## OS dependented bashrc
