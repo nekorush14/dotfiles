@@ -70,6 +70,23 @@ deploy_git() {
   fi
 }
 
+mk_directories() {
+    if [ -L $HOME/go ];then
+        echo "$HOME/go directory has already exist."
+    else
+        mkdir $HOME/go
+    fi
+    if [ -L $HOME/Workspace ]; then
+        echo "$HOME/Workspace directory has already exist."
+    else
+        mkdir $HOME/Workspace
+    fi
+    if [ -L $HOME/tmp ]; then
+        echo "Almost done. \\o/"
+    else
+        mkdir $HOME/tmp
+    fi
+}
 
 #################
 
@@ -78,6 +95,7 @@ deploy_git() {
 ####
 slink tmux/.tmux.conf $HOME
 slink .vimrc $HOME
+mk_directories
 deploy_git
 
 ####
