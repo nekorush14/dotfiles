@@ -21,7 +21,7 @@ fi
 unset color_prompt force_color_prompt
 
 # Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
 
 # Class path for jdbc
