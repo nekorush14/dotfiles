@@ -106,11 +106,12 @@ then
   slink bashrcs/mac/.bash_profile $HOME
   slink bashrcs/mac/.bashrc $HOME
 
+elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]
+then
+  slink bashrcs/wsl/.bashrc $HOME
+
 elif [[ "$(uname)" = 'Linux' ]]
 then
   slink bashrcs/linux/.bashrc $HOME
 
-elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]
-then
-  slink bashrcs/wsl/.bashrc $HOME
 fi
