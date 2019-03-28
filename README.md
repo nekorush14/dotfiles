@@ -24,3 +24,7 @@ Onece done, run the following command to setup the environment.
 ## Author
 
 [Danboruya](https://github.com/danboruya)
+
+## License
+
+This software is released under the Apache License 2.0, see LICENSE.
