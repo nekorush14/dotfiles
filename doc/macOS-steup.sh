@@ -31,11 +31,12 @@ brew install git\
     && brew install tmux\
     && brew install nkf\
     && brew install nodebrew\
-    && brew install python3
+    && brew install python3\
+    && brew install go
 
 echo "Commandline utilities has been installed. Here is the summary."
 echo "Install:"
-echo "git, vim , wget, tmux, nkf, nodebrew, python3"
+echo "git, vim , wget, tmux, nkf, nodebrew, python3, go"
 
 echo "Note: If you using the node.js, please run following commands;"
 echo "\$: nodebrew install-binary latest"
