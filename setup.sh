@@ -105,6 +105,7 @@ if [[ "$(uname)" = 'Darwin' ]]
 then
   slink bashrcs/mac/.bash_profile $HOME
   slink bashrcs/mac/.bashrc $HOME
+  ./bin/MACSETUP
 
 elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]
 then
