@@ -184,31 +184,27 @@ for OPT in "$@"
 do
     case $OPT in
         '-l')
-            FLAG_L=1;;
+            if [[ "$(uname)" = 'Linux' ]]; then
+                set_virtual_env
+            else
+                if which conda > /dev/null 2>&1; then
+                    set_virtual_env
+                else
+                    echo "something went wrong. Please try again."
+                    echo "Install Anaconda or pass PATH in the conda command."
+                    exit 1
+                fi
+            fi
+            ;;
         '-h')
-            FLAG_H=1;;
+            usage
+            exit 1
+            ;;
         '-v')
-            FLAG_V=1;;
+            echo "Python Env Setuper: $VERSION"
+            exit 1
+            ;;
     esac
     shift
 done
-
-if ["$FLAG_H"]; then
-    usage
-elif ["$FLAG_V"]; then
-    echo "Python Env Setuper: $VERSION"
-    exit 0
-elif ["$FLAG_L"]; then
-    if [[ "$(uname)" = 'Linux' ]]; then
-        set_virtual_env
-    else
-        if which conda > /dev/null 2>&1; then
-            set_virtual_env
-        else
-            echo "Something wrong."
-            echo "Install Anaconda or pass PATH in the conda command."
-            exit 1
-        fi
-    fi
-fi
 
