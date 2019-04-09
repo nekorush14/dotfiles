@@ -99,7 +99,7 @@ mk_directories
 deploy_git
 
 ####
-## OS dependented bashrc
+## OS dependented settings
 ####
 if [[ "$(uname)" = 'Darwin' ]]
 then
@@ -116,3 +116,5 @@ then
   slink bashrcs/linux/.bashrc $HOME
 
 fi
+
+./bin/PYSETUP

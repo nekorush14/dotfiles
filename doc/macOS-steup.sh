@@ -49,7 +49,7 @@ echo "\$: nodebrew use <NODE_VERSION>"
 
 cd $HOME/Downloads
 wget https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/download/jdk-12%2B33/OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg
-open OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg
+sudo installer -pkg OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg -target /
 
 echo "OpenJDK has been installed."
 
