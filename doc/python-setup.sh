@@ -84,6 +84,9 @@ install_jupyter_general_package() {
 
     # Jupyter Lab TensorBoard
     jupyter labextension install jupyterlab_tensorboard
+
+    # Vim key bind
+    jupyter labextension install jupyterlab_vim
 }
 
 get_gopher_notes() {
