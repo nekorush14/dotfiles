@@ -95,6 +95,7 @@ mk_directories() {
 ####
 slink tmux/.tmux.conf $HOME
 slink .vimrc $HOME
+slink .latexmkrc $HOME
 mk_directories
 deploy_git
 
