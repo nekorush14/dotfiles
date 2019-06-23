@@ -18,7 +18,7 @@ HISTSIZE=10000
 
 ## PATH for JAVA_HOME
 
-# for oracle jdk1.8.0_xxx
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
-# for open-jdk 12
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home
+# for open-jdk 8 (AdoptOpenJDK)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+# for open-jdk 12(AdoptOpenJDK)
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home

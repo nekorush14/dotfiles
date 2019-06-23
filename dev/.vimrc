@@ -218,6 +218,9 @@ call plug#begin('~/.vim/plugged')
     " Vimshell
     Plug 'Shougo/vimshell.vim'
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+    " Tab completion for Vim
+    Plug 'ervandew/supertab'
 call plug#end()
 
 """"""""""""""""""
