@@ -125,6 +125,7 @@ do
             exit 1
             ;;
         '-m | --minimal-install')
+            install_pip_general_package
             jupyter_minimal_install
             exit 1
             ;;
