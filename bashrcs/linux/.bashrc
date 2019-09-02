@@ -48,12 +48,12 @@ export EDITOR=vim
 
 
 # git-completion.bash / git-prompt.sh
-if [ -f $HOME/Utils/git-completion.bash ]; then
-    source $HOME/Utils/git-completion.bash
-fi
-if [ -f $HOME/Utils/git-prompt.sh ]; then
-    source $HOME/Utils/git-prompt.sh
-fi
+# if [ -f $HOME/Utils/git-completion.bash ]; then
+#     source $HOME/Utils/git-completion.bash
+# fi
+# if [ -f $HOME/Utils/git-prompt.sh ]; then
+#     source $HOME/Utils/git-prompt.sh
+# fi
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -72,19 +72,3 @@ alias ls='ls --color=auto'
 alias jn='jupyter notebook --port 8888'
 alias jl='jupyter lab --port 8889'
 
-# added by Anaconda3 2018.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="$HOME/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
