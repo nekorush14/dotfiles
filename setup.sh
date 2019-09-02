@@ -118,4 +118,4 @@ then
 
 fi
 
-./bin/PYSETUP
+# ./bin/PYSETUP
