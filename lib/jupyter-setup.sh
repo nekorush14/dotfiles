@@ -16,10 +16,17 @@ VERSION="1.2.0-alpha1"
 
 install_pip_general_package() {
     pip install -U pip
-    pip install jupyter_contrib_nbextensions
+    pip install jupyter-contrib-nbextensions
+    pip install jupyter-nbextensions-configurator
+    pip install isort
+    pip install autopep8
 }
 
 install_jupyter_general_package() {
+
+    jupyter contrib nbextension install --user
+    jupyter nbextensions_configurator enable --user
+
     # Jupyter Lab templates
     pip install jupyterlab_templates
     jupyter labextension install jupyterlab_templates
@@ -68,6 +75,9 @@ install_jupyter_general_package() {
 }
 
 jupyter_minimal_install() {
+    jupyter contrib nbextension install --user
+    jupyter nbextensions_configurator enable --user
+
     # Jupyter Lab templates
     pip install jupyterlab_templates
     jupyter labextension install jupyterlab_templates
