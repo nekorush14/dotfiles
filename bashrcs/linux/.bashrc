@@ -37,11 +37,12 @@ export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
-# Set local bainary path
+# Set local library path
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/bin:$PATH
 export PATH=/usr/local/cuda/bin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
 
 # Set defaul text editor
 export EDITOR=vim
@@ -71,4 +72,19 @@ alias ct='cat'
 alias ls='ls --color=auto'
 alias jn='jupyter notebook --port 8888'
 alias jl='jupyter lab --port 8889'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/mitsuhiro/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/mitsuhiro/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/mitsuhiro/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/mitsuhiro/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
 
