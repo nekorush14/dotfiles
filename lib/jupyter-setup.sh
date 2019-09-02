@@ -130,7 +130,7 @@ do
             exit 1
             ;;
         '-v | --version')
-            echo "Python Env Setuper: $VERSION"
+            echo "Jupyter setuper: $VERSION"
             exit 1
             ;;
     esac
@@ -138,4 +138,5 @@ do
 done
 
 install_pip_general_package
-install_jupyter_general_package
+jupyter_minimal_install
+# install_jupyter_general_package
