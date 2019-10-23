@@ -31,10 +31,11 @@ export GOBIN=$GOPATH/bin
 
 export PATH=/usr/local/Cellar/git/2.19.0_2/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=/Users/mitsuhiro/anaconda3/bin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Library/Flutter/bin:$PATH
 export PATH=$GOBIN:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 shopt -u histappend
 share_history(){
