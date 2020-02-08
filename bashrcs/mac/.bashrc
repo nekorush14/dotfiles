@@ -22,6 +22,7 @@ fi
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export LESS='-R'
 export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
 

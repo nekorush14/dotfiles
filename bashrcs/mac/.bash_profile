@@ -22,3 +22,9 @@ HISTSIZE=10000
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
 # for open-jdk 12(AdoptOpenJDK)
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mitsuhiro/Library/google-cloud-sdk/path.bash.inc' ]; then . '/Users/mitsuhiro/Library/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mitsuhiro/Library/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mitsuhiro/Library/google-cloud-sdk/completion.bash.inc'; fi
