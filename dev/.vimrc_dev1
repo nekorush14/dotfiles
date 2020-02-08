@@ -9,6 +9,7 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
+" Version: 2.0.0.dev1
 " General configs: L17
 " Key configs: L105
 " Plugin maneger configs: L124
@@ -142,9 +143,14 @@ call plug#begin('~/.vim/plugged')
 
     " Colour schme
     Plug 'junegunn/seoul256.vim'
+    " Color theme [Dracula]
+    Plug 'dracula/vim'
 
     " Load when executeing the command
+    " File tree for Vim
     Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     " Load when opening the specific file type
     Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
@@ -157,24 +163,7 @@ call plug#begin('~/.vim/plugged')
 
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
-
-    " vim-airline theme
     Plug 'vim-airline/vim-airline-themes'
-
-    " File tree
-    Plug 'scrooloose/nerdtree'
-
-    " Onedoark Colour scheam
-    Plug 'joshdick/onedark.vim'
-
-    " Ruby autocompleat
-    " Plug 'osyo-manga/vim-monster'
-
-    " Ruby autocompleat2
-    " Plug 'tpope/vim-endwise'
-
-    " Normal autocompleat
-    " Plug 'Shougo/neocomplcache.vim'
 
     " Help Japanease
     Plug 'vim-jp/vimdoc-ja'
@@ -182,29 +171,12 @@ call plug#begin('~/.vim/plugged')
     " Indent visualiser
     Plug 'Yggdroot/IndentLine'
 
-    " Python Autocompleat
-    " Plug 'davidhalter/jedi-vim'
-
-    " Markdown previewer
-    Plug 'kannokanno/previm'
-
-    " NERDTREE change icons
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-
     " Auto close
     Plug 'Townk/vim-autoclose'
 
     " Git plugin for vim
     Plug 'tpope/vim-fugitive'
-
-    " Git changes on line number
     Plug 'airblade/vim-gitgutter'
-
-    " Color theme [Molokai]
-    " Plug 'tomasr/molokai'
-
-    " Color theme [Dracula]
-    Plug 'dracula/vim'
 
     " Remove wihte space
     Plug 'bronson/vim-trailing-whitespace'
@@ -216,37 +188,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
 
     " Auto indent for python pep8
-    Plug 'Vimjas/vim-python-pep8-indent'
+    " Plug 'Vimjas/vim-python-pep8-indent'
 
-    " Vimshell
-    Plug 'Shougo/vimshell.vim'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-
-    " Tab completion for Vim
-    Plug 'ervandew/supertab'
-
-    " Auto quote
-    Plug 'tpope/vim-surround'
-
-    " Demendented package for fzf.vim
+    " Searching plugins
     Plug 'junegunn/fzf'
-
-    " Incremental search
     Plug 'junegunn/fzf.vim'
 
-    " Comment out tool
-    Plug 'tpope/vim-commentary'
-
-    " For Vim-LSP
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'mattn/vim-lsp-icons'
-
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
+    " Language Server Protocol
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -327,45 +276,12 @@ set helplang=ja
 
 " Colour theme with plugins
 let g:rehash256 = 1
-let g:onedark_termcolors=256
-colorscheme onedark
 color dracula
-" set t_Co=256
-
-" Helper
-" nmap <F6> :h my-markdown-cheat-sheet.txt<CR>
-" nmap <F7> :h my-help-vim.txt<CR>
 
 " Indent visualiser
-" set listchars=tab:\|\
 hi SpecialKey guifg=#333333
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
-
-" Markdown preview
-" let g:previm_open_cmd = 'open -a Chrome'
-" nmap <F5> :PrevimOpen<CR>
-
-" neocomplete
-" let g:acp_enableAtStartup = 0
-" let g:neocomplcache_enable_at_startup = 1
-" let g:neocomplcache_enable_smart_case = 1
-" let g:neocomplcache_min_syntax_length = 3
-" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplcache_dictionary_filetype_lists = {
-"             \ 'default' : ''
-"             \ }
-" inoremap <expr><C-g> neocomplcache#undo_completion()
-" inoremap <expr><C-l> neocomplcache#complete_common_string()
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"     return neocomplcache#smart_close_popup()."\<CR>"
-" endfunction
-" inoremap <expr><TAB> pumvisible()?"\<C-n>":"\<TAB>"
-" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y> neocomplcache#close_popup()
-" inoremap <expr><C-r> neocomplcache#cancel_popup()
 
 " NERDTREE icons
 let g:NERDTreeIndicatorMapCustom = {
