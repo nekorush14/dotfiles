@@ -1,0 +1,23 @@
+{
+    "diagnostic.enable": false,
+    "python.linting.enabled": false,
+    "python.jediPath": "~/anaconda3/envs/ml/lib/python3.6/site-packages/",
+    "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+         },
+        "clang": {
+            "command": "clang",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"]
+         },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+         }
+    }
+}

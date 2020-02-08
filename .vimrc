@@ -9,6 +9,7 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
+" Version: 2.1.0.b1
 " General configs: L17
 " Key configs: L105
 " Plugin maneger configs: L124
@@ -142,9 +143,15 @@ call plug#begin('~/.vim/plugged')
 
     " Colour schme
     Plug 'junegunn/seoul256.vim'
+    " Color theme [Dracula]
+    Plug 'dracula/vim'
 
     " Load when executeing the command
+    " File tree for Vim
     Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
+    Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     " Load when opening the specific file type
     Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
@@ -152,29 +159,9 @@ call plug#begin('~/.vim/plugged')
     " Snipets
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    " Status bar
-    " Plug 'itchyny/lightline.vim'
-
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
-
-    " vim-airline theme
     Plug 'vim-airline/vim-airline-themes'
-
-    " File tree
-    Plug 'scrooloose/nerdtree'
-
-    " Onedoark Colour scheam
-    Plug 'joshdick/onedark.vim'
-
-    " Ruby autocompleat
-    Plug 'osyo-manga/vim-monster'
-
-    " Ruby autocompleat2
-    Plug 'tpope/vim-endwise'
-
-    " Normal autocompleat
-    Plug 'Shougo/neocomplcache.vim'
 
     " Help Japanease
     Plug 'vim-jp/vimdoc-ja'
@@ -182,26 +169,12 @@ call plug#begin('~/.vim/plugged')
     " Indent visualiser
     Plug 'Yggdroot/IndentLine'
 
-    " Python Autocompleat
-    Plug 'davidhalter/jedi-vim'
-
-    " Markdown previewer
-    Plug 'kannokanno/previm'
-
-    " NERDTREE change icons
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-
     " Auto close
     Plug 'Townk/vim-autoclose'
 
     " Git plugin for vim
     Plug 'tpope/vim-fugitive'
-
-    " Color theme [Molokai]
-    Plug 'tomasr/molokai'
-
-    " Color theme [Dracula]
-    Plug 'dracula/vim'
+    Plug 'airblade/vim-gitgutter'
 
     " Remove wihte space
     Plug 'bronson/vim-trailing-whitespace'
@@ -212,12 +185,13 @@ call plug#begin('~/.vim/plugged')
     " Running linter
     Plug 'w0rp/ale'
 
-    " Auto indent for python pep8
-    Plug 'Vimjas/vim-python-pep8-indent'
+    " Searching plugins
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
 
-    " Vimshell
-    Plug 'Shougo/vimshell.vim'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    " Language Server Protocol
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 """"""""""""""""""
@@ -232,6 +206,12 @@ let g:airline_theme='onedark'
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter ='unique_tail_improved'
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -287,50 +267,17 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 
-" Jedi-vim
-autocmd FileType python setlocal completeopt-=preview
+"vim help language
+set helplang=ja
 
 " Colour theme with plugins
 let g:rehash256 = 1
-let g:onedark_termcolors=256
-colorscheme onedark
 color dracula
-" set t_Co=256
-
-" Helper
-" nmap <F6> :h my-markdown-cheat-sheet.txt<CR>
-" nmap <F7> :h my-help-vim.txt<CR>
 
 " Indent visualiser
-" set listchars=tab:\|\
 hi SpecialKey guifg=#333333
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
-
-" Markdown preview
-" let g:previm_open_cmd = 'open -a Chrome'
-" nmap <F5> :PrevimOpen<CR>
-
-" neocomplete
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_dictionary_filetype_lists = {
-            \ 'default' : ''
-            \ }
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return neocomplcache#smart_close_popup()."\<CR>"
-endfunction
-inoremap <expr><TAB> pumvisible()?"\<C-n>":"\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-r> neocomplcache#cancel_popup()
 
 " NERDTREE icons
 let g:NERDTreeIndicatorMapCustom = {
@@ -345,3 +292,33 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-l> <plug>NERDTreeTabsToggle<CR>
+
+" coc.nvim keymap
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> <space>fmt <Plug>(coc-format)
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
