@@ -9,7 +9,7 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
-" Version: 2.1.0.b1
+" Version: 2.2.0.b1
 " General configs: L17
 " Key configs: L105
 " Plugin maneger configs: L124
@@ -152,12 +152,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'ryanoasis/vim-devicons'
 
     " Load when opening the specific file type
     Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
 
     " Snipets
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+    " Status bar
+    " Plug 'itchyny/lightline.vim'
 
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
@@ -184,6 +190,9 @@ call plug#begin('~/.vim/plugged')
 
     " Running linter
     Plug 'w0rp/ale'
+
+    " Auto indent for python pep8
+    " Plug 'Vimjas/vim-python-pep8-indent'
 
     " Searching plugins
     Plug 'junegunn/fzf'
@@ -267,6 +276,9 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 
+" Jedi-vim
+" autocmd FileType python setlocal completeopt-=preview
+
 "vim help language
 set helplang=ja
 
@@ -292,7 +304,22 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <silent><C-l> <plug>NERDTreeTabsToggle<CR>
+" nnoremap <silent><C-l> <plug>NERDTreeTabsToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" vim dev icons
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
 
 " coc.nvim keymap
 inoremap <silent><expr> <TAB>
@@ -313,6 +340,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <space>fmt <Plug>(coc-format)
+nmap <F2> <Plug>(coc-rename)
 
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -322,3 +350,33 @@ function! s:show_documentation()
     endif
 endfunction
 
+function FindCursorPopUp()
+  let radius = get(a:000, 0, 2)
+  let srow = screenrow()
+  let scol = screencol()
+  " it's necessary to test entire rect, as some popup might be quite small
+  for r in range(srow - radius, srow + radius)
+    for c in range(scol - radius, scol + radius)
+      let winid = popup_locate(r, c)
+      if winid != 0
+        return winid
+      endif
+    endfor
+  endfor
+  return 0
+endfunction
+
+function ScrollPopUp(down)
+  let winid = FindCursorPopUp()
+  if winid == 0
+    return 0
+  endif
+
+  let pp = popup_getpos(winid)
+  call popup_setoptions( winid,
+    \ {'firstline' : pp.firstline + ( a:down ? 1 : -1 ) } )
+  return 1
+endfunction
+
+nnoremap <expr> <c-d> ScrollPopUp(1) ? '<esc>' : '<c-d>'
+nnoremap <expr> <c-u> ScrollPopUp(0) ? '<esc>' : '<c-u>'
