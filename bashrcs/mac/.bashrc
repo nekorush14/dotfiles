@@ -26,17 +26,30 @@ export LC_ALL="en_US.UTF-8"
 export LESS='-R'
 export LESSOPEN='| /opt/local/bin/src-hilite-lesspipe.sh %s'
 
+# Environment variable for llvm
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
 # environment variable for Golang
 export GOPATH=$HOME/go
+export GO111MODULE=on
 export GOBIN=$GOPATH/bin
 
+# Environment variable for PATH
 export PATH=/usr/local/Cellar/git/2.19.0_2/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Library/Flutter/bin:$PATH
 export PATH=$GOBIN:$PATH
+export PATH=$HOME/.fzf/bin:$PATH
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=/usr/local/opt/llvm/bin:$PATH
+
+# fzf settings
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 30% --border'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 shopt -u histappend
 share_history(){
@@ -51,4 +64,13 @@ alias py='python'
 alias ct='cat'
 alias jn='jupyter notebook --port 8888'
 alias jl='jupyter lab --port 8889'
+alias tmux='tmux -u2'
 
+
+# Auto run tmux command when terminal is start at first time
+count=`ps aux | grep tmux | grep -v grep | wc -l`
+if test $count -eq 0; then
+    echo `tmux`
+elif test $count -eq 1; then
+    echo `tmux a`
+fi

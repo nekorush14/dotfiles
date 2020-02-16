@@ -68,6 +68,8 @@ deploy_git() {
     fi
     return 0
   fi
+  # Clone the tmux plugin
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 mk_directories() {
