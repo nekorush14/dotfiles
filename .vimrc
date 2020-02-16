@@ -9,11 +9,11 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
-" Version: 2.2.0.b1
-" General configs: L17
+" Version: 2.3.0.dev1
+" General configs: L21
 " Key configs: L105
-" Plugin maneger configs: L124
-" Plugin configs: L224
+" Plugin maneger configs: L164
+" Plugin configs: L232
 "
 """"""""""""""""""
 
@@ -72,6 +72,12 @@ highlight LineNr ctermfg=yellow
 " Highlight the corresponding brackets
 set showmatch
 
+" Cutoff the beap sound
+set belloff=all
+
+" Yank content copy to clipboard
+set clipboard+=unnamed
+
 " Indantation
 set autoindent
 set smartindent
@@ -120,6 +126,23 @@ nnoremap # :<C-u>set hlsearch<Return>#
 set backspace=indent,eol,start
 set backspace=2
 
+" Display split
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
+
+" Next buffer tab
+nnoremap <silent> 9 :bprev<CR>
+
+" Previous buffer tab
+nnoremap <silent> 0 :bnext<CR>
+
+" Delete current buffer tab
+nnoremap bd :bd<CR>
+
 """"""""""""""""""
 
 """"""""""
@@ -162,9 +185,6 @@ call plug#begin('~/.vim/plugged')
     " Snipets
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    " Status bar
-    " Plug 'itchyny/lightline.vim'
-
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -177,6 +197,9 @@ call plug#begin('~/.vim/plugged')
 
     " Auto close
     Plug 'Townk/vim-autoclose'
+
+    " Auto closing block such as function
+    Plug 'tpope/vim-endwise'
 
     " Git plugin for vim
     Plug 'tpope/vim-fugitive'
@@ -191,15 +214,15 @@ call plug#begin('~/.vim/plugged')
     " Running linter
     Plug 'w0rp/ale'
 
-    " Auto indent for python pep8
-    " Plug 'Vimjas/vim-python-pep8-indent'
-
     " Searching plugins
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
     " Language Server Protocol
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    " vim window resizer
+    Plug 'simeji/winresizer'
 
 call plug#end()
 
@@ -263,7 +286,12 @@ endif
 " Ale settings
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_error_str = '⨉'
+let g:ale_echo_msg_warning_str = '⚠'
+let g:ale_echo_msg_format = '[%linter%] %s (%severity%)'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
+let g:ale_open_list = 1
+let g:ale_javascript_prettier_use_local_config=1
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
@@ -273,11 +301,19 @@ let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
 let g:ale_linters = {
-\   'python': ['flake8'],
+    \ 'python': ['flake8'],
+    \ 'css': ['stylelint', 'prettier'],
+    \ 'dockerfile': ['hadolint'],
+    \ 'erb': ['erb'],
+    \ 'html': ['HTMLHint'],
+    \ 'haml': ['haml-lint'],
+    \ 'javascript': ['eslint'],
+    \ 'json': ['jq'],
+    \ 'ruby': ['rubocop', 'solargraph'],
+    \ 'typescript': ['eslint'],
+    \ 'vim': ['vint'],
+    \ 'yaml': ['yamllint'],
 \}
-
-" Jedi-vim
-" autocmd FileType python setlocal completeopt-=preview
 
 "vim help language
 set helplang=ja
@@ -303,13 +339,46 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-T> :NERDTreeToggle<CR>
 " nnoremap <silent><C-l> <plug>NERDTreeTabsToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
+" Auto pen settings For NERDTree
+autocmd vimenter * NERDTree | wincmd p
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" sync open file with NERDTree
+" Check if NERDTree is open or active
+" function! IsNERDTreeOpen()
+"       return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+" function! SyncTree()
+"     if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"         NERDTreeFind
+"         wincmd p
+"     endif
+" endfunction
+
+" Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()
+
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" git gutter configs
+set signcolumn=yes
+let g:gitgutter_async = 1
+let g:gitgutter_sign_modified = 'rw'
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
 
 " vim dev icons
 let g:webdevicons_conceal_nerdtree_brackets = 1
@@ -320,6 +389,10 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
+
+" coc.nvim settings
+highlight CocErrorSign ctermfg=15 ctermbg=196
+highlight CocWarningSign ctermfg=0 ctermbg=172
 
 " coc.nvim keymap
 inoremap <silent><expr> <TAB>
@@ -333,7 +406,6 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -341,6 +413,8 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <space>fmt <Plug>(coc-format)
 nmap <F2> <Plug>(coc-rename)
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
