@@ -9,11 +9,11 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
-" Version: 2.3.0.dev1
-" General configs: L21
+" Version: 2.3.0.b
+" General configs: L24
 " Key configs: L105
 " Plugin maneger configs: L164
-" Plugin configs: L232
+" Plugin configs: L236
 "
 """"""""""""""""""
 
@@ -218,6 +218,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
+    " Markdown Preview from vim
+    Plug 'tyru/open-browser.vim'
+    Plug 'kannokanno/previm'
+
     " Language Server Protocol
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -321,6 +325,10 @@ set helplang=ja
 " Colour theme with plugins
 let g:rehash256 = 1
 color dracula
+
+" Markdown Preview
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 
 " Indent visualiser
 hi SpecialKey guifg=#333333

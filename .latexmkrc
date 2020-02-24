@@ -17,10 +17,12 @@ $makeindex        = 'mendex %O -o %D %S';
 $max_repeat       = 5;
 $pdf_mode         = 3;
 $pvc_view_file_via_temporary = 0;
+$pdf_update_method = 4;
+$pdf_update_command = "open -a Preview %S';"
 
 if ($^O eq 'darwin') {
     $pvc_view_file_via_temporary=0;
-    $pdf_previewer='open -ga /Applications/Preview.app';
+    $pdf_previewer='open -ga Preview';
 } else {
     $pdf_previewer='xdg-open';
 }
