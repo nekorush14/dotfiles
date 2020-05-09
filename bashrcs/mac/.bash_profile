@@ -7,7 +7,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Initializing the rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # Setting PATH for Python 3.7
 # The original version is saved in .bash_profile.pysave
@@ -28,3 +28,19 @@ if [ -f '/Users/mitsuhiro/Library/google-cloud-sdk/path.bash.inc' ]; then . '/Us
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mitsuhiro/Library/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mitsuhiro/Library/google-cloud-sdk/completion.bash.inc'; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/mitsuhiro/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/mitsuhiro/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/mitsuhiro/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/mitsuhiro/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+

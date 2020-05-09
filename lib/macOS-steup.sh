@@ -47,10 +47,10 @@ echo "\$: nodebrew use <NODE_VERSION>"
 # 3. Install OpenJDK from AdoptOpenJDK
 ###
 
-cd $HOME/Downloads
-wget https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/download/jdk-12%2B33/OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg
-sudo installer -pkg OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg -target /
+# cd $HOME/Downloads
+# wget https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/download/jdk-12%2B33/OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg
+# sudo installer -pkg OpenJDK12U-jdk_x64_mac_hotspot_12_33.pkg -target /
 
-echo "OpenJDK has been installed."
+# echo "OpenJDK has been installed."
 
 echo "Setup for macOS has been compleated."

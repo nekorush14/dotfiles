@@ -33,7 +33,7 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # environment variable for Golang
 export GOPATH=$HOME/go
 export GO111MODULE=on
-export GOBIN=$GOPATH/bin
+export GOBIN=${GOPATH//://bin:}/bin
 
 # Environment variable for PATH
 export PATH=/usr/local/Cellar/git/2.19.0_2/bin:$PATH
@@ -41,7 +41,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Library/Flutter/bin:$PATH
-export PATH=$GOBIN:$PATH
+export PATH=${GOPATH//://bin:}/bin:$PATH
 export PATH=$HOME/.fzf/bin:$PATH
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
