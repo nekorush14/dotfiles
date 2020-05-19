@@ -43,6 +43,8 @@ export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Library/Flutter/bin:$PATH
 export PATH=${GOPATH//://bin:}/bin:$PATH
 export PATH=$HOME/.fzf/bin:$PATH
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 30% --border'
 export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 

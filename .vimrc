@@ -9,7 +9,7 @@
 " Vim configration file
 " Author: Mitsuhiro Komuro
 "
-" Version: 2.3.0.b
+" Version: 2.3.4.b
 " General configs: L24
 " Key configs: L105
 " Plugin maneger configs: L164
@@ -20,6 +20,9 @@
 """"""""""
 "" General configs
 """"""""""
+
+" Shell
+set shell=/usr/local/bin/bash
 
 " Text encoding
 set encoding=utf-8
@@ -215,7 +218,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
 
     " Searching plugins
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
     Plug 'junegunn/fzf.vim'
 
     " Markdown Preview from vim
@@ -387,6 +390,21 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
+
+" fzf settings
+nnoremap <C-g> :Rg<Space>
+nnoremap <C-h> :History<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-o': 'tab split'
+  \ }
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
 
 " vim dev icons
 let g:webdevicons_conceal_nerdtree_brackets = 1
