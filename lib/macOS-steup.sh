@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+source ../setup.sh
+
 ####
 # Environment setup for macOS
 ###
@@ -8,6 +10,15 @@
 # 1. Install Homebrew
 # 2. Install commandline utilities using Homebrew
 # 3. Install OpenJDK from AdoptOpenJDK
+
+# Copy init.vim for neovim
+if [ -L $HOME/.config/nvim ]; then
+    echo "$HOME/.config/nvim directory has already exist."
+else
+    mkdir $HOME/.config/nvim
+fi
+slink ./init.vim $HOME/.config/nvim/
+
 
 ###
 # 1. Install brew
@@ -27,6 +38,7 @@ fi
 ###
 brew install git\
     && brew install vim\
+    && brew install nvim\
     && brew install wget\
     && brew install tmux\
     && brew install nkf\
