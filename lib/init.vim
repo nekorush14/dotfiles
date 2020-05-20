@@ -1,15 +1,16 @@
 """"""""""""""""""""
-"        _
-" __   _(_)_ __ ___  _ __ ___
-" \ \ / / | '_ ` _ \| '__/ __|
-"  \ V /| | | | | | | | | (__
-" (_)_/ |_|_| |_| |_|_|  \___|
+"  _       _ _         _
+" (_)_ __ (_) |___   _(_)_ __ ___
+" | | '_ \| | __\ \ / / | '_ ` _ \
+" | | | | | | |_ \ V /| | | | | | |
+" |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 "
 "
-" Vim configration file
+" NeoVim configration file
 " Author: Mitsuhiro Komuro
 "
-" Version: 2.3.4.b
+" Version: 1.0.0.b
+" Since: May 20, 2020
 " General configs: L24
 " Key configs: L105
 " Plugin maneger configs: L164
@@ -231,6 +232,9 @@ call plug#begin('~/.vim/plugged')
     " vim window resizer
     Plug 'simeji/winresizer'
 
+    " Shell for vim
+    Plug 'kassio/neoterm'
+
 call plug#end()
 
 """"""""""""""""""
@@ -390,6 +394,27 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
+
+" neoterm configs
+function! NTermHolizontalSplit()
+	let l:tmp = g:neoterm_default_mod
+	let g:neoterm_default_mod = "aboveleft"
+	Tnew
+	let g:neoterm_default_mod = l:tmp
+endfunction
+
+function! NTermVerticalSplit()
+	let l:tmp = g:neoterm_default_mod
+	let g:neoterm_default_mod = "vertical"
+	Tnew
+	let g:neoterm_default_mod = l:tmp
+endfunction
+
+nnoremap <silent> <c-s><c-s> :Ttoggle<CR>
+tnoremap <silent> <c-s><c-s> <C-\><C-n>:Ttoggle<CR>
+tnoremap <silent> <C-w> <C-\><C-n><C-w>
+nnoremap <c-s><c-h> :call NTermHolizontalSplit()<CR>
+nnoremap <c-s><c-v> :call NTermVerticalSplit()<CR>
 
 " fzf settings
 nnoremap <C-g> :Rg<Space>
