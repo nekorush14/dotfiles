@@ -398,14 +398,14 @@ highlight GitGutterChangeDelete ctermfg=yellow
 " neoterm configs
 function! NTermHolizontalSplit()
 	let l:tmp = g:neoterm_default_mod
-	let g:neoterm_default_mod = "aboveleft"
+	let g:neoterm_default_mod = "rightbelow"
 	Tnew
 	let g:neoterm_default_mod = l:tmp
 endfunction
 
 function! NTermVerticalSplit()
 	let l:tmp = g:neoterm_default_mod
-	let g:neoterm_default_mod = "vertical"
+	let g:neoterm_default_mod = "vertical botright"
 	Tnew
 	let g:neoterm_default_mod = l:tmp
 endfunction
