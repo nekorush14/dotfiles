@@ -7,7 +7,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Initializing the rbenv
-# eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(rbenv init -)"
 
 # Setting PATH for Python 3.7
 # The original version is saved in .bash_profile.pysave

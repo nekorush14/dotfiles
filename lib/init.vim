@@ -192,6 +192,7 @@ call plug#begin('~/.vim/plugged')
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'tomasiser/vim-code-dark'
 
     " Help Japanease
     Plug 'vim-jp/vimdoc-ja'
@@ -245,7 +246,8 @@ call plug#end()
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+" let g:airline_theme='onedark'
+let g:airline_theme='codedark'
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -437,7 +439,7 @@ let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
-  call webdevicons#refresh()
+    call webdevicons#refresh()
 endif
 set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
 
@@ -447,9 +449,9 @@ highlight CocWarningSign ctermfg=0 ctermbg=172
 
 " coc.nvim keymap
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -476,31 +478,31 @@ function! s:show_documentation()
 endfunction
 
 function FindCursorPopUp()
-  let radius = get(a:000, 0, 2)
-  let srow = screenrow()
-  let scol = screencol()
-  " it's necessary to test entire rect, as some popup might be quite small
-  for r in range(srow - radius, srow + radius)
-    for c in range(scol - radius, scol + radius)
-      let winid = popup_locate(r, c)
-      if winid != 0
-        return winid
-      endif
+    let radius = get(a:000, 0, 2)
+    let srow = screenrow()
+    let scol = screencol()
+    " it's necessary to test entire rect, as some popup might be quite small
+    for r in range(srow - radius, srow + radius)
+        for c in range(scol - radius, scol + radius)
+          let winid = popup_locate(r, c)
+          if winid != 0
+            return winid
+          endif
+        endfor
     endfor
-  endfor
-  return 0
+    return 0
 endfunction
 
 function ScrollPopUp(down)
-  let winid = FindCursorPopUp()
-  if winid == 0
-    return 0
-  endif
+    let winid = FindCursorPopUp()
+    if winid == 0
+      return 0
+    endif
 
-  let pp = popup_getpos(winid)
-  call popup_setoptions( winid,
-    \ {'firstline' : pp.firstline + ( a:down ? 1 : -1 ) } )
-  return 1
+    let pp = popup_getpos(winid)
+    call popup_setoptions( winid,
+        \ {'firstline' : pp.firstline + ( a:down ? 1 : -1 ) } )
+    return 1
 endfunction
 
 nnoremap <expr> <c-d> ScrollPopUp(1) ? '<esc>' : '<c-d>'

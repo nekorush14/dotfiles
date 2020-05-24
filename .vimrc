@@ -191,6 +191,7 @@ call plug#begin('~/.vim/plugged')
     " Status bar for power-line like theme
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'tomasiser/vim-code-dark'
 
     " Help Japanease
     Plug 'vim-jp/vimdoc-ja'

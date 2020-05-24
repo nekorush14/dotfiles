@@ -12,6 +12,11 @@
             "filetypes": ["dockerfile"],
             "args": ["--stdio"]
         },
+        "kotlin": {
+            "command": "$HOME/Library/kotlin-language-server/build/install/server/bin/kotlin-language-server",
+            "filetypes": ["kotlin"],
+            "rootPatterns": [".kt",".kts"]
+        },
         "bash": {
             "command": "bash-language-server",
             "args": ["start"],
