@@ -69,7 +69,6 @@ alias jl='jupyter lab --port 8889'
 alias tmux='tmux -u2'
 alias vim='nvim'
 
-
 # Auto run tmux command when terminal is start at first time
 count=`ps aux | grep tmux | grep -v grep | wc -l`
 if test $count -eq 0; then
