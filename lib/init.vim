@@ -200,6 +200,9 @@ call plug#begin('~/.vim/plugged')
     " Indent visualiser
     Plug 'Yggdroot/IndentLine'
 
+    " For rails
+    Plug 'tpope/vim-rails'
+
     " Auto close
     Plug 'Townk/vim-autoclose'
 
