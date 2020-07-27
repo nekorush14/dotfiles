@@ -48,3 +48,4 @@ function open() {
 alias pbcopy='xsel --clipboard --input'
 alias py=python
 alias ct=cat
+alias vim=nvim

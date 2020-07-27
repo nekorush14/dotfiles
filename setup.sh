@@ -90,6 +90,11 @@ mk_directories() {
     fi
 }
 
+plug_install() {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 #################
 
 ####
@@ -100,6 +105,7 @@ slink .vimrc $HOME
 slink .latexmkrc $HOME
 mk_directories
 deploy_git
+plug_install
 
 ####
 ## OS dependented settings
