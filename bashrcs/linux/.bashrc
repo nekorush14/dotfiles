@@ -49,12 +49,12 @@ export EDITOR=vim
 
 
 # git-completion.bash / git-prompt.sh
-# if [ -f $HOME/Utils/git-completion.bash ]; then
-#     source $HOME/Utils/git-completion.bash
-# fi
-# if [ -f $HOME/Utils/git-prompt.sh ]; then
-#     source $HOME/Utils/git-prompt.sh
-# fi
+if [ -f $HOME/Utils/git-completion.bash ]; then
+    source $HOME/Utils/git-completion.bash
+fi
+if [ -f $HOME/Utils/git-prompt.sh ]; then
+    source $HOME/Utils/git-prompt.sh
+fi
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
