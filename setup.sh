@@ -56,18 +56,12 @@ deploy_git() {
         which brew > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         which git > /dev/null 2>&1 || brew install git
     elif [[ "$(uname)" = 'Linux' ]]; then
-        if [[!(type git > /dev/null 2>&1 )]]; then
-          sudo apt install git
-        fi
         git_version=$(git --version)
         mkdir $HOME/Utils
         cd $HOME/Utils
         wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
         wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
     elif [[ "$(uname -r)" =~ ^.*-Microsoft$ ]]; then
-        if [[!(type git > /dev/null 2>&1 )]]; then
-          sudo apt install git
-        fi
         mkdir $HOME/Utils
         cd $HOME/Utils
         wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
