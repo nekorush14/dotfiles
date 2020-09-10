@@ -21,7 +21,7 @@ fi
 unset color_prompt force_color_prompt
 
 # Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
 
 # Class path for jdbc
@@ -67,11 +67,7 @@ function open() {
 
 # Alias for Linux system
 alias pbcopy='xsel --clipboard --input'
-alias py='python'
-alias ct='cat'
 alias ls='ls --color=auto'
-alias jn='jupyter notebook --port 8888'
-alias jl='jupyter lab --port 8889'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
