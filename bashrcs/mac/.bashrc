@@ -62,8 +62,6 @@ share_history(){
 PROMPT_COMMAND='share_history'
 
 # Alias
-alias jn='jupyter notebook --port 8888'
-alias jl='jupyter lab --port 8889'
 alias tmux='tmux -u2'
 alias vim='nvim'
 
