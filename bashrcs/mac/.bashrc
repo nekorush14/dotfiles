@@ -31,7 +31,8 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # environment variable for Golang
-export GOPATH=$HOME/go
+# export GOPATH=$HOME/go
+export GOPATH=$HOME/Workspace/Golang
 export GO111MODULE=on
 export GOBIN=${GOPATH//://bin:}/bin
 
