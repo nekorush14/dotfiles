@@ -21,7 +21,7 @@ fi
 unset color_prompt force_color_prompt
 
 # Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/jdk8u275-b01
 export PATH=$PATH:$JAVA_HOME/bin
 
 # Class path for jdbc
@@ -41,8 +41,11 @@ export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/bin:$PATH
+export PATH=$HOME/lib/flutter:$PATH
 export PATH=/usr/local/cuda/bin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+
+export TMPDIR="/tmp"
 
 # Set defaul text editor
 export EDITOR=vim
@@ -68,4 +71,6 @@ function open() {
 # Alias for Linux system
 alias pbcopy='xsel --clipboard --input'
 alias ls='ls --color=auto'
+alias vim='nvim'
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

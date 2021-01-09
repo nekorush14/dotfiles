@@ -444,6 +444,8 @@ set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
 " coc.nvim settings
 highlight CocErrorSign ctermfg=15 ctermbg=196
 highlight CocWarningSign ctermfg=0 ctermbg=172
+let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_disable_startup_warning = 1
 
 " coc.nvim keymap
 inoremap <silent><expr> <TAB>
