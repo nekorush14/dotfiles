@@ -68,6 +68,9 @@ set hidden
 " Line feed code
 set nolist
 
+" Title
+let &titleold=getcwd()
+
 " Display the row number
 set number
 highlight LineNr ctermfg=yellow

@@ -42,6 +42,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/tmux/bin:$PATH
 export PATH=$HOME/Repositories/dotfiles/bin:$PATH
 export PATH=$HOME/lib/flutter:$PATH
+export PATH=$HOME/lib/flutter/bin:$PATH
 export PATH=/usr/local/cuda/bin:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 
@@ -50,6 +51,9 @@ export TMPDIR="/tmp"
 # Set defaul text editor
 export EDITOR=vim
 
+# UID and GID
+export U_ID=$(id -u)
+export G_ID=$(id -g)
 
 # git-completion.bash / git-prompt.sh
 if [ -f $HOME/Utils/git-completion.bash ]; then
@@ -71,6 +75,6 @@ function open() {
 # Alias for Linux system
 alias pbcopy='xsel --clipboard --input'
 alias ls='ls --color=auto'
-alias vim='nvim'
+# alias vim='nvim'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
