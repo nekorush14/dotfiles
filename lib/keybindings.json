@@ -1,0 +1,8 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "shift+alt+v",
+        "command": "markdown-preview-enhanced.openPreview",
+        "when": "editorLangId == 'markdown'"
+    }
+]
