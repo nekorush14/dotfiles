@@ -447,15 +447,28 @@ set guifont=RictyDiscordForPowerline\ Nerd\ Font:h14
 " coc.nvim settings
 highlight CocErrorSign ctermfg=15 ctermbg=196
 highlight CocWarningSign ctermfg=0 ctermbg=172
-let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_node_path = '/Users/l12s/.nodebrew/current/bin/node'
 let g:coc_disable_startup_warning = 1
 
 " coc.nvim keymap
+# inoremap <silent><expr> <TAB>
+#      \ pumvisible() ? "\<C-n>" :
+#      \ <SID>check_back_space() ? "\<TAB>" :
+#      \ coc#refresh()
+# inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" autocomplete
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+inoremap <silent><expr> <C-h> coc#pum#visible() ? coc#pum#cancel() : "\<C-h>"
 
 function! s:check_back_space() abort
     let col = col('.') - 1
