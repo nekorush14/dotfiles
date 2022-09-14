@@ -9,3 +9,5 @@
     st = status
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false
