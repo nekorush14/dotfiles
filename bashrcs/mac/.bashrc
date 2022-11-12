@@ -19,6 +19,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # fi
 # eval "$(oh-my-posh init bash --config /opt/homebrew/opt/oh-my-posh/themes/iterm2.omp.json)"
 
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
 
 # environment variables
 export CLICOLOR=1
@@ -44,6 +45,7 @@ export GOPATH=$(go env GOPATH)
 
 export SNDCPY_HOME="$HOME/Library/sndcpy-v1.1"
 export SNDCPY_APK="$HOME/Library/sndcpy-v1.1/sndcpy.apk"
+export VLC="/Applications/VLC.app/Contents/MacOS/VLC"
 
 export PYTHON_PATH=$(which python)
 
@@ -60,7 +62,7 @@ export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/X11/bin/:$PATH
-export PATH="$SNDCPY_HOME/:$PATH"
+export PATH=$SNDCPY_HOME/:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 export PATH=$PATH:$GOPATH:bin
@@ -99,6 +101,7 @@ alias vim='nvim'
 alias tmux='tmux -u2'
 # alias nvim='~/Library/nvim-macos/bin/nvim'
 alias sndcpy="sh sndcpy"
+alias scrcpy="scrcpy --turn-screen-off --always-on-top"
 
 # Auto run tmux command when terminal is start at first time
 # count=`ps aux | grep tmux | grep -v grep | wc -l`
