@@ -2,26 +2,21 @@
 	name = Mitsuhiro Komuro
 	email = mitsuhiro.komuro@gmail.com
 [core]
-  # editor = vim
-  editor = nvim
-	autocrlf = false
+	editor = nvim
+	autocrlf = input
   pager = delta
 [alias]
     agraph = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
     st = status
 [init]
 	defaultBranch = main
-[pull]
-	rebase = false
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-
+  process = git-lfs filter-process
 [interactive]
     diffFilter = delta --color-only
-[add.interactive]
-    useBuiltin = false # required for git 2.37.0
 
 [delta]
     navigate = true    # use n and N to move between diff sections
@@ -29,3 +24,6 @@
 
 [merge]
     conflictstyle = diff3
+
+[diff]
+    colorMoved = default
