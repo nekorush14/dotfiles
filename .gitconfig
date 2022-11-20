@@ -1,30 +1,38 @@
 [user]
 	name = Mitsuhiro Komuro
 	email = mitsuhiro.komuro@gmail.com
+
 [core]
 	editor = nvim
 	autocrlf = input
   pager = delta
+
 [alias]
-    agraph = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
-    st = status
+  agraph = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+  st = status
+
 [init]
 	defaultBranch = main
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  line-number = true
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
+
 [diff]
-    colorMoved = default
+  colorMoved = default
+
 [pull]
 	rebase = false
