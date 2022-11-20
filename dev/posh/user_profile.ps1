@@ -1,11 +1,9 @@
 # Remove Aliases
-Remove-Item alias:cp
-Remove-Item alias:mv
-Remove-Item alias:rm
 Remove-Item alias:ls
+Remove-Item alias:df
 Remove-Item alias:cat
 Remove-Item alias:pwd
-Remove-Item alias:sort -Force
+Remove-Item alias:ps
 
 # Alias
 Set-Alias vim nvim
@@ -14,11 +12,13 @@ Set-Alias which gcm
 
 # Alias from scoop package
 Set-Alias sudo gsudo
+Set-Alias lg lazygit
 
 # Replace common UNIX commands to modern tui commands.
 Set-Alias cat bat
 Set-Alias df duf
 Set-Alias du dust
+Set-Alias ps procs
 Set-Alias top ntop
 Set-Alias grep rg
 
@@ -30,21 +30,23 @@ function open() { Invoke-Item $args}
 function history() { cat (Get-PSReadlineOption).HistorySavePath}
 
 # Functions - using uutils for coreutils coomands on posh
-function cp() { uutils cp $args}
-function mv() { uutils mv $args}
-function rm() { uutils rm $args}
-function mkdir() { uutils mkdir $args}
-function printenv() { uutils printenv $args}
-function ln() { uutils ln $args}
-# function cat() { $input | uutils cat $args}
-function head() { $input | uutils head $args}
-function tail() { $input | uutils tail $args}
-function wc() { $input | uutils wc $args}
-function tr() { $input | uutils tr $args}
-function pwd() { $input | uutils pwd $args}
-function cut() { $input | uutils cut $args}
-function uniq() { $input | uutils uniq $args}
-function sort() { $input | uutils sort $args}
+@"
+  arch, base32, base64, basename, cat, cksum, comm, cp, cut, date, df, dircolors, dirname,
+  echo, env, expand, expr, factor, false, fmt, fold, hashsum, head, hostname, join, link, ln,
+  ls, md5sum, mkdir, mktemp, more, mv, nl, nproc, od, paste, printenv, printf, ptx, pwd,
+  readlink, realpath, relpath, rm, rmdir, seq, sha1sum, sha224sum, sha256sum, sha3-224sum,
+  sha3-256sum, sha3-384sum, sha3-512sum, sha384sum, sha3sum, sha512sum, shake128sum,
+  shake256sum, shred, shuf, sleep, sort, split, sum, sync, tac, tail, tee, test, touch, tr,
+  true, truncate, tsort, unexpand, uniq, wc, whoami, yes
+"@ -split ',' |
+ForEach-Object { $_.trim() } |
+Where-Object { ! @('tee', 'sort', 'sleep', 'cat', 'df', 'ls').Contains($_) } |
+ForEach-Object {
+    $cmd = $_
+    if (Test-Path Alias:$cmd) { Remove-Item -Path Alias:$cmd }
+    $fn = '$input | uutils ' + $cmd + ' $args'
+    Invoke-Expression "function global:$cmd { $fn }" 
+}
 
 # Import posh modules
 Import-Module posh-git
