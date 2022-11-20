@@ -24,6 +24,7 @@
 
 [merge]
     conflictstyle = diff3
-
 [diff]
     colorMoved = default
+[pull]
+	rebase = false
