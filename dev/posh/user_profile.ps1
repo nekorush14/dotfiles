@@ -1,6 +1,5 @@
 # Remove Aliases
 Remove-Item alias:ls
-Remove-Item alias:df
 Remove-Item alias:cat
 Remove-Item alias:pwd
 Remove-Item alias:ps
