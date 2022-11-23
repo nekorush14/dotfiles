@@ -6,8 +6,10 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     }
 }
 
-$env:PAGER="less"
+# $env:PAGER="less"
 $env:EDITOR="nvim"
+$env:Path+=";C:\Users\leica\AppData\Roaming\Python\Python39\Scripts"
+$env:Path+=";C:\Users\leica\bin"
 
 . $env:USERPROFILE\.config\powershell\user_profile.ps1
 

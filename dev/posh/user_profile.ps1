@@ -8,6 +8,7 @@ Remove-Item alias:ps
 Set-Alias vim nvim
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias which gcm
+Set-Alias pbcopy Set-Clipboard
 
 # Alias from scoop package
 Set-Alias sudo gsudo
@@ -18,7 +19,7 @@ Set-Alias cat bat
 Set-Alias df duf
 Set-Alias du dust
 Set-Alias ps procs
-Set-Alias top ntop
+Set-Alias top btm
 Set-Alias grep rg
 
 # Functions - Custom functions
@@ -27,6 +28,7 @@ function tree() { lsd --tree $args}
 function ls() { lsd $args}
 function open() { Invoke-Item $args}
 function history() { cat (Get-PSReadlineOption).HistorySavePath}
+function hgrep() { hgrep --theme Material-Theme --background $args}
 
 # Functions - using uutils for coreutils coomands on posh
 @"
@@ -51,10 +53,23 @@ ForEach-Object {
 Import-Module posh-git
 Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 Import-Module DockerCompletion
+Import-Module PSReadLine
 
 # PSReadine Configs
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin 
 Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteChar
+Set-PSReadlineOption -AddToHistoryHandler {
+    param ($command)
+    switch -regex ($command) {
+        "SKIPHISTORY" {return $false}
+        "^[a-z]$" {return $false}
+        "exit" {return $false}
+    }
+    return $true
+}
+Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
 
