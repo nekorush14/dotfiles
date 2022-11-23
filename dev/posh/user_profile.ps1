@@ -54,6 +54,7 @@ Import-Module posh-git
 Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
 Import-Module DockerCompletion
 Import-Module PSReadLine
+Import-Module PSFzf
 
 # PSReadine Configs
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin 
@@ -73,3 +74,9 @@ Set-PSReadlineOption -AddToHistoryHandler {
 }
 Set-PSReadLineOption -WordDelimiters ";:,.[]{}()/\|^&*-=+'`" !?@#$%&_<>「」（）『』『』［］、，。：；／"
 
+# PSFzf Config
+Remove-PSReadlineKeyHandler 'Ctrl+r'
+Remove-PSReadlineKeyHandler 'Ctrl+t'
+
+# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
