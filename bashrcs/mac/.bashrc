@@ -17,7 +17,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # else
 #     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:[\[\033[01;33m\]\w\[\033[00m\]]\n\[\033[31m\]$(__git_ps1)\[\033[00m\]\$:'
 # fi
-# eval "$(oh-my-posh init bash --config /opt/homebrew/opt/oh-my-posh/themes/iterm2.omp.json)"
+# eval "$(oh-my-posh init bash --config ~/Repositories/dotfiles/dev/posh-theme.omp.json)"
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
 
