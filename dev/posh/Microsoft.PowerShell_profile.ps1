@@ -15,6 +15,12 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 $env:EDITOR="nvim"
 $env:Path+=";C:\Users\leica\AppData\Roaming\Python\Python39\Scripts"
 $env:Path+=";C:\Users\leica\bin"
+$env:Path+=";C:\Users\leica\.cargo\bin"
+$env:Path+=";C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\bin\HostX64\x64\"
+
+# Rust
+$env:CARGO_HOME="C:\Users\leica\.cargo"
+$env:RUSTUP_HOME="C:\Users\leica\.rustup"
 
 # FZF configs
 $env:FZF_DEFAULT_COMMAND='fd -H -t f --color=always'
@@ -29,3 +35,5 @@ $env:FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 # Set Prompt
 oh-my-posh init pwsh --config 'C:\Users\leica\lib\posh-theme.omp.json' | Invoke-Expression
 
+
+Set-Alias lvim 'C:\Users\leica\.local\bin\lvim.ps1'

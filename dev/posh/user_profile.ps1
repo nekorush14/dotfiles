@@ -29,6 +29,15 @@ function ls() { lsd $args}
 function open() { Invoke-Item $args}
 function history() { cat (Get-PSReadlineOption).HistorySavePath}
 function hgrep() { hgrep --theme Material-Theme --background $args}
+function psFzf {
+    $origin = [System.Console]::OutputEncoding
+    $utf8 = [System.Text.Encoding]::GetEncoding("utf-8")
+    $OutputEncoding = $utf8
+    [System.Console]::OutputEncoding = $utf8
+    $out = ($input | fzf $env:FZF_CTRL_T_OPTS)
+    [System.Console]::OutputEncoding = $origin
+    return $out
+}
 
 # Functions - using uutils for coreutils coomands on posh
 @"
