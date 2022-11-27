@@ -163,7 +163,7 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "#2f3131",
-          "template":"\uf85a {{ round .PhysicalPercentUsed .Precision }}%",
+          "template":"\uf85a {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB | {{ round .PhysicalPercentUsed .Precision }}%",
           "properties": {
             "precision": 2
           },
@@ -202,6 +202,5 @@
       ],
       "newline": true
     }
-  ],
-  "osc99": true,
+  ]
 }
