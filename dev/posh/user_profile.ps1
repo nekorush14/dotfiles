@@ -67,7 +67,7 @@ Import-Module PSFzf
 
 # PSReadine Configs
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin 
-Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -PredictionViewStyle Inline
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete

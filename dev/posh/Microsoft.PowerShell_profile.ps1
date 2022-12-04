@@ -17,6 +17,8 @@ $env:Path+=";C:\Users\leica\AppData\Roaming\Python\Python39\Scripts"
 $env:Path+=";C:\Users\leica\bin"
 $env:Path+=";C:\Users\leica\.cargo\bin"
 $env:Path+=";C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\bin\HostX64\x64\"
+$env:Path+=";C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin\"
+$env:Path+=";C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\"
 
 # Rust
 $env:CARGO_HOME="C:\Users\leica\.cargo"
