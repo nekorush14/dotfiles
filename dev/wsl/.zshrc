@@ -84,6 +84,3 @@ alias fd='fdfind'
 function open() { /mnt/c/Windows/system32/cmd.exe /c start $(wslpath -w $1) }
 alias pbcopy="/mnt/c/Windows/System32/clip.exe"
 alias explorer="/mnt/c/Windows/explorer.exe"
-alias code="'/mnt/c/Users/leica/AppData/Local/Programs/Microsoft VS Code/bin'"
-
-
