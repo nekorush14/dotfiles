@@ -47,6 +47,7 @@ brew install jesseduffield/lazygit/lazygit && brew install lazygit
 brew install jesseduffield/lazydocker/lazydocker
 brew install lsd
 brew install bat
+brew install glab
 
 echo "[INFO] Install homebrew managed packages: Done"
 
