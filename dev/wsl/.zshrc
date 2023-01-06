@@ -36,20 +36,19 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:manuals' separate-sections true
 setopt magic_equal_subst
 
-
 # Set PATH
-typeset -U path PATH
+# typeset -U path PATH
 
-path=(
-  /usr/bin
-  /usr/sbin
-  /bin
-  /sbin
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  /home/l12s/.local/bin
-  /home/l12s/binn
-)
+# path=(
+#   /usr/bin
+#   /usr/sbin
+#   /bin
+#   /sbin
+#   /usr/local/bin(N-/)
+#   /usr/local/sbin(N-/)
+#   /home/l12s/.local/bin
+#   /home/l12s/binn
+# )
 
 # Set Plugins
 # if type brew &>/dev/null; then
