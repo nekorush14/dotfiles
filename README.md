@@ -1,4 +1,4 @@
-# Danboruya's dotfiles
+# l10es's dotfiles
 
 ## Description
 
@@ -9,10 +9,10 @@ Dotfiles for each OS. Set up the new environment.
 Download the repository with following command.
 
 ```bash
-cd && git clone git@github.com:Danboruya/dotfiles.git
+cd && git clone git@github.com:l10es/dotfiles.git
 
 # Or using https
-cd && git clone https://github.com/Danboruya/dotfiles.git
+cd && git clone https://github.com/l10es/dotfiles.git
 ```
 
 Onece done, run the following command to setup the environment.
@@ -23,7 +23,7 @@ Onece done, run the following command to setup the environment.
 
 ## Author
 
-[Danboruya](https://github.com/danboruya)
+[L10es](https://github.com/l10es)
 
 ## License
 
