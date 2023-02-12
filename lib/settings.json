@@ -152,6 +152,12 @@
         "<C-d>": true,
     },
 
+    // EXTENSIONS: Docker configs
+    "docker.dockerPath": "podman",
+
+    // EXTENSIONS: Dev Conatiner configs
+    "dev.containers.dockerPath": "podman",
+
     // ----
 
     // CORE: Debug configs
