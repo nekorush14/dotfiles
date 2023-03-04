@@ -42,6 +42,13 @@ setopt magic_equal_subst
 fpath=(.zsh/zsh-completions/src $fpath)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+typeset -U path PATH
+path=(
+  $HOME/.local/bin
+  $HOME/miniconda3/bin
+  $path
+)
+
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -62,7 +69,27 @@ alias lg='lazygit'
 alias ld='lazydocker'
 alias fd='fdfind'
 
+# Conda config
+# conda config --set auto_activate_base false
+
 # Windows Intergration
 function open() { /mnt/c/Windows/system32/cmd.exe /c start $(wslpath -w $1) }
 alias pbcopy="/mnt/c/Windows/System32/clip.exe"
 alias explorer="/mnt/c/Windows/explorer.exe"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/l10es/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/l10es/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/l10es/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/l10es/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

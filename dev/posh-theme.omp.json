@@ -94,7 +94,9 @@
           "foreground": "#E4F34A",
           "leading_diamond": " \ue0b6",
           "properties": {
-            "fetch_version": false
+            "fetch_virtual_env": true,
+	    "display_mode": "environment",
+	    "home_enabled": true
           },
           "style": "diamond",
           "template": "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
