@@ -39,25 +39,6 @@ zstyle ':completion:*:manuals' separate-sections true
 setopt magic_equal_subst
 
 # Set PATH
-# typeset -U path PATH
-
-# path=(
-#   /usr/bin
-#   /usr/sbin
-#   /bin
-#   /sbin
-#   /usr/local/bin(N-/)
-#   /usr/local/sbin(N-/)
-#   /home/l12s/.local/bin
-#   /home/l12s/binn
-# )
-
-# Set Plugins
-# if type brew &>/dev/null; then
-#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-#   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#   autoload -Uz compinit && compinit
-# fi
 fpath=(.zsh/zsh-completions/src $fpath)
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -65,7 +46,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set Prompt using oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json --manual)"
 
 # Set alias
 alias bvim='/bin/vim'

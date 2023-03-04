@@ -35,7 +35,7 @@ echo "[INFO] configure homebrew >"
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> $HOME/.profile
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-source $HOME/.bashrc
+source $HOME/.profile
 echo "[INFO] Configure homebrew: Done"
 
 # Install homebrew managed packages
@@ -48,6 +48,8 @@ brew install jesseduffield/lazydocker/lazydocker
 brew install lsd
 brew install bat
 brew install glab
+brew install jandedobbeleer/oh-my-posh/oh-my-posh
+brew install git-delta
 
 echo "[INFO] Install homebrew managed packages: Done"
 
