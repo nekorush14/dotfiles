@@ -1,4 +1,11 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 typeset -U path PATH
+
+# PATH
+
+export GOPATH=$HOME/Repositories/Go
+export PATH="$GOPATH/bin:$PATH"
 
 path=(
   /opt/homebrew/bin(N-/)
@@ -22,7 +29,8 @@ fi
 eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json)"
 
 # Set alias
-alias vim='nvim'
+alias vim='lvim'
+alias nvim='lvim'
 alias git='$(brew --prefix)/bin/git'
 alias ls='lsd'
 alias ll='lsd -l'
@@ -54,3 +62,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source "$HOME/.cargo/env"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

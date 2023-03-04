@@ -1,0 +1,319 @@
+{
+    // LANGAGE: Golang Settings
+    "go.useLanguageServer": true,
+    "go.languageServerExperimentalFeatures": {
+        // "format": true,
+        // "autoComplete": true,
+        // "rename": true,
+        // "goToDefinition": true,
+        // "hover": true,
+        // "signatureHelp": true,
+        // "goToTypeDefinition": true,
+        // "goToImplementation": true,
+        // "documentSymbols": true,
+        // "workspaceSymbols": true,
+        // "findReferences": true,
+        "diagnostics": true,
+    },
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+    },
+
+    // LANGAGE: C# configs
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+    },
+
+    // LANGAGE: Dart configs
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "dart.debugExternalLibraries": false,
+    "dart.debugSdkLibraries": false,
+
+    // LANGAGE: Ruby configs
+    "[ruby]": {
+        "editor.tabSize": 2,
+    },
+
+    // LANGAGE: Markdown configs 
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "markdown.preview.fontFamily": "'RobotoMono Nerd Font', -apple-system, 'Noto Sans JP', BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": false,
+    "markdown-preview-enhanced.previewTheme": "one-dark.css",
+    "markdown.marp.themes": [
+        "./theme/my-theme.css"
+    ],
+    "slidev.enabled": true,
+
+    // LANGAGE: Javascript configs
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    // LANGAGE: Less configs
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    
+    // LANGAGE: Json configs
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    // LANGAGE: Typescript configs
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    
+    // LANGAGE: Python configs
+    "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
+    "notebook.lineNumbers": "on",
+    "jupyter.askForKernelRestart": false,
+
+    // LANGAGE: Java configs
+    "java.semanticHighlighting.enabled": true,
+    "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/",
+    "java.requirements.JDK11Warning": false,
+    "java.refactor.renameFromFileExplorer": "autoApply",
+    
+    // LANGAGE: Lua configs
+    "Lua.telemetry.enable": false,
+
+    // -----
+
+    // EXTENSION: Intelicode confings
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // EXTENSION: GitHub configs
+    "githubIssues.queries": [
+        {
+            "label": "My Issues",
+            "query": "default"
+        },
+        {
+            "label": "Created Issues",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:updated-desc"
+        }
+    ],
+    "github.codespaces.showPerformanceExplorer": true,
+
+    // EXTENSION: Gitlens configs
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.scopes": [
+        "containers"
+    ],
+    "gitlens.hovers.enabled": false,
+    "gitlens.currentLine.enabled": false,
+
+    // EXTENSION: Codespaces configs
+    "codespaces.accountProvider": "Microsoft",
+
+    // EXTENSIONS: Code Runner configs
+    "code-runner.executorMap": {
+        "kotlin": "cd $dir && kotlinc-jvm $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar"
+    },
+    
+    // EXTENSIONS: K8s configs
+    "vs-kubernetes": {
+        "vs-kubernetes.kubectl-path.linux": "/home/mitsuhiro/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.minikube-path.linux": "/home/mitsuhiro/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vs-kubernetes.helm-path.linux": "/home/mitsuhiro/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path.linux": "/home/mitsuhiro/.vs-kubernetes/tools/draft/linux-amd64/draft"
+    },
+
+    // EXTENSIONS: Redhad configs
+    "redhat.telemetry.enabled": false,
+
+    // EXTENSIONS: Vim Extention configs
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.foldfix": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+    },
+
+    // EXTENSIONS: Docker configs
+    "docker.dockerPath": "podman",
+
+    // EXTENSIONS: Dev Conatiner configs
+    "dev.containers.dockerPath": "podman",
+
+    // ----
+
+    // CORE: Debug configs
+    "launch": {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            { // Java
+                "type": "java",
+                "name": "Debug {Launch} - Current File",
+                "request": "launch",
+                "mainClass": "${file}",
+                "console": "internalConsole",
+            },
+            { // Kotlin
+                "type": "kotlin",
+                "request": "launch",
+                "name": "Kotlin Launch",
+                "projectRoot": "${workspaceFolder}",
+                "mainClass": "${file}",
+                "console": "internalConsole",
+            },
+            { // Chrome
+                "type": "chrome",
+                "request": "launch",
+                "name": "Launch Chrome against localhost",
+                "url": "http://localhost:8080",
+                "webRoot": "${workspaceFolder}",
+                "console": "internalConsole",
+            },
+            { // Flutter for Web
+                "name": "Flutter for web",
+                "request": "launch",
+                "type": "dart",
+                "args": [
+                    "--web-enable-expression-evaluation --web-port=8080  --verbose"
+                ],
+                "console": "internalConsole",
+            },
+            { // Flutter
+                "name": "Flutter",
+                "request": "launch",
+                "type": "dart",
+                "console": "internalConsole",
+            },
+            { // Dart
+                "name": "Dart",
+                "program": "${file}",
+                "request": "launch",
+                "type": "dart"
+            },
+            { // Browser-preview (Attach)
+                "type": "browser-preview",
+                "request": "attach",
+                "name": "Browser Preview: Attach",
+                "console": "internalConsole",
+            },
+            { // Browser-preview (Launch)
+                "type": "browser-preview",
+                "request": "launch",
+                "name": "Angular Preview Launch",
+                "url": "http://localhost:4200",
+                "console": "internalConsole",
+            },
+            { // Python
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "internalConsole",
+                "redirectOutput": true,
+                "internalConsoleOptions": "openOnSessionStart",
+            },
+            { // Go (Launch Package)
+                "name": "Go (Launch Package)",
+                "type": "go",
+                "request": "launch",
+                "mode": "debug",
+                "program": "${workspaceFolder}"
+            },
+            { // Go (Launch file)
+                "name": "Go (Launch file)",
+                "type": "go",
+                "request": "launch",
+                "mode": "debug",
+                "program": "${file}"
+            },
+            {
+                "name": "Go (Launch with host and port)",
+                "type": "go",
+                "request": "launch",
+                "mode": "auto",
+                "host": "127.0.0.1",
+                "port": 8080,
+                "program": "${fileDirname}",
+                "env": {},
+                "args": []
+            },
+        ]
+    },
+
+    // CORE: Git configs
+    "git.autofetch": true,
+
+    // CORE: File configs
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+
+    // CORE: Debug configs
+    "debug.openDebug": "openOnSessionStart",
+
+    // CORE: Integrated terminal configs
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "/opt/homebrew/bin/bash",
+            "args": [ "-l" ],
+            "icon": "terminal-bash"
+        },
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "C:\\WINDOWS\\System32\\wsl.exe",
+            "icon": "terminal-bash",
+            "args": ["-e", "bash", "-li"]
+        },
+    },
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.fontFamily": "'RobotoMono Nerd Font', monospace",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.minimumContrastRatio": 1,
+
+    // CORE: Window configs
+    "window.titleBarStyle": "custom",
+
+    // CORE: Workbench configs
+    "workbench.iconTheme": "material-icon-theme",
+
+    // CORE: Editor configs
+    "editor.suggestSelection": "first",
+    "editor.accessibilitySupport": "off",
+    "editor.fontFamily": "'RobotoMono Nerd Font', 'Roboto Mono for Powerline'",
+    "editor.fontSize": 16,
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.maxColumn": 60,
+}
