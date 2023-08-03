@@ -1,0 +1,89 @@
+[character]
+format = '$symbol '
+success_symbol = '[❯](bold #00d000)'
+error_symbol = '[!❯](bold red)'
+vimcmd_symbol = '[❮](bold #00d000)'
+
+[directory]
+read_only = " "
+truncation_length = 100
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[git_status]
+windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+
+[git_branch]
+symbol = '🌱 '
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+format = '[$symbol$environment](dimmed green) '
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = true
+threshold = -1
+separator = "/"
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "

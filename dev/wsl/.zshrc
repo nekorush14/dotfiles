@@ -46,14 +46,21 @@ typeset -U path PATH
 path=(
   $HOME/.local/bin
   $HOME/miniconda3/bin
+  $HOME/.nodebrew/current/bin
+  /usr/lib/wsl/lib
   $path
 )
+
+# Set PATH for CUDA (for Linux or WSL)
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
 
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set Prompt using oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json --manual)"
+# eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json --manual)"
+eval "$(starship init zsh)"
 
 # Set alias
 alias bvim='/bin/vim'
