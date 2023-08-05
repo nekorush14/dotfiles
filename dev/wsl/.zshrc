@@ -62,6 +62,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # eval "$(oh-my-posh init zsh --config ~/.posh-theme.omp.json --manual)"
 eval "$(starship init zsh)"
 
+# Set Browser for WSL
+export BROWSER='"/mnt/c/Program Files/Google/Chrome Beta/Application/chrome.exe"'
+
 # Set alias
 alias bvim='/bin/vim'
 alias vim='nvim'

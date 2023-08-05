@@ -1,14 +1,17 @@
 [character]
-format = '$symbol '
-success_symbol = '[❯](bold #00d000)'
-error_symbol = '[!❯](bold red)'
-vimcmd_symbol = '[❮](bold #00d000)'
+error_symbol = "[!❯](bold red)"
+success_symbol = "[❯](bold green)"
+vicmd_symbol = "[❮❮❮](bold green)"
 
 [directory]
 read_only = " "
 truncation_length = 100
 truncate_to_repo = false
 truncation_symbol = "…/"
+
+[cmd_duration]
+format = " [$duration]($style)"
+min_time = 5000
 
 [git_status]
 windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
@@ -49,10 +52,7 @@ symbol = " "
 
 [memory_usage]
 disabled = false
-show_percentage = true
-show_swap = true
 threshold = -1
-separator = "/"
 symbol = " "
 
 [nim]
