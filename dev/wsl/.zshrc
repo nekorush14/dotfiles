@@ -65,6 +65,9 @@ eval "$(starship init zsh)"
 # Set Browser for WSL
 export BROWSER='"/mnt/c/Program Files/Google/Chrome Beta/Application/chrome.exe"'
 
+# Initialize zoxide
+eval "$(zoxide init zsh)"
+
 # Set alias
 alias bvim='/bin/vim'
 alias vim='nvim'

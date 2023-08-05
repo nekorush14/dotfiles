@@ -5,7 +5,8 @@ vicmd_symbol = "[❮❮❮](bold green)"
 
 [directory]
 read_only = " "
-truncation_length = 100
+truncation_length = 1
+fish_style_pwd_dir_length = 3
 truncate_to_repo = false
 truncation_symbol = "…/"
 

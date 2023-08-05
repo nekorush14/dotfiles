@@ -2,7 +2,7 @@
 
 echo ""
 echo "[INFO] WSL package setup v0.1.0"
-echo ""
+echo " "
 
 # General config
 sudo update-alternatives --set editor /usr/bin/vim.basic
@@ -19,7 +19,7 @@ echo "[INFO] Package update and upgrade: Done"
 
 # Install required packages
 echo "[INFO] Install requred packages >"
-sudo apt install -y git tmux vim build-essential zsh procps curl file neovim ripgrep bat fd-find duf neofetch w3m w3m-img
+sudo apt install -y git build-essential zsh curl file
 
 git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -47,9 +47,14 @@ brew install jesseduffield/lazygit/lazygit && brew install lazygit
 brew install jesseduffield/lazydocker/lazydocker
 brew install lsd
 brew install bat
-brew install glab
+brew install gh
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 brew install git-delta
+brew install zoxide
+brew install fzf
+brew install neovim
+brew install zellij
+brew install nodebrew
 
 echo "[INFO] Install homebrew managed packages: Done"
 
@@ -85,6 +90,7 @@ echo ""
 # Setup complete
 # After setup log messages
 echo "[WARN] You need to log out and log back the shell to re-evaluate the group information."
+echo "[INFO] You need to POST install following apps: node(by nodebrew), wsl-open(by npm)"
 echo ""
 echo "[INFO] Package setup: Done"
 
