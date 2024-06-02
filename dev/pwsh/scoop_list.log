@@ -1,23 +1,24 @@
 
 Name             Version    Source Updated             Info
 ----             -------    ------ -------             ----
-7zip             23.01      main   2023-07-13 19:49:53 Winget installed
-bat              0.24.0     main   2023-10-21 13:49:37 Winget installed
-bottom           0.9.6      main   2023-10-21 13:49:57 Winget installed
-delta            0.16.5     main   2023-06-17 20:33:50 Winget installed
-duf              0.8.1      main   2022-11-05 21:14:19 Winget installed
-dust             0.9.0      main   2024-01-23 20:37:07 Winget installed
-eza              0.17.2     main   2024-01-23 20:37:27 Winget installed
-fd               9.0.0      main   2024-01-23 20:37:43 winget installed
-ffmpeg           6.1.1      main   2024-01-23 20:43:14 Winget installed
-gsudo            2.4.2      main   2024-01-23 20:50:09 Winget installed
-lazydocker       0.23.1     main   2023-10-21 13:51:58 Winget installed
-lazygit          0.40.2     extras 2023-08-11 07:50:24 Winget installed
-procs            0.14.4     main   2023-11-28 21:56:40 Winget installed
-ripgrep          14.1.0     main   2024-01-23 20:52:06 Winget installed
-scrcpy           2.3.1      main   2024-01-23 20:52:31 Winget installed
-starship         1.17.1     main   2024-01-23 20:52:50 Winget installed
-zoxide           0.9.2      main   2023-08-11 07:51:29 PSResource installed
+7zip             23.01      main   2023-07-13 19:49:53 Winget installed     winget install --id 7zip.7zip -e
+bat              0.24.0     main   2023-10-21 13:49:37 Winget installed     winget install --id sharkdp.bat -e
+bottom           0.9.6      main   2023-10-21 13:49:57 Winget installed     winget install --id Clement.bottom -e
+delta            0.16.5     main   2023-06-17 20:33:50 Winget installed     winget install --id dandavison.delta -e
+duf              0.8.1      main   2022-11-05 21:14:19 Winget installed     winget install --id muesli.duf -e
+dust             0.9.0      main   2024-01-23 20:37:07 Winget installed     winget install --id bootandy.dust -e
+eza              0.17.2     main   2024-01-23 20:37:27 Winget installed     winget install --id eza-community.eza -e
+fd               9.0.0      main   2024-01-23 20:37:43 winget installed     winget install --id sharkdp.fd -e
+ffmpeg           6.1.1      main   2024-01-23 20:43:14 Winget installed     winget install --id Gyan.FFmpeg -e
+gsudo            2.4.2      main   2024-01-23 20:50:09 Winget installed     winget install --id gerardog.gsudo -e
+lazydocker       0.23.1     main   2023-10-21 13:51:58 Winget installed     winget install --id JesseDuffield.Lazydocker -e
+lazygit          0.40.2     extras 2023-08-11 07:50:24 Winget installed     winget install --id JesseDuffield.lazygit -e
+oh-my-posh       21.1.0     winget 2024-06-02 --:--:-- Winget installed     winget install --id JanDeDobbeleer.OhMyPosh -e
+procs            0.14.4     main   2023-11-28 21:56:40 Winget installed     winget install --id dalance.procs -e
+ripgrep          14.1.0     main   2024-01-23 20:52:06 Winget installed     winget install --id BurntSushi.ripgrep.MSVC -e
+scrcpy           2.3.1      main   2024-01-23 20:52:31 Winget installed     winget install --id Genymobile.scrcpy -e
+starship         1.17.1     main   2024-01-23 20:52:50 Winget installed     winget install --id Starship.Starship -e
+zoxide           0.9.2      main   2023-08-11 07:51:29 PSResource installed Install-PSResource z
 cacert           2023-12-12 main   2024-01-23 20:36:23 -
 curl             8.5.0_6    main   2024-01-23 20:36:45 -
 figlet           1.0-go     main   2022-10-30 11:21:46 -
