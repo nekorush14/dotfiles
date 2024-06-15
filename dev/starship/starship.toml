@@ -33,7 +33,7 @@ $package\
 $aws\
 \n$character"""
 
-add_newline = false
+# add_newline = false
 
 [directory]
 style = "fg:#090c0c bg:#769ff0"
