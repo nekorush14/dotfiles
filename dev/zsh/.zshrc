@@ -84,6 +84,7 @@ alias git='$(brew --prefix)/bin/git'
 alias ls='eza --icons --git'
 alias ll='eza --icons --git --time-style relative -l'
 alias la='eza --icons --git --time-style relative -la'
+alias lla=la
 alias ltl='eza --icons --git -TL=3 -I "node_module|.git|miniconda3|Library|Applications"'
 alias lta='eza --icons --git -TL=3 -la -I "node_module|.git|miniconda3|Library|Applications"'
 alias cat='bat'
