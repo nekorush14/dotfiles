@@ -1,6 +1,6 @@
 format = """
 [░▒▓](#a9b1d6)\
-[ $hostname$os$shell](fg:#394260 bg:#a9b1d6)\
+[ $hostname$os$sudo$shell](fg:#394260 bg:#a9b1d6)\
 [](fg:#a9b1d6 bg:#769ff0)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -70,6 +70,11 @@ disabled = false
 Windows = "󰖳 "
 Ubuntu = "󰕈 "
 Macos = "󰀵 "
+
+[sudo]
+symbol = '🦅 '
+format = '$symbol'
+disabled = false
 
 [shell]
 style = "fg:#394260 bg:#a9b1d6"
