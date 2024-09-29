@@ -159,7 +159,7 @@ style = "bg:#212736"
 format = '[[ $symbol $version](fg:#769ff0 bg:#212736)]($style)'
 
 [package]
-symbol = ""
+symbol = "󰏗"
 style = "bg:#212736"
 format = '[[](fg:#212736)[$symbol $version](fg:#ff9e64 bg:#212736)[ ](fg:#212736)]($style)'
 
