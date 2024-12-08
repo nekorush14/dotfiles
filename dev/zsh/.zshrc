@@ -77,6 +77,16 @@ eval "$(starship init zsh)"
 # # Initialize zoxide
 # eval "$(zoxide init zsh)"
 
+# JAVA_HOME
+# export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/temurin-17.0.7/Contents/Home
+
+# pyenv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+
 # Set alias
 # alias vim='lvim'
 # alias nvim='lvim'
@@ -100,9 +110,9 @@ alias vim='nvim'
 alias ocat='/bin/cat'
 alias fd='fdfind'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -140,4 +150,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source "$HOME/.cargo/env"
+
+# asdf setup
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
