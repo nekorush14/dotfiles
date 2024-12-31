@@ -1,0 +1,13 @@
+# Font configs
+font-family = "MoralerspaceNF Neon"
+font-size = 18 
+
+# Terminal UI configs
+theme = "Github Dark"
+window-width = 140
+window-height = 40
+
+# Shell configs
+command = /bin/zsh
+shell-integration = zsh
+
