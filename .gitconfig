@@ -1,6 +1,7 @@
 [user]
-	name = Mitsuhiro Komuro
+	name = nekorush14
 	email = mitsuhiro.komuro@gmail.com
+	signingkey = A236F62EF5D29B68
 
 [core]
 	editor = nvim
@@ -37,3 +38,5 @@
 
 [pull]
 	rebase = false
+[commit]
+	gpgsign = true
