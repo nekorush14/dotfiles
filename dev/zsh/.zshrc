@@ -70,7 +70,7 @@ fi
 export SNDCPY_HOME="$HOME/Library/sndcpy-v1.1"
 export SNDCPY_APK="$HOME/Library/sndcpy-v1.1/sndcpy.apk"
 export VLC="/Applications/VLC.app/Contents/MacOS/VLC"
-export GPG_TTY=$TTY
+export GPG_TTY=$(tty)
 
 # starship
 eval "$(starship init zsh)"
