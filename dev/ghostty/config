@@ -10,4 +10,5 @@ window-height = 40
 # Shell configs
 command = /bin/zsh
 shell-integration = zsh
+cursor-style = block
 

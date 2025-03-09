@@ -170,3 +170,4 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+echo -e '\e[2 q'
