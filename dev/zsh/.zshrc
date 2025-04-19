@@ -40,7 +40,6 @@ setopt magic_equal_subst
 
 # Set PATH
 fpath=(.zsh/zsh-completions/src $fpath)
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export GOPATH=$HOME/Repositories/Go
 export PATH="$GOPATH/bin:$PATH"
@@ -170,4 +169,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-echo -e '\e[2 q'
+# Brewfile
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi

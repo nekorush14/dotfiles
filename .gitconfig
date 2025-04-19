@@ -1,7 +1,7 @@
 [user]
 	name = nekorush14
 	email = mitsuhiro.komuro@gmail.com
-	signingkey = A236F62EF5D29B68
+	signingkey = 22C33C21C2EDAF0D6D0C78CC2B5955FCA5D286E1
 
 [core]
 	editor = nvim
