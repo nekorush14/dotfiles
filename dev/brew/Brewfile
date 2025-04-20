@@ -142,6 +142,15 @@ brew zsh-completions
 brew zstd
 
 tap homebrew/cask
+cask discord
+cask google-chrome
+cask jetbrains-toolbox
+cask logi-options+
+cask obsidian
+cask ollama
+cask slack
+cask spotify
+cask steam
 
 tap rcmdnk/file
 brew brew-file

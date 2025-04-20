@@ -173,3 +173,4 @@ function y() {
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
+eval "$(gh copilot alias -- zsh)"
