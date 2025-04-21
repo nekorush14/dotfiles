@@ -146,6 +146,7 @@ cask discord
 cask google-chrome
 cask jetbrains-toolbox
 cask logi-options+
+cask obs
 cask obsidian
 cask ollama
 cask slack
