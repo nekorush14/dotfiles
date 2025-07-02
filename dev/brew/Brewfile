@@ -9,6 +9,7 @@ brew bat
 brew brotli
 brew ca-certificates
 brew cairo
+brew certifi
 brew cjson
 brew dav1d
 brew docker-compose
@@ -41,6 +42,7 @@ brew imath
 brew isl
 brew jpeg-turbo
 brew jpeg-xl
+brew kubernetes-cli
 brew lame
 brew lazydocker
 brew lazygit
@@ -85,6 +87,7 @@ brew libxcb
 brew libxdmcp
 brew libxext
 brew libxrender
+brew libyaml
 brew little-cms2
 brew lpeg
 brew luajit
@@ -92,6 +95,8 @@ brew luv
 brew lz4
 brew lzo
 brew mbedtls
+brew minikube
+brew mpdecimal
 brew mpfr
 brew mpg123
 brew neovim
@@ -111,6 +116,7 @@ brew pinentry
 brew pinentry-mac
 brew pixman
 brew procs
+brew python@3.13
 brew rav1e
 brew readline
 brew rubberband
@@ -118,6 +124,7 @@ brew scrcpy
 brew sdl2
 brew snappy
 brew speex
+brew sqlite
 brew srt
 brew starship
 brew svt-av1
@@ -133,6 +140,7 @@ brew x265
 brew xorgproto
 brew xvid
 brew xz
+brew yt-dlp
 brew zellij
 brew zeromq
 brew zimg
@@ -142,22 +150,31 @@ brew zsh-completions
 brew zstd
 
 tap homebrew/cask
+cask 1password-cli
+cask audacity
 cask discord
 cask google-chrome
+cask iina
 cask jetbrains-toolbox
+cask keepassxc
+cask keyclu
 cask logi-options+
+cask nordvpn
 cask obs
 cask obsidian
 cask ollama
+cask openmtp
+cask raycast
 cask slack
 cask spotify
 cask steam
+cask ticktick
 
 tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 539883307 LINE (9.7.0)
+appstore 539883307 LINE (9.8.1)
 appstore 714196447 MenuBar Stats (3.9)
 appstore 1429033973 RunCat (11.4)
 appstore 1246969117 Steam Link (1.3.15)
