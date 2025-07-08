@@ -5,6 +5,7 @@ tap homebrew/core
 brew aom
 brew aribb24
 brew asdf
+brew autoconf
 brew bat
 brew brotli
 brew ca-certificates
@@ -94,6 +95,7 @@ brew luajit
 brew luv
 brew lz4
 brew lzo
+brew m4
 brew mbedtls
 brew minikube
 brew mpdecimal
@@ -115,11 +117,14 @@ brew pcre2
 brew pinentry
 brew pinentry-mac
 brew pixman
+brew pkgconf
 brew procs
 brew python@3.13
 brew rav1e
+brew rbenv
 brew readline
 brew rubberband
+brew ruby-build
 brew scrcpy
 brew sdl2
 brew snappy
@@ -174,8 +179,9 @@ tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 539883307 LINE (9.8.1)
+appstore 302584613 Amazon Kindle (7.35)
+appstore 539883307 LINE (9.9.0)
 appstore 714196447 MenuBar Stats (3.9)
-appstore 1429033973 RunCat (11.4)
+appstore 1429033973 RunCat (12.0)
 appstore 1246969117 Steam Link (1.3.15)
 appstore 1295203466 Windows App (11.1.4)

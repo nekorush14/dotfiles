@@ -135,6 +135,8 @@ export FZF_CTRL_R_OPTS="
     --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 "
 
+source <(fzf --zsh)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/l12s/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -174,3 +176,6 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 eval "$(gh copilot alias -- zsh)"
+
+# Ruby config
+eval "$(rbenv init -)"
