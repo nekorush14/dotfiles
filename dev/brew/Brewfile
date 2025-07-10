@@ -175,6 +175,9 @@ cask spotify
 cask steam
 cask ticktick
 
+tap koekeishiya/formulae
+brew yabai
+
 tap rcmdnk/file
 brew brew-file
 
