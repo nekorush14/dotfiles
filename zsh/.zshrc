@@ -55,7 +55,9 @@ path=(
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
   $HOME/.local/bin
+  $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
+  $(brew --prefix)/bin
   $path
 )
 
@@ -158,3 +160,4 @@ fi
 
 # Ruby config
 eval "$(rbenv init -)"
+

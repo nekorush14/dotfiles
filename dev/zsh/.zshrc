@@ -135,7 +135,7 @@ export FZF_CTRL_R_OPTS="
     --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 "
 
-source <(fzf --zsh)
+eval <(fzf --zsh)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -179,3 +179,4 @@ eval "$(gh copilot alias -- zsh)"
 
 # Ruby config
 eval "$(rbenv init -)"
+
