@@ -51,4 +51,16 @@ yabai -m config mouse_drop_action swap
 # Debug enabled
 yabai -m config debug_output on
 
+# Rules
+yabai -m rule --add app="^Raycast Settings$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
+yabai -m rule --add app="^Postlab$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^システム設定$" manage=off
+yabai -m rule --add app="^Electron$" manage=off
+
 echo "yabai configuration loaded.."
