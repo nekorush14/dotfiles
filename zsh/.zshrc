@@ -57,7 +57,8 @@ path=(
   $HOME/.local/bin
   $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
-  $(brew --prefix)/bin
+  /opt/homebrew/bin/brew
+  # $(brew --prefix)/bin
   $path
 )
 
