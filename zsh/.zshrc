@@ -134,10 +134,10 @@ export FZF_CTRL_R_OPTS="
 # Initialize fzf
 source <(fzf --zsh)
 
-# asdf setup
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# # asdf setup
+# export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# # append completions to fpath
+# fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
@@ -160,4 +160,16 @@ fi
 
 # Ruby config
 eval "$(rbenv init -)"
+
+# Node.js config
+eval "$(nodenv init -)"
+
+# tmux conf
+function ide() {
+  tmux split-window -v -p 25
+  tmux split-window -h -p 50
+}
+
+# Local only source file
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local || true
 
