@@ -1,0 +1,3 @@
+[[keymaps]]
+command = "ToggleFakeTrackRepeatMode"
+key_sequence = "g z"

@@ -12,4 +12,3 @@ command = /bin/zsh
 shell-integration = zsh
 cursor-style = block
 
-keybind = shift+enter=text:\n
