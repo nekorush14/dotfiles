@@ -1,0 +1,9 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --line-numbers --side-by-side
+  log:
+    pager: delta --dark --paging=never
+  merging:
+    pager: delta --dark --paging=never
+
