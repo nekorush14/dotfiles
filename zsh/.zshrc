@@ -8,8 +8,9 @@ setopt hist_ignore_space
 
 # General conf
 autoload -Uz colors ; colors
-export EDITOR=vim
+export EDITOR=nvim
 bindkey -e
+bindkey '^[[Z' reverse-menu-complete
 setopt no_flow_control
 setopt extended_glob
 setopt auto_pushd
@@ -111,6 +112,7 @@ alias vim='nvim'
 alias ocat='/bin/cat'
 alias fd='fdfind'
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
+alias spotify='spotify_player'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
