@@ -52,6 +52,7 @@ yabai -m config mouse_drop_action swap
 yabai -m config debug_output on
 
 # Rules
+yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Raycast Settings$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
