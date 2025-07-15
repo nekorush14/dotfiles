@@ -42,3 +42,7 @@
 	gpgsign = true
 [gpg]
 	program = /opt/homebrew/bin/gpg
+
+[ghq]
+  root = $HOME/Developer/ghq
+

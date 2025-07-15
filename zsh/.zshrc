@@ -113,6 +113,7 @@ alias ocat='/bin/cat'
 alias fd='fdfind'
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
 alias spotify='spotify_player'
+alias csr='cursor'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -134,8 +135,23 @@ export FZF_CTRL_R_OPTS="
     --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 "
 
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+
 # Initialize fzf
 source <(fzf --zsh)
+
+# lazygit
+export XDG_CONFIG_HOME=${HOME}/.config
 
 # # asdf setup
 # export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
