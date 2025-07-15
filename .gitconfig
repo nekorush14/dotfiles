@@ -44,5 +44,5 @@
 	program = /opt/homebrew/bin/gpg
 
 [ghq]
-  root = $HOME/Developer/ghq
+  root = /Users/nekorush14/Developer/ghq
 
