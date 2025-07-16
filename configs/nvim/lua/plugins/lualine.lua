@@ -8,6 +8,9 @@ return {
 			},
 			sections = {
 				lualine_a = { { "mode", separator = { left = "" }, right_padding = 1, left_padding = 1 } },
+				lualine_c = {
+					{ "diagnostics", always_visible = true },
+				},
 				lualine_y = {
 					{ "encoding" },
 					{ "filetype" },
