@@ -79,7 +79,7 @@ export GPG_TTY=$(tty)
 eval "$(starship init zsh)"
 
 # # Initialize zoxide
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # JAVA_HOME
 # export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/temurin-17.0.7/Contents/Home
@@ -112,8 +112,11 @@ alias vim='nvim'
 alias ocat='/bin/cat'
 alias fd='fdfind'
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
-alias spotify='spotify_player'
+alias spt='spotify_player'
 alias csr='cursor'
+alias ghqg='ghq get -p'
+alias ghqgs='ghq get -p --shallow'
+alias ghqu='ghq get -p -u'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
