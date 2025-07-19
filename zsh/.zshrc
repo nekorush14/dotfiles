@@ -178,7 +178,9 @@ if command -v gh &>/dev/null; then
 fi
 
 # Ruby config
-eval "$(rbenv init -)"
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
 
 # Node.js config
 eval "$(nodenv init -)"

@@ -14,6 +14,14 @@ return {
 				lualine_y = {
 					{ "encoding" },
 					{ "filetype" },
+					{
+						-- function()
+						-- 	local lsp_status = require("lsp-status")
+						-- 	return lsp_status.status()
+						-- end,
+						"lsp_status",
+						ignore_lsp = { "copilot" },
+					},
 					-- { "progress", separator = " ", padding = { left = 1, right = 0 } },
 					{ "location", padding = { left = 0, right = 1 } },
 				},
