@@ -117,6 +117,7 @@ alias csr='cursor'
 alias ghqg='ghq get -p'
 alias ghqgs='ghq get -p --shallow'
 alias ghqu='ghq get -p -u'
+alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
