@@ -102,6 +102,7 @@ alias lta='eza --icons --git -TL=3 -la -I "node_module|.git|miniconda3|Library|A
 alias cat='bat'
 alias du='dust'
 alias df='duf'
+alias grep='rg'
 alias top='btm'
 alias lg='lazygit'
 alias ld='lazydocker'
