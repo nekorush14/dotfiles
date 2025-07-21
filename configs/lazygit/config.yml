@@ -6,4 +6,5 @@ git:
     pager: delta --dark --paging=never
   merging:
     pager: delta --dark --paging=never
-
+gui:
+  quitOnTopLevelReturn: false
