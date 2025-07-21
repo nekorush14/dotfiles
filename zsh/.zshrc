@@ -128,7 +128,11 @@ alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!**/.git/*"'
 export FZF_DEFAULT_OPTS="
     --height 40% --reverse --border=sharp --margin=0,1
-    --prompt='>> ' --color=light
+    --prompt='>> '
+    --color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7
+	  --color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff
+	  --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff 
+	  --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a
 "
 
 # for finding files in current directories

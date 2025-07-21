@@ -164,9 +164,9 @@ alt + shift - i : yabai -m window --insert south
 
 # Applications
 # alt - return : alacritty --working-directory $HOME/projects/github.com/JunichiSugiura
-alt - return : open /Applications/Alacritty.app
-alt - 0 : open -n /Applications/Brave\ Browser.app
-alt + shift - n : open /Applications/Notion.app
+# alt - return : open /Applications/Alacritty.app
+# alt - 0 : open -n /Applications/Brave\ Browser.app
+# alt + shift - n : open /Applications/Notion.app
 
 # close
 alt - c : yabai -m window --close

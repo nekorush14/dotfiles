@@ -1,15 +1,25 @@
 # Font configs
 font-family = "MoralerspaceNF Neon"
 font-size = 14 
+font-thicken
 
 # Terminal UI configs
 theme = "Github Dark"
+background = #1a1b2c
 window-width = 140
 window-height = 40
+mouse-hide-while-typing
+macos-non-native-fullscreen = true
+macos-titlebar-style = transparent
+title = " "
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
 
 # Shell configs
 command = /bin/zsh
 shell-integration = zsh
 cursor-style = block
+cursor-style-blink = false
 
 keybind = shift+enter=text:\n

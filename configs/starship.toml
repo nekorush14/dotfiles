@@ -51,11 +51,13 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+# format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+format = '[[ $symbol $branch ](fg:#30b964 bg:#394260)]($style)'
 
 [git_status]
 style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+# format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+format = '[[($all_status$ahead_behind )](fg:#30b964 bg:#394260)]($style)'
 
 [hostname]
 style = "fg:#394260 bg:#a9b1d6"
@@ -172,7 +174,13 @@ format = '[[ $symbol $version](fg:#769ff0 bg:#212736)]($style)'
 symbol = ""
 style = "bg:#212736"
 format = '[[ ${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\))](fg:#769ff0 bg:#212736)]($style)'
-python_binary = ["./venv/bin/python", 'python', 'python3', 'python2', "$HOME/miniconda3/bin",]
+python_binary = [
+  "./venv/bin/python",
+  'python',
+  'python3',
+  'python2',
+  "$HOME/miniconda3/bin",
+]
 
 [ruby]
 symbol = ""
@@ -216,6 +224,6 @@ format = '[[ $symbol $version](fg:#769ff0 bg:#212736)]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"                                      # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'

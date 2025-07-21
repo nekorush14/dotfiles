@@ -21,3 +21,4 @@ shell-integration = zsh
 cursor-style = block
 cursor-style-blink = false
 
+keybind = shift+enter=text:\n
