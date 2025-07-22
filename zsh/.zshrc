@@ -79,7 +79,7 @@ export GPG_TTY=$(tty)
 eval "$(starship init zsh)"
 
 # # Initialize zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # JAVA_HOME
 # export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/temurin-17.0.7/Contents/Home
@@ -142,10 +142,29 @@ export FZF_CTRL_T_OPTS="
     --preview-window=right:60%
 "
 
+# Ref: https://www.josean.com/posts/7-amazing-cli-tools
+export FZF_ALT_R_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
 # Ref: https://wonderwall.hatenablog.com/entry/2017/10/06/063000
 export FZF_CTRL_R_OPTS="
     --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'
 "
+
+# Ref: https://www.josean.com/posts/7-amazing-cli-tools
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
 
 # ghq
 function ghq-fzf() {
