@@ -1,7 +1,7 @@
 [user]
 	name = nekorush14
-	email = mitsuhiro.komuro@gmail.com
-	signingkey = 22C33C21C2EDAF0D6D0C78CC2B5955FCA5D286E1
+  email = 17153457+nekorush14@users.noreply.github.com
+  signingkey = 22C33C21C2EDAF0D6D0C78CC2B5955FCA5D286E1
 
 [core]
 	editor = nvim
