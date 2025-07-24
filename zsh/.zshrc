@@ -122,6 +122,7 @@ alias ghqg='ghq get -p'
 alias ghqgs='ghq get -p --shallow'
 alias ghqu='ghq get -p -u'
 alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
+alias tdw="tmux-default-window.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
