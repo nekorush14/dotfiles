@@ -144,7 +144,7 @@ export FZF_CTRL_T_OPTS="
 "
 
 # Ref: https://www.josean.com/posts/7-amazing-cli-tools
-export FZF_ALT_R_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_ALT_R_OPTS="--preview 'eza --tree --icons --color=always {} | head -200'"
 
 # Ref: https://wonderwall.hatenablog.com/entry/2017/10/06/063000
 export FZF_CTRL_R_OPTS="
@@ -160,7 +160,7 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    cd)           fzf --preview 'eza --tree --icons --color=always {} | head -200' "$@" ;;
     export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
@@ -226,3 +226,7 @@ function ide() {
 # Local only source file
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local || true
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
