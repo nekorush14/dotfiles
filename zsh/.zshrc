@@ -95,7 +95,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Set alias
-alias git='$(brew --prefix)/bin/git'
+alias g='$(brew --prefix)/bin/git'
 alias ls='eza --icons --git'
 alias ll='eza --icons --git --time-style relative -l'
 alias la='eza --icons --git --time-style relative -la'
@@ -112,7 +112,7 @@ alias ld='lazydocker'
 alias scrcpy="scrcpy --audio-codec=aac"
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias bvim='/bin/vim'
-alias vim='nvim'
+alias v='nvim'
 alias ocat='/bin/cat'
 alias fd='fdfind'
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"

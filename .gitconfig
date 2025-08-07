@@ -9,9 +9,27 @@
   pager = delta
 
 [alias]
-  agraph = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
-  st = status
-
+  a = add -p
+  ag = log --graph --oneline --decorate=full -20 --date=short --pretty=format:\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
+  an = add -N
+  c = commit
+  ci = commit --allow-empty -m 'initial commit'
+  p = push
+  ph = push origin HEAD
+  m = merge
+  mm = "!git merge $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+  f = fetch origin
+  s = status
+  d = diff
+  l = log
+  co = checkout
+  cb = checkout -b
+  cm = "!git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+  pl = "!git pull origin $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+  w = worktree
+  wb = "!f() { WORKTREE_PATH=../$(basename $(pwd))-${1}; git worktree add $WORKTREE_PATH $2; }; f"
+  wd = worktree remove .
+  
 [init]
 	defaultBranch = main
 
