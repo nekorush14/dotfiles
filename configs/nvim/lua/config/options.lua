@@ -14,3 +14,7 @@ vim.g.lazyvim_ruby_formatter = "rubocop"
 vim.g.lazyvim_python_lsp = "pyright"
 -- Set to "ruff_lsp" to use the old LSP implementation version.
 vim.g.lazyvim_python_ruff = "ruff"
+
+-- For VSCode Neovim extension.
+vim.g.mapleader = " "
+vim.opt.clipboard = "unnamedplus"
