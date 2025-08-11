@@ -1,0 +1,83 @@
+{
+    // VSCode Core configs
+    "editor.tabSize": 2,
+    "editor.fontSize": 16,
+    "editor.fontWeight": "350",
+    "editor.lineHeight": 24,
+    "editor.minimap.enabled": false,
+    "editor.padding.bottom": 14,
+    "editor.padding.top": 14,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.guides.highlightActiveIndentation": false,
+    "editor.overviewRulerBorder": false,
+    "editor.glyphMargin": false,
+    "editor.foldingHighlight": false,
+    "editor.renderLineHighlight": "none",
+    "editor.matchBrackets": "never",
+    "editor.smoothScrolling": true,
+    "editor.fontFamily": "Moralerspace NEON NF, monospace",
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+
+    "explorer.openEditors.visible": 1,
+    "explorer.autoReveal": false,
+    "explorer.compactFolders": false,
+
+    "terminal.integrated.fontFamily": "Moralerspace NEON NF, monospace",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.env.osx": {
+        "CHROME_BIN": "/Applications/Google Chrome Beta.app/Contents/MacOS/Google Chrome Beta",
+    },
+    
+    "workbench.layoutControl.enabled": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 12,
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.iconTheme": "material-icon-theme",
+    
+    "git.enableCommitSigning": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+        
+    // Core extensions configs
+    "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+    "github.copilot.chat.localeOverride": "ja",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "geminicodeassist.project": "",
+    "diffEditor.codeLens": true,
+    "zenMode.fullScreen": false,
+    "redhat.telemetry.enabled": false,
+    
+    // Language specific configs
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+    },
+    
+    // Extiensions configs
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape",
+        }
+    },
+
+    "git.openRepositoryInParentFolders": "never",
+    
+    "rubyLsp.rubyVersionManager": {
+        "name": "rbenv",
+        "path": "~/.rbenv/shims/ruby"
+    },
+    "rubyLsp.formatter": "auto",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "terminal.integrated.stickyScroll.enabled": false
+}
