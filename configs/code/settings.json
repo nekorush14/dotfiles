@@ -1,7 +1,7 @@
 {
     // VSCode Core configs
     "editor.tabSize": 2,
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     "editor.fontWeight": "350",
     "editor.lineHeight": 24,
     "editor.minimap.enabled": false,
@@ -23,23 +23,26 @@
     "explorer.compactFolders": false,
 
     "terminal.integrated.fontFamily": "Moralerspace NEON NF, monospace",
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.env.osx": {
         "CHROME_BIN": "/Applications/Google Chrome Beta.app/Contents/MacOS/Google Chrome Beta",
     },
-    
+    "terminal.integrated.stickyScroll.enabled": false,
+
     "workbench.layoutControl.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 12,
     "workbench.colorTheme": "GitHub Dark Default",
     "workbench.iconTheme": "material-icon-theme",
-    
+
+    "markdown.preview.fontSize": 12,
+
     "git.enableCommitSigning": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "git.autofetch": true,
-        
+
     // Core extensions configs
     "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
     "github.copilot.chat.localeOverride": "ja",
@@ -47,20 +50,23 @@
     "geminicodeassist.project": "",
     "diffEditor.codeLens": true,
     "zenMode.fullScreen": false,
-    "redhat.telemetry.enabled": false,
-    
+
     // Language specific configs
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    
+
     "[ruby]": {
         "editor.defaultFormatter": "Shopify.ruby-lsp",
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
     },
-    
+
     // Extiensions configs
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
     "vscode-neovim.compositeKeys": {
@@ -70,14 +76,14 @@
     },
 
     "git.openRepositoryInParentFolders": "never",
-    
+
     "rubyLsp.rubyVersionManager": {
         "name": "rbenv",
         "path": "~/.rbenv/shims/ruby"
     },
     "rubyLsp.formatter": "auto",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "terminal.integrated.stickyScroll.enabled": false
+    "rubyTestExplorer.rspecCommand": "bundle exec rspec",
+    "rubyTestExplorer.testFramework": "rspec",
+    "rubyTestExplorer.logpanel": true,
+    "redhat.telemetry.enabled": false,
 }
