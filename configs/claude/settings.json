@@ -1,0 +1,21 @@
+{
+  "model": "claude-sonnet-4-20250514",
+  "max_tokens": 8192,
+  "temperature": 0.1,
+  "preferred_language": "japanese",
+  "code_style": {
+    "indent_size": 2,
+    "use_spaces": true,
+    "line_ending": "lf"
+  },
+  "development": {
+    "auto_lint": true,
+    "auto_test": false,
+    "verbose_output": false
+  },
+  "project_preferences": {
+    "shell": "zsh",
+    "editor": "vscode",
+    "package_manager": "auto-detect"
+  }
+}
