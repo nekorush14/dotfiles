@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "lines": [
+    [
+      {
+        "id": "3",
+        "type": "context-length",
+        "color": "yellow"
+      },
+      {
+        "id": "4",
+        "type": "separator"
+      },
+      {
+        "id": "5",
+        "type": "tokens-input",
+        "color": "white"
+      },
+      {
+        "id": "cb495e74-cae9-42a7-9fa6-8422aeb53417",
+        "type": "separator"
+      },
+      {
+        "id": "10ccb98b-4676-4a3a-abb1-9d1d081a1f8f",
+        "type": "tokens-output",
+        "color": "brightMagenta"
+      },
+      {
+        "id": "6",
+        "type": "separator"
+      },
+      {
+        "id": "7",
+        "type": "tokens-cached",
+        "color": "green"
+      }
+    ],
+    [
+      {
+        "id": "9dbfef20-70cd-401c-90a2-6be561a59aca",
+        "type": "model",
+        "color": "brightCyan"
+      },
+      {
+        "id": "7a0b2bdb-ee98-4018-9bd6-1bd8b44af756",
+        "type": "separator"
+      },
+      {
+        "id": "b510f916-551e-4354-a425-55d6183d4f37",
+        "type": "git-branch",
+        "color": "brightGreen"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": []
+  }
+}
