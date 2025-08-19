@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "lines": [
     [
       {
@@ -33,27 +33,47 @@
         "id": "7",
         "type": "tokens-cached",
         "color": "green"
+      },
+      {
+        "id": "4df84594-b031-4892-a175-9bb5a5c4aea0",
+        "type": "separator"
+      },
+      {
+        "id": "49646476-671c-4f2d-8f26-3b1cafd8744f",
+        "type": "git-branch",
+        "color": "brightYellow"
       }
     ],
     [
       {
-        "id": "9dbfef20-70cd-401c-90a2-6be561a59aca",
-        "type": "model",
+        "id": "5c5a04f3-88b4-4b8d-9df2-6824c250f86f",
+        "type": "git-branch",
+        "commandPath": "npx -y ccusage@latest statusline",
+        "preserveColors": true,
+        "timeout": 5000,
         "color": "brightCyan"
       },
       {
-        "id": "7a0b2bdb-ee98-4018-9bd6-1bd8b44af756",
+        "id": "a1935f11-86b8-4ac2-80ed-69b3807f73e2",
         "type": "separator"
       },
       {
-        "id": "b510f916-551e-4354-a425-55d6183d4f37",
-        "type": "git-branch",
-        "color": "brightGreen"
+        "id": "b8f9ae88-d384-4da6-8850-5715f6985243",
+        "type": "git-changes",
+        "color": "brightYellow"
       }
     ],
-    []
+    [
+      {
+        "id": "284f78fe-7271-40e8-af4b-1843b6cb57e6",
+        "type": "custom-command",
+        "commandPath": "npx -y ccusage@latest statusline",
+        "preserveColors": true,
+        "timeout": 5000
+      }
+    ]
   ],
-  "flexMode": "full-minus-40",
+  "flexMode": "full-until-compact",
   "compactThreshold": 60,
   "colorLevel": 2,
   "inheritSeparatorColors": false,
