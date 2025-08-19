@@ -11,6 +11,7 @@ Your response must written by **Japanese**.
 
 - Indentation: 2 spaces
 - Indentation: 4 spaces (only Python, Ruby)
+- If you want to manipulate the GitHub Repository, please use the `gh` command instead of `GitHub MCP Searver`
 
 ### Language-specific rules
 
