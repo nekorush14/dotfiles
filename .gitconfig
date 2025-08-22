@@ -1,5 +1,5 @@
 [user]
-	name = nekorush14
+  name = nekorush14
   email = 17153457+nekorush14@users.noreply.github.com
   signingkey = 22C33C21C2EDAF0D6D0C78CC2B5955FCA5D286E1
 
@@ -20,6 +20,7 @@
   mm = "!git merge $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
   f = fetch origin
   s = status
+  st = status
   d = diff
   l = log
   co = checkout

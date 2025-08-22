@@ -2,6 +2,7 @@
   "max_tokens": 8192,
   "temperature": 0.1,
   "preferred_language": "japanese",
+  "includeCoAuthoredBy": false,
   "code_style": {
     "use_spaces": true,
     "line_ending": "lf"
