@@ -1,30 +1,5 @@
 {
-  "max_tokens": 8192,
-  "temperature": 0.1,
-  "preferred_language": "japanese",
   "includeCoAuthoredBy": false,
-  "code_style": {
-    "use_spaces": true,
-    "line_ending": "lf"
-  },
-  "development": {
-    "auto_lint": true,
-    "auto_test": false,
-    "verbose_output": false
-  },
-  "project_preferences": {
-    "shell": "zsh",
-    "editors": [
-      "vscode-insiders",
-      "cursor"
-    ],
-    "package_manager": "auto-detect"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0
-  },
   "permissions": {
     "allow": [
       "List(*)",
@@ -124,5 +99,31 @@
     "deny": [
       "Bash(rm -rf:*)"
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccusage statusline --visual-burn-rate emoji",
+    "padding": 0
+  },
+  "max_tokens": 8192,
+  "temperature": 0.1,
+  "preferred_language": "japanese",
+  "code_style": {
+    "use_spaces": true,
+    "line_ending": "lf"
+  },
+  "development": {
+    "auto_lint": true,
+    "auto_test": false,
+    "verbose_output": false
+  },
+  "project_preferences": {
+    "shell": "zsh",
+    "editors": [
+      "vscode-insiders",
+      "cursor"
+    ],
+    "package_manager": "auto-detect"
+  },
+  "model": "sonnet"
 }
