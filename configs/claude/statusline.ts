@@ -70,7 +70,37 @@ const colors = {
   brightMagenta: "\x1b[95m",
   brightCyan: "\x1b[96m",
   brightWhite: "\x1b[97m",
+  brightOrange: "\x1b[38;5;214m",
 };
+
+function getGitDiffStats(): { additions: number; deletions: number } {
+  try {
+    const result = Bun.spawnSync(["git", "diff", "--numstat"], {
+      cwd: process.cwd(),
+      stderr: "ignore",
+    });
+    if (result.exitCode === 0) {
+      const lines = result.stdout.toString().trim().split("\n");
+      let additions = 0;
+      let deletions = 0;
+
+      for (const line of lines) {
+        if (line.trim()) {
+          const [add, del] = line.split("\t");
+          if (add !== "-" && del !== "-") {
+            additions += parseInt(add) || 0;
+            deletions += parseInt(del) || 0;
+          }
+        }
+      }
+
+      return { additions, deletions };
+    }
+  } catch {
+    return { additions: 0, deletions: 0 };
+  }
+  return { additions: 0, deletions: 0 };
+}
 
 function getGitBranch(): string {
   // Get current git branch if git branch available
@@ -80,7 +110,7 @@ function getGitBranch(): string {
       stderr: "ignore",
     });
     if (result.exitCode === 0) {
-      return `|  ${result.stdout.toString().trim()}`;
+      return ` ${result.stdout.toString().trim()}`;
     }
   } catch {
     return "";
@@ -167,6 +197,10 @@ async function main() {
 
   const tokensDisplay = formatTokens(totalTokens);
   const gtitBranch = getGitBranch();
+  const diffStats = getGitDiffStats();
+  const gitStats = gtitBranch && (diffStats.additions > 0 || diffStats.deletions > 0) 
+    ? ` (+${diffStats.additions}, -${diffStats.deletions})` 
+    : "";
   // current dir show last 2 depth from user home with … icon
 
   const currentDir = formatCurrentDir(data.workspace?.current_dir || "");
@@ -175,11 +209,11 @@ async function main() {
   process.stdout.write(
     `[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
       `  ${currentDir}`,
-      colors.brightCyan
-    )}${colorize(gtitBranch, colors.brightGreen)}\n[0m${colorize(
+      colors.brightBlue
+    )} | ${colorize(gtitBranch, colors.brightOrange)}${colorize(gitStats, colors.brightOrange)}\n[0m${colorize(
       `󰭻 Tokens: ${tokensDisplay}`,
       colors.brightWhite
-    )} | ${color}󰈙 Context: ${percentage}[0m | ${colorize(
+    )} | ${color}󰈙 Context: ${percentage}%[0m | ${colorize(
       `  Costs: ${usageCostUsd}`,
       colors.brightMagenta
     )}[0m `
