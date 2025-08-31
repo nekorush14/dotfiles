@@ -1,0 +1,35 @@
+---
+description: "Create a GitHub Pull Request with specific PR format"
+---
+# Create a GitHub Pull Request
+
+Your task is to create a GitHub Pull Request with specific PR format.
+Your outputs must write by Japanese.
+You must follow the flow section.
+
+## Flow
+
+1. Create a Pull Request using `gh pr create` command
+2. Watch the status of the CI execution
+
+### 1. Create a Pull Request using `gh pr create` command
+
+You must use following format to create PR as PR description.
+
+```markdown
+## Why
+
+- Explain the purpose and background to anser why this PR will needed
+  - Explatiation must containing the background of this change or fixing with reference of issues for any other past problems
+
+## What
+
+- Describe the overall summarized changes and impacts for present tense instead of individual commits.
+
+```
+
+### 2. Watch the status of the CI execution
+
+You watch the status of the CI execution using `gh pr checks --watch` command.
+If CI done successfly, your task has also been completed.
+If CI has failer or occuring the errors, inspect it and fix the probrems, then push again. 

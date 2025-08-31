@@ -102,7 +102,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "npx -y ccusage statusline --visual-burn-rate emoji",
+    "command": "~/.claude/statusline.ts",
     "padding": 0
   },
   "max_tokens": 8192,

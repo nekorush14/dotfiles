@@ -11,7 +11,9 @@ Your response must written by **Japanese**.
 
 - Indentation: 2 spaces
 - Indentation: 4 spaces (only Python, Ruby)
-- If you want to manipulate the GitHub Repository, please use the `gh` command instead of `GitHub MCP Searver`
+- If you want to access GitHub, you must use the `gh` command instead of `GitHub MCP Searver`
+- If you want to write code comment, you must write code comment by English
+- If you want to write code comment, you must write code comment to explaine "WHY" instead of "WHAT" or "HOW"
 
 ### Language-specific rules
 
@@ -25,6 +27,9 @@ Your response must written by **Japanese**.
 
 - Be sure to typecheck when you’re done making a series of code changes
 - Prefer running single tests, and not the whole test suite, for performance
+- You **DO NOT** revert past commits using git command
+  - If you need to revert changes, you must create new REVERTING COMMIT
+- Essentially, a commit should only contain one fix or one consistent change to a single feature
 
 ### Test-Driven Development
 
