@@ -118,6 +118,20 @@ function getGitBranch(): string {
   return "";
 }
 
+function getClaudeVersion(): string {
+  try {
+    const result = Bun.spawnSync(["claude", "-v"], {
+      stderr: "ignore",
+    });
+    if (result.exitCode === 0) {
+      return result.stdout.toString().trim();
+    }
+  } catch {
+    return "";
+  }
+  return "";
+}
+
 function formatCurrentDir(currentDir: string): string {
   if (!currentDir) return "";
 
@@ -198,25 +212,32 @@ async function main() {
   const tokensDisplay = formatTokens(totalTokens);
   const gtitBranch = getGitBranch();
   const diffStats = getGitDiffStats();
-  const gitStats = gtitBranch && (diffStats.additions > 0 || diffStats.deletions > 0) 
-    ? ` (+${diffStats.additions}, -${diffStats.deletions})` 
-    : "";
+  const gitStats =
+    gtitBranch && (diffStats.additions > 0 || diffStats.deletions > 0)
+      ? ` (+${diffStats.additions}, -${diffStats.deletions})`
+      : "";
   // current dir show last 2 depth from user home with … icon
 
   const currentDir = formatCurrentDir(data.workspace?.current_dir || "");
   const usageCostUsd = `${(data.cost?.total_cost_usd || 0).toFixed(2)} USD`;
+  const claudeVersion = getClaudeVersion();
 
   process.stdout.write(
     `[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
       `  ${currentDir}`,
       colors.brightBlue
-    )} | ${colorize(gtitBranch, colors.brightOrange)}${colorize(gitStats, colors.brightOrange)}\n[0m${colorize(
+    )} | ${colorize(gtitBranch, colors.brightOrange)}${colorize(
+      gitStats,
+      colors.brightOrange
+    )}\n[0m${colorize(
       `󰭻 Tokens: ${tokensDisplay}`,
       colors.brightWhite
     )} | ${color}󰈙 Context: ${percentage}%[0m | ${colorize(
       `  Costs: ${usageCostUsd}`,
       colors.brightMagenta
-    )}[0m `
+    )}${
+      claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
+    }[0m `
   );
 }
 
