@@ -59,7 +59,8 @@ path=(
   $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
   /opt/homebrew/bin/brew
-  # $(brew --prefix)/bin
+  $(brew --prefix)/bin
+  /Applications/RubyMine.app/Contents/MacOS
   $path
 )
 

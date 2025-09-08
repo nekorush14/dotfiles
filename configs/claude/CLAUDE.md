@@ -14,6 +14,7 @@ Your response must written by **Japanese**.
 - If you want to access GitHub, you must use the `gh` command instead of `GitHub MCP Searver`
 - If you want to write code comment, you must write code comment by English
 - If you want to write code comment, you must write code comment to explaine "WHY" instead of "WHAT" or "HOW"
+- If you failed to run the cd command, use `/usr/bin/cd` command instead of `cd` command
 
 ### Language-specific rules
 
