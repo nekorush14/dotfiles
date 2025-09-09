@@ -223,21 +223,21 @@ async function main() {
   const claudeVersion = getClaudeVersion();
 
   process.stdout.write(
-    `[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
+    `\x1b[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
       `  ${currentDir}`,
       colors.brightBlue
     )} | ${colorize(gtitBranch, colors.brightOrange)}${colorize(
       gitStats,
       colors.brightOrange
-    )}\n[0m${colorize(
+    )}\n\x1b[0m${colorize(
       `󰭻 Tokens: ${tokensDisplay}`,
       colors.brightWhite
-    )} | ${color}󰈙 Context: ${percentage}%[0m | ${colorize(
+    )} | ${color}󰈙 Context: ${percentage}%\x1b[0m | ${colorize(
       `  Costs: ${usageCostUsd}`,
       colors.brightMagenta
     )}${
       claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
-    }[0m `
+    }\x1b[0m `
   );
 }
 
