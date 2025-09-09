@@ -55,6 +55,7 @@ path=(
   /usr/local/bin(N-/)
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
+  /Applications/JetBrains Toolbox.app/Contents/scripts
   $HOME/.local/bin
   $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
@@ -126,6 +127,7 @@ alias ghqgs='ghq get -p --shallow'
 alias ghqu='ghq get -p -u'
 alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
 alias tdw="tmux-default-window.sh"
+alias wm-reset="yabai --restart-service && skhd --restart-service"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
