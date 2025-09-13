@@ -28,6 +28,9 @@ You also follow the following type.
 - `ci(<scope>): <commit abstract>` # Use when you change the CI configuration files and scripts
 - `chore(<scope>): <commit abstract>` # Use when you change the build process or auxiliary tools and libraries such as documentation generation
 
+Scope identifier will use $ARGUMENTS provided by user.
+If no define the scope identifier, you confirm the changes for this commit from git diffs.
+
 ### Additional prioritized rules
 
 If it contains the implementation of product code and test code, then you have to use a `feat` or `fix` type instead of `test` type.
@@ -35,7 +38,7 @@ If it contains the implementation of product code and test code, then you have t
 ## Example commit message
 
 ```
-feat(auth): add login functionality
-fix(api): resolve user data fetching issue
-docs(readme): update installation instructions
+feat(auth_controller): Add login functionality
+fix(example_api_handler): Resolve user data fetching issue
+docs(readme): Update installation instructions
 ```

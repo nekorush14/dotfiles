@@ -4,8 +4,11 @@ return {
 		opts = {
 			picker = {
 				sources = {
-					files = { hidden = true },
+					files = { hidden = false },
 				},
+			},
+			explorer = {
+				show_hidden = true,
 			},
 			dashboard = {
 				preset = {
