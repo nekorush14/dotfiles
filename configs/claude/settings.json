@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -86,7 +87,6 @@
       "Bash(gh pr diff:*)",
       "Bash(gh issue create:*)",
       "Bash(gh issue edit:*)",
-      "Bash(git checkout:*)",
       "Bash(git add:*)",
       "Bash(git push:*)",
       "Bash(git checkout:*)",
@@ -94,7 +94,20 @@
       "Bash(git pull:*)",
       "Bash(git reset:*)",
       "Bash(git cherry-pick:*)",
-      "Bash(safe-rm:*)"
+      "Bash(bundle exec rspec:*)",
+      "Bash(safe-rm:*)",
+      "mcp__serena__check_onboarding_performed",
+      "mcp__serena__find_file",
+      "mcp__serena__find_referencing_symbols",
+      "mcp__serena__find_symbol",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__list_dir",
+      "mcp__serena__list_memories",
+      "mcp__serena__read_file",
+      "mcp__serena__read_memory",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__think_about_task_adherence",
+      "mcp__serena__think_about_whether_you_are_done"
     ],
     "deny": [
       "Bash(rm -rf:*)"
@@ -121,7 +134,9 @@
     "shell": "zsh",
     "editors": [
       "vscode-insiders",
-      "cursor"
+      "cursor",
+      "zed",
+      "neovim"
     ],
     "package_manager": "auto-detect"
   },
