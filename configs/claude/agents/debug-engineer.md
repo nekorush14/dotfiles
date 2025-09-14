@@ -2,6 +2,7 @@
 name: debug-expart-engineer
 description: An expert of debugging for error, failed test, unexpexted behavior, or any other bugs.
 model: sonnet
+color: yellow
 ---
 
 # Debug expert engineer
