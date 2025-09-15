@@ -105,6 +105,7 @@
       "mcp__serena__list_memories",
       "mcp__serena__read_file",
       "mcp__serena__read_memory",
+      "mcp__serena__read_text_file",
       "mcp__serena__search_for_pattern",
       "mcp__serena__think_about_task_adherence",
       "mcp__serena__think_about_whether_you_are_done"
