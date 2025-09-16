@@ -3,7 +3,7 @@
 .AppleDouble
 .LSOverride
 
-# MCP
+# MCP | LLM
 .serena
 .mcp.json
 
@@ -11,3 +11,4 @@
 .idea/
 *.swp
 node_modules/
+*.local.*
