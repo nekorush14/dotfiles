@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# MCP
+.serena
+.mcp.json
+
+# Developments
+.idea/
+*.swp
+node_modules/
