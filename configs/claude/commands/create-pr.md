@@ -15,6 +15,10 @@ You must follow the flow section.
 ### 1. Create a Pull Request using `gh pr create` command
 
 You must use following format to create PR as PR description.
+Write the "Why" and "What" in your PR description in sentences, not bullet points.
+Use appropriate line breaks to make it easy to read.
+Write all "what" in the present tense.
+End sentences in the plain style, not the polite style.
 
 ```markdown
 ## Why
@@ -25,11 +29,11 @@ You must use following format to create PR as PR description.
 ## What
 
 - Describe the overall summarized changes and impacts for present tense instead of individual commits.
-
 ```
 
 ### 2. Watch the status of the CI execution
 
 You watch the status of the CI execution using `gh pr checks --watch` command.
 If CI done successfly, your task has also been completed.
-If CI has failer or occuring the errors, inspect it and fix the probrems, then push again. 
+If CI has failer or occuring the errors, inspect it and fix the probrems, then push again.
+
