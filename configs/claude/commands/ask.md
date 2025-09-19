@@ -12,7 +12,8 @@ The question from user is $ARGUMENTS
 
 1. You analyze the repository to answer the question.
 2. If you need to search issue or PR, you have to use `gh` command to get the information.
-3. You generate an appropriate an answer for the user.
+3. If you need to search any documents or references, you can search it from web.
+4. You generate an appropriate an answer for the user.
 
 ## Answer rules
 
