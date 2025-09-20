@@ -29,6 +29,7 @@ End sentences in the plain style, not the polite style.
 ## What
 
 - Describe the overall summarized changes and impacts for present tense instead of individual commits.
+- Add `🤖 Generated with Claude Code` at the end
 ```
 
 ### 2. Watch the status of the CI execution
@@ -36,4 +37,3 @@ End sentences in the plain style, not the polite style.
 You watch the status of the CI execution using `gh pr checks --watch` command.
 If CI done successfly, your task has also been completed.
 If CI has failer or occuring the errors, inspect it and fix the probrems, then push again.
-
