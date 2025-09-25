@@ -21,7 +21,7 @@ return {
 					-- { "progress", separator = " ", padding = { left = 1, right = 0 } },
 				},
 				lualine_z = {
-					{ "location", padding = { left = 0, right = 1 } },
+					{ "location" },
 					{
 						function()
 							return " " .. os.date("%R")
