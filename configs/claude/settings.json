@@ -119,6 +119,23 @@
       "Bash(rm -rf:*)"
     ]
   },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code request to grant a permission\" with title \"🚧 Claude Code\" subtitle \"Request permission\" sound name \"Glass\"'"
+          },
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Task completed\" with title \"✅ Claude Code\" subtitle \"Completed\" sound name \"Hero\"'"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.ts",

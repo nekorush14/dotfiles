@@ -29,6 +29,7 @@ End sentences in the plain style, not the polite style.
 ## What
 
 - Describe the overall summarized changes and impacts for present tense instead of individual commits.
+- Add `🤖 Generated with Claude Code` at the end
 ```
 
 ### 2. Watch the status of the CI execution

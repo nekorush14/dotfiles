@@ -15,6 +15,7 @@ Your response must written by **Japanese**.
 - If you want to write code comment, you must write code comment by English
 - If you want to write code comment, you must write code comment to explaine "WHY" instead of "WHAT" or "HOW"
 - If you failed to run the cd command, use `/usr/bin/cd` command instead of `cd` command
+- If you want to run `git push` command to push your changes, you must run `git push <ORIGIN_NAME> <BRANCH_NAME>` command instead of `git push -set-upstream <ORIGIN_NAME> <BRANCH_NAME>` command
 
 ### Language-specific rules
 
@@ -31,8 +32,9 @@ Your response must written by **Japanese**.
 - You **DO NOT** revert past commits using git command
   - If you need to revert changes, you must create new REVERTING COMMIT
 - Essentially, a commit should only contain one fix or one consistent change to a single feature
+- You must follow the Test-Driven Development (TDD) approach to ensure code quality
 
-### Test-Driven Development
+### Test-Driven Development (TDD)
 
 - Proceed with test-driven development (TDD) as a general rule
 - First create tests based on expected input and output
