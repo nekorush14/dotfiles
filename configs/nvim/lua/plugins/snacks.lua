@@ -11,6 +11,15 @@ return {
 			explorer = {
 				show_hidden = true,
 			},
+			terminal = {
+				win = {
+					border = "none", -- Remove terminal header/title
+					keys = {
+						nav_h = {},
+						["<C-l>"] = false, -- Disable custom Ctrl+l to allow standard terminal clear
+					},
+				},
+			},
 			dashboard = {
 				preset = {
 					pick = function(cmd, opts)
