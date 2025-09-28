@@ -135,6 +135,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/rubocop-hook.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
