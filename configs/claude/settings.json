@@ -97,6 +97,7 @@
       "Bash(git reset:*)",
       "Bash(git cherry-pick:*)",
       "Bash(bundle exec rspec:*)",
+      "Bash(claude mcp list:*)",
       "Bash(safe-rm:*)",
       "mcp__filesystem__list_directory",
       "mcp__filesystem__read_text_file",

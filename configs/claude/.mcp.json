@@ -23,6 +23,15 @@
         "git+https://github.com/oraios/serena",
         "serena-mcp-server"
       ]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {}
     }
   }
 }

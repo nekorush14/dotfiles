@@ -22,3 +22,5 @@ claude mcp add sequential-thinking --scope project -- npx -y @modelcontextprotoc
 claude mcp add serena --scope project -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context ide-assistant --project $(pwd)
 claude mcp add context7 --scope project -- npx -y @upstash/context7-mcp
 ```
+
+**IMPORTANT**: IF EACH MCPSERVER(S) HAS ALREADY BEEN SETUP, PLEASE SKIP THE COMMAND TO AVOID DUPLICATE SETUP.
