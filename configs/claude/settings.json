@@ -181,6 +181,5 @@
       "neovim"
     ],
     "package_manager": "auto-detect"
-  },
-  "model": "sonnet"
+  }
 }
