@@ -49,6 +49,7 @@ return {
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+            { icon = " ", key = "b", desc = "Browse Repo", action = function() Snacks.gitbrowse() end },
             { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
             { icon = "󰁯 ", key = "s", desc = "Restore Session", section = "session" },
             { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
@@ -60,41 +61,22 @@ return {
 				sections = {
 					{
 						section = "header",
-						padding = 5,
+						padding = 3,
+						width = 180,
+						indent = 55,
 					},
 					{
 						pane = 2,
 						section = "terminal",
 						cmd = "echo ''",
 						height = 15,
-						indent = 35,
-						padding = 1,
+						indent = 55,
+						padding = 2,
 					},
 					{ section = "keys", gap = 1, padding = 1 },
-					{
-						pane = 2,
-						icon = " ",
-						desc = "Browse Repo",
-						padding = 1,
-						key = "b",
-						action = function()
-							Snacks.gitbrowse()
-						end,
-					},
 					function()
 						local in_git = Snacks.git.get_root() ~= nil
 						local cmds = {
-							{
-								title = "Notifications",
-								cmd = "gh notify -s -a -n5",
-								action = function()
-									vim.ui.open("https://github.com/notifications")
-								end,
-								key = "n",
-								icon = " ",
-								height = 5,
-								enabled = true,
-							},
 							{
 								title = "Open Issues",
 								cmd = "gh issue list -L 3",
@@ -103,7 +85,7 @@ return {
 									vim.fn.jobstart("gh issue list --web", { detach = true })
 								end,
 								icon = " ",
-								height = 7,
+								height = 5,
 							},
 							{
 								icon = " ",
@@ -113,7 +95,7 @@ return {
 								action = function()
 									vim.fn.jobstart("gh pr list --web", { detach = true })
 								end,
-								height = 7,
+								height = 5,
 							},
 							{
 								icon = " ",
