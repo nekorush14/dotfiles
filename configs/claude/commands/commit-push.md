@@ -8,7 +8,7 @@ You must follow the flow section.
 
 ## Flow
 
-1. YOU **DO NOT** run `git add` command to stage file. (Only pre-staged files will contain in the commit.)
+1. YOU **DO NOT** run `git add .` command to stage file. (You must run `git add <file>` command to stage file.)
 2. Run `git status` to confirm the files to be committed.
 3. Commit it by following the rule of [conversational commit](https://www.conventionalcommits.org/en/v1.0.0/).
 4. Push it to remote repository.
