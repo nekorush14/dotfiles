@@ -1,6 +1,15 @@
 return {
 	{
 		"folke/snacks.nvim",
+		keys = {
+			{
+				"<leader>k",
+				function()
+					require("snacks").dashboard()
+				end,
+				desc = "Open dashboard",
+			},
+		},
 		opts = {
 			picker = {
 				hidden = true,
@@ -116,15 +125,6 @@ return {
 						end, cmds)
 					end,
 					{ section = "startup" },
-				},
-				keys = {
-					{
-						"<leader>k",
-						function()
-							require("snacks").dashboard()
-						end,
-						desc = "Open dashboard",
-					},
 				},
 			},
 		},
