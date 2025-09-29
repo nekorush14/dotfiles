@@ -72,7 +72,7 @@ return {
 						section = "header",
 						padding = 3,
 						width = 180,
-						indent = 55,
+						-- indent = 55,
 					},
 					{
 						pane = 2,
