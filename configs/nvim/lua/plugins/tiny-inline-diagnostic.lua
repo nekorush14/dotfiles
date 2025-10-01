@@ -16,7 +16,7 @@ return {
 					always_show = true,
 				},
 				-- Display all diagnostic messages on the cursor line, not just those under cursor
-				show_all_diags_on_cursorline = false,
+				show_all_diags_on_cursorline = true,
 			},
 		})
 		vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
