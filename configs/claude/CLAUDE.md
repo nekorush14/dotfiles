@@ -21,7 +21,10 @@ Your response must written by **Japanese**.
 
 - JavaScript/Typescript: ESlint + Prettier
 - Python: PEP8
-- Ruby: Rubocop
+- Ruby:
+  - Linter/Formatter: Rubocop
+  - Ruby command: `$HOME/.rbenv/shims/ruby`
+  - Rails: `bundle exec rails`
 - Go: gofmt
 - Rust: rustfmt + Clippy
 
