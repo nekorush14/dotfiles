@@ -152,7 +152,7 @@
     "command": "~/.claude/statusline.ts",
     "padding": 0
   },
-  "alwaysThinkingEnabled": false,
+  "alwaysThinkingEnabled": true,
   "max_tokens": 8192,
   "temperature": 0.1,
   "preferred_language": "japanese",
