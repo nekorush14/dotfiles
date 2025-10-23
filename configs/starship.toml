@@ -6,6 +6,7 @@ $directory\
 [](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
+$git_metrics\
 [](fg:#394260 bg:#212736)\
 $conda\
 $dart\
@@ -58,6 +59,12 @@ format = '[[ $symbol $branch ](fg:#30b964 bg:#394260)]($style)'
 style = "bg:#394260"
 # format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 format = '[[($all_status$ahead_behind )](fg:#30b964 bg:#394260)]($style)'
+
+[git_metrics]
+disabled = false
+added_style = "bold blue bg:#394260"
+deleted_style = "bold red bg:#394260"
+format = '(bg:#394260)[+$added]($added_style)[/](bg:#394260)[-$deleted]($deleted_style)'
 
 [hostname]
 style = "fg:#394260 bg:#a9b1d6"
