@@ -20,7 +20,8 @@ You need to run following commands step by steps to setup the mcp servers for Cl
 claude mcp add filesystem --scope project -- npx -y @modelcontextprotocol/server-filesystem
 claude mcp add sequential-thinking --scope project -- npx -y @modelcontextprotocol/server-sequential-thinking
 claude mcp add serena --scope project -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context ide-assistant --project $(pwd)
-claude mcp add context7 --scope project -- npx -y @upstash/context7-mcp
+claude claude mcp add --transport http context7 https://mcp.context7.com/mcp
+claude mcp add codex-mcp codex mcp-server
 ```
 
 **IMPORTANT**: IF EACH MCPSERVER(S) HAS ALREADY BEEN SETUP, PLEASE SKIP THE COMMAND TO AVOID DUPLICATE SETUP.
