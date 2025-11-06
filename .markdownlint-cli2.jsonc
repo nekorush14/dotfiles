@@ -1,0 +1,6 @@
+{
+  "config": {
+    "MD013": false, // Disables the "Line length" rule
+    "MD001": false // Disables the "Heading levels should only increment by one at a time" rule
+  }
+}

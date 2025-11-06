@@ -1,10 +1,10 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "includeCoAuthoredBy": false,
+  "env": {
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+  },
+  "includeCoAuthoredBy": true,
   "permissions": {
     "allow": [
-      "List(*)",
-      "Fetch(https://*)",
       "Bash(ls:*)",
       "Bash(rg:*)",
       "Bash(mv:*)",
@@ -77,23 +77,27 @@
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr checks:*)",
+      "Bash(gh repo list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh run list:*)",
       "Bash(gh run view:*)",
+      "Bash(gh run watch:*)",
       "Bash(gh issue create:*)",
       "Bash(gh issue edit:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)",
       "Bash(git checkout:*)",
       "Bash(git remote set-url:*)",
       "Bash(git pull:*)",
       "Bash(git reset:*)",
       "Bash(git cherry-pick:*)",
       "Bash(bundle exec rspec:*)",
-      "Bash($HOME/.rbenv/shims/bundle exec rspec:*)",
       "Bash(claude mcp list:*)",
+      "Bash($HOME/.rbenv/shims/bundle exec rspec:*)",
       "Bash(safe-rm:*)",
       "mcp__filesystem__list_directory",
       "mcp__filesystem__read_text_file",
       "mcp__filesystem__search_files",
+      "mcp__context7__get_library_docs",
       "mcp__serena__check_onboarding_performed",
       "mcp__serena__find_file",
       "mcp__serena__find_referencing_symbols",
@@ -109,7 +113,32 @@
       "mcp__serena__think_about_whether_you_are_done"
     ],
     "deny": [
-      "Bash(rm -rf:*)"
+      "Bash(sudo:*)",
+      "Bash(rm:*)",
+      "Bash(rm -rf:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(nc:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm remove:*)",
+      "Bash(psql:*)",
+      "Bash(mysql:*)",
+      "Bash(mongod:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Bash(gh repo set-default:*)",
+      "Bash(git commit --amend:*)",
+      "Bash(git push --force-with-lease:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Read(.envrc)",
+      "Read(.env.*)",
+      "Read(id_rsa)",
+      "Read(id_ed25519)",
+      "Read(**/*token*)",
+      "Read(**/*key*)",
+      "Write(.env*)",
+      "Write(**/secrets/**)"
     ]
   },
   "hooks": {
@@ -152,27 +181,5 @@
     "command": "~/.claude/statusline.ts",
     "padding": 0
   },
-  "alwaysThinkingEnabled": true,
-  "max_tokens": 8192,
-  "temperature": 0.1,
-  "preferred_language": "japanese",
-  "code_style": {
-    "use_spaces": true,
-    "line_ending": "lf"
-  },
-  "development": {
-    "auto_lint": true,
-    "auto_test": false,
-    "verbose_output": false
-  },
-  "project_preferences": {
-    "shell": "zsh",
-    "editors": [
-      "vscode-insiders",
-      "cursor",
-      "zed",
-      "neovim"
-    ],
-    "package_manager": "auto-detect"
-  }
+  "alwaysThinkingEnabled": true
 }

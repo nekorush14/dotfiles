@@ -55,6 +55,6 @@ if not vim.g.vscode then
 else
 	require("config.keymaps")
 	require("config.options")
+	require("config.vscode")
 	require("lazy").setup({})
 end
-
