@@ -1,6 +1,6 @@
 {
   "env": {
-    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
   },
   "includeCoAuthoredBy": true,
   "permissions": {
@@ -94,23 +94,7 @@
       "Bash(claude mcp list:*)",
       "Bash($HOME/.rbenv/shims/bundle exec rspec:*)",
       "Bash(safe-rm:*)",
-      "mcp__filesystem__list_directory",
-      "mcp__filesystem__read_text_file",
-      "mcp__filesystem__search_files",
-      "mcp__context7__get_library_docs",
-      "mcp__serena__check_onboarding_performed",
-      "mcp__serena__find_file",
-      "mcp__serena__find_referencing_symbols",
-      "mcp__serena__find_symbol",
-      "mcp__serena__get_symbols_overview",
-      "mcp__serena__list_dir",
-      "mcp__serena__list_memories",
-      "mcp__serena__read_file",
-      "mcp__serena__read_memory",
-      "mcp__serena__read_text_file",
-      "mcp__serena__search_for_pattern",
-      "mcp__serena__think_about_task_adherence",
-      "mcp__serena__think_about_whether_you_are_done"
+      "mcp__context7__get_library_docs"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -160,17 +144,6 @@
           {
             "type": "command",
             "command": "osascript -e 'display notification \"Task completed\" with title \"✅ Claude Code\" subtitle \"Completed\" sound name \"Hero\"'"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/rubocop-hook.sh"
           }
         ]
       }

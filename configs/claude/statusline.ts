@@ -230,10 +230,10 @@ async function main() {
       gitStats,
       colors.brightOrange
     )}\n\x1b[0m${colorize(
-      `󰭻 Tokens: ${tokensDisplay}`,
+      `󰭻 : ${tokensDisplay} tok`,
       colors.brightWhite
-    )} | ${color}󰈙 Context: ${percentage}%\x1b[0m | ${colorize(
-      `  Costs: ${usageCostUsd}`,
+    )} (${color}${percentage}%\x1b[0m) | ${colorize(
+      ` : ${usageCostUsd}`,
       colors.brightMagenta
     )}${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
     }\x1b[0m `
