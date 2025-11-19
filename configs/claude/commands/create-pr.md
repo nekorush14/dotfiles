@@ -40,7 +40,7 @@ Create a PR description with the following sections:
 #### Refs
 
 - List related issues and PRs using markdown checkbox format
-- Use format: `- [ ] [Issue/PR title](URL)`
+- Use format: `- [Issue/PR title](URL)`
 - Include both the issue that prompted this work and any related PRs
 
 #### Why
@@ -63,30 +63,53 @@ Describe the implementation:
 - Mention specific technical terms (class names, method names, etc.) using backticks
 - At most two paragraphs in Japanese
 
-#### 動作確認
-
-Provide verification steps:
-
-- List test scenarios as bullet points
-- Include both positive and negative cases
-- Cover edge cases if applicable
-- Format in Japanese with clear, actionable items
-
 ### 4. Create the PR
 
 Use the `gh pr create` command with:
 
-- Appropriate title (concise, descriptive, in Japanese)
+- Appropriate title following Conventional Commits format in English with mandatory scope (see below)
 - The structured body using HEREDOC format
 - Target the correct base branch
+
+#### PR Title Format
+
+The PR title must follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification and be written entirely in English:
+
+```
+<type>(<scope>): <description>
+```
+
+**Important Requirements:**
+- The scope is **mandatory** (not optional)
+- The entire PR title must be in English
+- For multi-word scopes, use the appropriate delimiter based on the project language:
+  - Use `_` (underscore) for languages like Python, Ruby
+  - Use `-` (hyphen) for languages like JavaScript, TypeScript, Go
+
+**Common types:**
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+- `perf`: Performance improvements
+- `style`: Code style changes (formatting, etc.)
+
+**Examples:**
+- `feat(claude-config): Add new agent configuration`
+- `fix(commit-generator): Fix bug in message generation`
+- `docs(setup-guide): Add installation instructions`
+- `refactor(slash-commands): Improve command structure`
+- `test(user-auth): Add integration tests`
 
 ## Output Format
 
 ```markdown
 ## Refs
 
-- [ ] [Related Issue Title](issue-url)
-- [ ] [Related PR Title](pr-url)
+- [Related Issue Title](issue-url)
+- [Related PR Title](pr-url)
 
 ## Why
 
@@ -96,11 +119,6 @@ Use the `gh pr create` command with:
 
 [2-4 paragraphs describing the technical implementation and approach in Japanese]
 
-## 動作確認
-
-- [Test scenario 1]
-- [Test scenario 2]
-- [Edge case or negative test]
 ```
 
 ### 5. Monitor and Handle CI Execution
@@ -144,6 +162,10 @@ If CI checks fail or errors occur:
 - **Preserve context**: Each fix should build on previous attempts
 - **Communicate progress**: Keep the user informed of what you're fixing and why
 - **Learn from failures**: Use each failure to understand the codebase better
+- **Japanese writing**:
+  - Insert a half-width space between half-width alphanumeric characters and full-width characters
+  - Always use half-width punctuation marks (e.g., parentheses (), exclamation/question marks (!, ?), colons (:))
+  - Use plain form (da/dearu style) for sentence endings, not polite form (desu/masu style)
 
 ## Important Constraints
 

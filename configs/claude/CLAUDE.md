@@ -5,6 +5,13 @@
 回答は常に**日本語**で行ってください。
 Your response must written by **Japanese**.
 
+### Writing
+
+When writing in Japanese, follow these rules:
+
+- Insert a half-width space between half-width alphanumeric characters and full-width characters
+- Always use half-width punctuation marks (e.g., parentheses (), exclamation/question marks (!, ?), colons (:))
+
 ## Coding rules
 
 ### Basic rules

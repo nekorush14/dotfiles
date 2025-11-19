@@ -37,7 +37,7 @@ If it contains the implementation of product code and test code, then you have t
 
 ## Example commit message
 
-```
+```txt
 feat(auth_controller): Add login functionality
 fix(example_api_handler): Resolve user data fetching issue
 docs(readme): Update installation instructions
