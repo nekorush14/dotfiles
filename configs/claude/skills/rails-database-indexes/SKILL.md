@@ -25,7 +25,26 @@ Specialized in designing effective database indexes for ActiveRecord models.
 
 ## Implementation Guidelines
 
+### Migration Generation Workflow
+
+**ALWAYS generate migrations using Rails generator commands first:**
+
+```bash
+# Generate a new migration
+bundle exec rails generate migration AddIndexesToUsers
+
+# For simple index additions, you can specify columns
+bundle exec rails generate migration AddIndexToUsers email:index
+
+# For complex indexes, use a descriptive name
+bundle exec rails generate migration AddCompositeIndexesToOrders
+```
+
+This creates a timestamped migration file like `db/migrate/20250120XXXXXX_add_indexes_to_users.rb`.
+
 ### Basic Index Migration
+
+After generating the migration file, edit it to add index definitions:
 
 ```ruby
 class AddIndexesToUsers < ActiveRecord::Migration[7.0]
@@ -50,6 +69,13 @@ end
 
 ### Foreign Key Indexes
 
+```bash
+# Generate table creation migration
+bundle exec rails generate migration CreateOrders
+```
+
+Edit the generated migration:
+
 ```ruby
 class CreateOrders < ActiveRecord::Migration[7.0]
     def change
@@ -70,6 +96,13 @@ end
 
 ### Composite Indexes
 
+```bash
+# Generate migration for composite indexes
+bundle exec rails generate migration AddCompositeIndexesToOrders
+```
+
+Edit the generated migration:
+
 ```ruby
 class AddCompositeIndexes < ActiveRecord::Migration[7.0]
     def change
@@ -88,6 +121,13 @@ end
 ```
 
 ### Unique Indexes
+
+```bash
+# Generate migration for unique indexes
+bundle exec rails generate migration AddUniqueIndexesToUsers
+```
+
+Edit the generated migration:
 
 ```ruby
 class AddUniqueIndexes < ActiveRecord::Migration[7.0]
@@ -109,6 +149,13 @@ end
 
 ### Partial Indexes (PostgreSQL)
 
+```bash
+# Generate migration for partial indexes
+bundle exec rails generate migration AddPartialIndexes
+```
+
+Edit the generated migration:
+
 ```ruby
 class AddPartialIndexes < ActiveRecord::Migration[7.0]
     def change
@@ -122,6 +169,13 @@ end
 ```
 
 ### Index Types
+
+```bash
+# Generate migration for specialized indexes
+bundle exec rails generate migration AddSpecializedIndexes
+```
+
+Edit the generated migration:
 
 ```ruby
 class AddSpecializedIndexes < ActiveRecord::Migration[7.0]
@@ -142,6 +196,13 @@ end
 ```
 
 ### Removing Indexes
+
+```bash
+# Generate migration to remove indexes
+bundle exec rails generate migration RemoveUnusedIndexes
+```
+
+Edit the generated migration:
 
 ```ruby
 class RemoveUnusedIndexes < ActiveRecord::Migration[7.0]
@@ -207,9 +268,12 @@ SQL
 
 ## Tools to Use
 
-- `Write`: Create migration files
-- `Bash`: Run migrations and check database
-- `Read`: Review existing indexes
+**Correct tool order for creating indexes:**
+
+1. `Bash`: Generate migration with `rails generate migration` command
+2. `Edit`: Modify the generated migration file to add index definitions
+3. `Bash`: Run `rails db:migrate` to apply changes
+4. `Read`: Review existing indexes and schema
 
 ### Bash Commands
 
@@ -235,9 +299,9 @@ SELECT * FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10;
 
 1. **Identify Slow Queries**: Use monitoring or logs
 2. **Analyze Query Plan**: Use EXPLAIN
-3. **Create Migration**: Generate index migration
-4. **Add Indexes**: Write index definitions
-5. **Run Migration**: Apply to database
+3. **Generate Migration**: Use `rails generate migration` command
+4. **Edit Migration**: Add index definitions to generated file
+5. **Run Migration**: Apply to database with `rails db:migrate`
 6. **Verify Performance**: Test query speed
 7. **Monitor**: Check index usage over time
 
@@ -252,6 +316,9 @@ See [Rails Coding Standards](../_shared/rails-coding-standards.md)
 
 ## Key Reminders
 
+- **ALWAYS use `rails generate migration` to create migration files**
+- Never create migration files directly with `Write` tool
+- Use `Edit` tool to modify generated migration files
 - Always index foreign keys
 - Index columns used in WHERE and ORDER BY
 - Composite index order matters (most selective first)
