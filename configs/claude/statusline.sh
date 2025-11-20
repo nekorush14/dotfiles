@@ -19,11 +19,11 @@ const data = JSON.parse('$escaped_input');
 
 function formatTokens(tokens) {
   if (tokens >= 1_000_000) {
-    return \`\${(tokens / 1_000_000).toFixed(1)}M tok\`;
+    return \`\${(tokens / 1_000_000).toFixed(1)}M\`;
   } else if (tokens >= 1_000) {
-    return \`\${(tokens / 1_000).toFixed(1)}k tok\`;
+    return \`\${(tokens / 1_000).toFixed(1)}k\`;
   }
-  return \`\${tokens.toString()} tok\`;
+  return tokens.toString();
 }
 
 function getColorForPercentage(percentage) {
@@ -55,18 +55,22 @@ function formatCurrentDir(currentDir) {
 
   const homeDir = process.env.HOME || process.env.USERPROFILE || '';
   if (!homeDir || !currentDir.startsWith(homeDir)) {
-    return currentDir;
+    // Return only the last directory name for paths outside home directory
+    const pathParts = currentDir.split('/').filter(part => part !== '');
+    return pathParts[pathParts.length - 1] || currentDir;
   }
 
+  // Get relative path from home directory
   const relativePath = currentDir.slice(homeDir.length).replace(/^\//, '');
   const pathParts = relativePath.split('/').filter(part => part !== '');
 
-  if (pathParts.length <= 1) {
-    return pathParts.length === 0 ? '~' : \`~/\${pathParts.join('/')}\`;
+  // Return ~ for home directory itself
+  if (pathParts.length === 0) {
+    return '~';
   }
 
-  const lastTwoParts = pathParts.slice(-1);
-  return \`~/…/\${lastTwoParts.join('/')}\`;
+  // Return only the last directory name
+  return pathParts[pathParts.length - 1];
 }
 
 function getGitBranch() {
@@ -185,10 +189,10 @@ process.stdout.write(
     gitStats,
     colors.brightOrange
   )}\\n\\x1b[0m\${colorize(
-    \`󰭻 : \${tokensDisplay}\`,
+    \`  \${tokensDisplay} tok\`,
     colors.brightWhite
-  )} | \${color}󰈙 : \${percentage}%\\x1b[0m | \${colorize(
-    \` : \${usageCostUsd}\`,
+  )} (\${color}\${percentage}%\\x1b[0m) | \${colorize(
+    \`  \${usageCostUsd}\`,
     colors.brightMagenta
   )}\${
     claudeVersion ? \` | \${colorize(\`v\${claudeVersion}\`, colors.white)}\` : ''

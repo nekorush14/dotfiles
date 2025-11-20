@@ -137,21 +137,22 @@ function formatCurrentDir(currentDir: string): string {
 
   const homeDir = process.env.HOME || process.env.USERPROFILE || "";
   if (!homeDir || !currentDir.startsWith(homeDir)) {
-    return currentDir;
+    // Return only the last directory name for paths outside home directory
+    const pathParts = currentDir.split("/").filter((part) => part !== "");
+    return pathParts[pathParts.length - 1] || currentDir;
   }
 
   // Get relative path from home directory
   const relativePath = currentDir.slice(homeDir.length).replace(/^\//, "");
   const pathParts = relativePath.split("/").filter((part) => part !== "");
 
-  // Show full path if 1 levels or less
-  if (pathParts.length <= 1) {
-    return pathParts.length === 0 ? "~" : `~/${pathParts.join("/")}`;
+  // Return ~ for home directory itself
+  if (pathParts.length === 0) {
+    return "~";
   }
 
-  // Show abbreviated form with … for 1 or more levels
-  const lastTwoParts = pathParts.slice(-1);
-  return `~/…/${lastTwoParts.join("/")}`;
+  // Return only the last directory name
+  return pathParts[pathParts.length - 1];
 }
 
 async function main() {
@@ -230,12 +231,13 @@ async function main() {
       gitStats,
       colors.brightOrange
     )}\n\x1b[0m${colorize(
-      `󰭻 : ${tokensDisplay} tok`,
+      `  ${tokensDisplay} tok`,
       colors.brightWhite
     )} (${color}${percentage}%\x1b[0m) | ${colorize(
-      ` : ${usageCostUsd}`,
+      `  ${usageCostUsd}`,
       colors.brightMagenta
-    )}${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
+    )}${
+      claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
     }\x1b[0m `
   );
 }
