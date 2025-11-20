@@ -91,13 +91,13 @@ Example: `python-core-development`, `rails-service-objects`
 
 Good example:
 
-```
+```yaml
 description: Implement Python code with dataclasses, type hints, protocols, error handling, and async programming. Use when designing classes, implementing type safety, handling exceptions, or writing async code.
 ```
 
 Bad example:
 
-```
+```yaml
 description: Helps with Python development
 ```
 
@@ -107,15 +107,6 @@ description: Helps with Python development
 
 ```yaml
 allowed-tools: [Read, Grep, Glob, Write, Edit, Bash, WebFetch]
-```
-
-**metadata**: Additional metadata for skill organization
-
-```yaml
-metadata:
-  category: backend
-  language: python
-  complexity: intermediate
 ```
 
 ## Progressive Disclosure Design
@@ -347,25 +338,25 @@ Examples:
 
 **Good**:
 
-```
+```yaml
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs.
 ```
 
 **Good**:
 
-```
+```yaml
 description: Implement Python code with dataclasses, type hints, protocols, error handling, and async programming. Use when designing classes, implementing type safety, handling exceptions, or writing async code.
 ```
 
 **Bad** (missing triggers):
 
-```
+```yaml
 description: Python development tool
 ```
 
 **Bad** (too vague):
 
-```
+```yaml
 description: Helps with backend tasks
 ```
 

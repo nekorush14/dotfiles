@@ -191,36 +191,15 @@ def init_skill(skill_name: str, base_path: Optional[str] = None) -> bool:
         skill_file.write_text(skill_content)
         print(f"✅ Created SKILL.md with template")
 
-        # Create placeholder files
-        # Scripts example
-        script_example = skill_dir / "scripts" / "example.py"
-        script_example.write_text(
-            "#!/usr/bin/env python3\n"
-            '"""Example utility script."""\n\n'
-            "# TODO: Implement your script logic here\n"
-        )
-        script_example.chmod(0o755)  # Make executable
-        print(f"✅ Created example script: scripts/example.py")
+        # Create .keep files to maintain directory structure
+        (skill_dir / "scripts" / ".keep").touch()
+        print(f"✅ Created scripts/.keep")
 
-        # References example
-        reference_example = skill_dir / "references" / "README.md"
-        reference_example.write_text(
-            f"# {skill_title} References\n\n"
-            "TODO: Add detailed reference documentation here.\n\n"
-            "## Contents\n\n"
-            "- [Section 1](#section-1)\n"
-            "- [Section 2](#section-2)\n"
-        )
-        print(f"✅ Created reference template: references/README.md")
+        (skill_dir / "references" / ".keep").touch()
+        print(f"✅ Created references/.keep")
 
-        # Assets README
-        assets_readme = skill_dir / "assets" / "README.md"
-        assets_readme.write_text(
-            f"# {skill_title} Assets\n\n"
-            "TODO: Add templates, fonts, or other non-context resources here.\n\n"
-            "Note: Assets are not automatically loaded into context.\n"
-        )
-        print(f"✅ Created assets README: assets/README.md")
+        (skill_dir / "assets" / ".keep").touch()
+        print(f"✅ Created assets/.keep")
 
         # Success message
         print("\n" + "="*60)
