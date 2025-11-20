@@ -99,6 +99,12 @@ configs/claude/skills/
 | `playwright-testing` | e2e, playwright, page object, integration test | 355 | E2E tests, user flows, integration tests |
 | `storybook-development` | storybook, story, component documentation | 315 | Component documentation, UI catalog, visual testing |
 
+### Skill Creation Skills
+
+| Skill | Trigger Keywords | Lines | Use When |
+|-------|-----------------|-------|----------|
+| `skill-creator` | create skill, new skill, skill creation, skill structure | 480 | Creating new Agent Skills or updating existing skills |
+
 ## How to Choose a Skill
 
 ### Rails Development
@@ -169,6 +175,16 @@ Need styling?
 ├─ Tailwind CSS → react-styling
 ├─ CSS Modules → react-styling
 └─ styled-components → react-styling
+```
+
+### Skill Creation
+
+```
+Need to create or update Agent Skills?
+├─ Create new skill → skill-creator
+├─ Update existing skill → skill-creator
+├─ Validate skill format → skill-creator
+└─ Learn best practices → skill-creator
 ```
 
 ## Shared Resources
@@ -489,6 +505,19 @@ Common standards and workflows referenced by all skills:
 - Error response testing
 - Integration testing
 - **Use when**: Writing tests for FastAPI endpoints
+
+## Skill Creation Skills
+
+### `skill-creator/`
+
+**Role**: Creating effective Agent Skills
+
+- Skill initialization and structure
+- YAML frontmatter validation
+- Progressive disclosure patterns
+- Best practices and conventions
+- Skill validation and testing
+- **Use when**: Creating new skills, updating existing skills, or learning skill authoring best practices
 
 ## Archived Skills
 
