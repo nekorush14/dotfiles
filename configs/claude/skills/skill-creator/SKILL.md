@@ -73,6 +73,7 @@ allowed-tools: [optional list]  # Optional: Restrict tool access
 ### Required Fields
 
 **name** (required):
+
 - Max 64 characters
 - Lowercase letters, numbers, hyphens only
 - Cannot start/end with hyphens
@@ -82,17 +83,20 @@ allowed-tools: [optional list]  # Optional: Restrict tool access
 Example: `python-core-development`, `rails-service-objects`
 
 **description** (required):
+
 - Max 1024 characters
 - No XML tags (< or >)
 - Must specify both functionality AND activation triggers
 - Written in third person
 
 Good example:
+
 ```
 description: Implement Python code with dataclasses, type hints, protocols, error handling, and async programming. Use when designing classes, implementing type safety, handling exceptions, or writing async code.
 ```
 
 Bad example:
+
 ```
 description: Helps with Python development
 ```
@@ -100,11 +104,13 @@ description: Helps with Python development
 ### Optional Fields
 
 **allowed-tools**: Restrict Claude's tool access within this skill
+
 ```yaml
 allowed-tools: [Read, Grep, Glob, Write, Edit, Bash, WebFetch]
 ```
 
 **metadata**: Additional metadata for skill organization
+
 ```yaml
 metadata:
   category: backend
@@ -117,22 +123,26 @@ metadata:
 Structure skills in three levels to manage context efficiently:
 
 ### Level 1: Metadata (Always Loaded)
+
 - name and description in YAML frontmatter
 - Claude uses this to decide whether to activate the skill
 
 ### Level 2: Skill Body (Loaded When Activated)
+
 - Overview and core principles (50-150 lines)
 - Essential guidelines and patterns
 - Common use cases
 - Keep main file under 500 lines
 
 ### Level 3: References (Loaded On Demand)
+
 - Detailed documentation in references/ directory
 - API specifications
 - Extended examples
 - One level deep maximum (no nested directories)
 
 Example:
+
 ```
 skill-name/
 ├── SKILL.md                    # Level 2: Core guidance
@@ -160,6 +170,7 @@ python configs/claude/skills/claude-code-skill-creator/scripts/init_skill.py ski
 ```
 
 This creates:
+
 - Directory structure
 - SKILL.md template with TODOs
 - Placeholder directories
@@ -176,6 +187,7 @@ This creates:
 6. **Related Skills**: Cross-references
 
 **Best practices**:
+
 - Use code examples for every pattern
 - Include WHY comments in code
 - Keep examples focused and minimal
@@ -185,6 +197,7 @@ This creates:
 ### 4. Add Reference Files
 
 Create references/ files for:
+
 - Detailed API documentation
 - Advanced patterns
 - Extended examples
@@ -195,12 +208,14 @@ Include table of contents for long reference files.
 ### 5. Add Utility Scripts
 
 Create scripts/ for:
+
 - Code generation
 - Validation
 - Data processing
 - Common operations
 
 Requirements:
+
 - Explicit error handling
 - Helpful error messages
 - Document all constants
@@ -214,6 +229,7 @@ python configs/claude/skills/claude-code-skill-creator/scripts/validate_skill.py
 ```
 
 Checks:
+
 - SKILL.md exists
 - Valid YAML frontmatter
 - Required fields present
@@ -232,13 +248,16 @@ Checks:
 ### Skill Names
 
 Use gerund form (verb + -ing) for action-based skills:
+
 - ✓ `processing-pdfs`, `analyzing-data`, `generating-reports`
 - ✗ `pdf-processor`, `data-analyzer`, `report-generator`
 
 Use domain-noun for knowledge/reference skills:
+
 - ✓ `python-core-development`, `rails-security`, `react-components`
 
 Avoid:
+
 - Vague terms: `helper`, `utils`, `tools`
 - Generic names: `backend`, `frontend`
 - Overly broad: `programming`, `development`
@@ -246,12 +265,14 @@ Avoid:
 ### File Names
 
 References:
+
 - `api-reference.md` - API documentation
 - `best-practices.md` - Best practices guide
 - `examples.md` - Extended examples
 - `advanced-patterns.md` - Advanced techniques
 
 Scripts:
+
 - `init_*.py` - Initialization scripts
 - `validate_*.py` - Validation scripts
 - `generate_*.py` - Generation scripts
@@ -261,27 +282,32 @@ Scripts:
 ### ❌ Avoid
 
 **Vague descriptions**:
+
 ```yaml
 description: Helps with Python development
 ```
 
 **Information Claude already knows**:
+
 ```markdown
 Python uses indentation for code blocks...
 ```
 
 **Overly complex main file** (>500 lines):
+
 ```markdown
 SKILL.md with 1000+ lines of content
 ```
 
 **Multiple responsibilities**:
+
 ```yaml
 name: backend-development  # Too broad
 description: Handle all backend tasks
 ```
 
 **Windows-style paths**:
+
 ```python
 path = "configs\\claude\\skills"  # Wrong
 ```
@@ -289,22 +315,26 @@ path = "configs\\claude\\skills"  # Wrong
 ### ✓ Use Instead
 
 **Specific descriptions with triggers**:
+
 ```yaml
 description: Implement Python code with dataclasses, type hints, protocols, error handling, and async programming. Use when designing classes, implementing type safety, handling exceptions, or writing async code.
 ```
 
 **Progressive disclosure**:
+
 ```markdown
 SKILL.md (300 lines) → references/api-reference.md → references/examples.md
 ```
 
 **Single responsibility**:
+
 ```yaml
 name: python-core-development
 description: Core Python class design and type safety
 ```
 
 **Forward slashes**:
+
 ```python
 path = "configs/claude/skills"  # Correct
 ```
@@ -316,21 +346,25 @@ Description format: `[What it does]. Use when [trigger scenarios].`
 Examples:
 
 **Good**:
+
 ```
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs.
 ```
 
 **Good**:
+
 ```
 description: Implement Python code with dataclasses, type hints, protocols, error handling, and async programming. Use when designing classes, implementing type safety, handling exceptions, or writing async code.
 ```
 
 **Bad** (missing triggers):
+
 ```
 description: Python development tool
 ```
 
 **Bad** (too vague):
+
 ```
 description: Helps with backend tasks
 ```
@@ -379,6 +413,7 @@ tree configs/claude/skills/new-skill-name
 ## Related Skills
 
 This skill helps create other skills. Once created, skills may reference:
+
 - Domain-specific skills (python-core-development, rails-service-objects)
 - Testing skills (pytest-testing, rspec-model-testing)
 - Framework skills (react-component-development, nextjs-app-development)
@@ -386,6 +421,7 @@ This skill helps create other skills. Once created, skills may reference:
 ## Reference Documentation
 
 See detailed documentation in references/:
+
 - [Best Practices](references/best-practices.md) - Comprehensive best practices
 - [Skill Structure](references/skill-structure.md) - Detailed structure guide
 
