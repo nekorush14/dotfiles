@@ -19,11 +19,11 @@ const data = JSON.parse('$escaped_input');
 
 function formatTokens(tokens) {
   if (tokens >= 1_000_000) {
-    return \`\${(tokens / 1_000_000).toFixed(1)}M\`;
+    return \`\${(tokens / 1_000_000).toFixed(1)}M tok\`;
   } else if (tokens >= 1_000) {
-    return \`\${(tokens / 1_000).toFixed(1)}k\`;
+    return \`\${(tokens / 1_000).toFixed(1)}k tok\`;
   }
-  return tokens.toString();
+  return \`\${tokens.toString()} tok\`;
 }
 
 function getColorForPercentage(percentage) {
@@ -185,10 +185,10 @@ process.stdout.write(
     gitStats,
     colors.brightOrange
   )}\\n\\x1b[0m\${colorize(
-    \`󰭻 Tokens: \${tokensDisplay}\`,
+    \`󰭻 : \${tokensDisplay}\`,
     colors.brightWhite
-  )} | \${color}󰈙 Context: \${percentage}%\\x1b[0m | \${colorize(
-    \` Costs: \${usageCostUsd}\`,
+  )} | \${color}󰈙 : \${percentage}%\\x1b[0m | \${colorize(
+    \` : \${usageCostUsd}\`,
     colors.brightMagenta
   )}\${
     claudeVersion ? \` | \${colorize(\`v\${claudeVersion}\`, colors.white)}\` : ''

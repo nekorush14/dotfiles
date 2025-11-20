@@ -29,7 +29,7 @@ When writing in Japanese, follow these rules:
 - JavaScript/Typescript: ESlint + Prettier
 - Python: PEP8
 - Ruby:
-  - Linter/Formatter: Rubocop
+  - Linter/Formatter: `bundle exec rubocop`
   - Ruby command: `$HOME/.rbenv/shims/ruby`
   - Rails: `bundle exec rails`
 - Go: gofmt
