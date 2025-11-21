@@ -1,5 +1,6 @@
 ---
 description: analyze this repository and answer the question from the user
+argument-hint: question
 ---
 # Analyze the repository and answer the questions
 

@@ -1,5 +1,6 @@
 ---
 description: "Create a commit message and exetute commit, also push to remote repository."
+argument-hint: ["scope"]
 ---
 # Create a commit and Push to remote repository
 

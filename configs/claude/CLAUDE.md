@@ -11,6 +11,7 @@ When writing in Japanese, follow these rules:
 
 - Insert a half-width space between half-width alphanumeric characters and full-width characters
 - Always use half-width punctuation marks (e.g., parentheses (), exclamation/question marks (!, ?), colons (:))
+- When creating or editing a file, it must always end with a newline character to avoid the “No newline at end of file” warning.
 
 ## Coding rules
 
