@@ -1,0 +1,23 @@
+{
+  "ide": {
+    "hasSeenNudge": true,
+    "enabled": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "ui": {
+    "theme": "ANSI"
+  },
+  "general": {
+    "previewFeatures": true
+  },
+  "securrity": {
+    "disableYoloMode": true
+  }
+}
