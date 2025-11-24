@@ -159,5 +159,14 @@
     "command": "~/.claude/statusline.ts",
     "padding": 0
   },
+  "enabledPlugins": {
+    "basic-kit@nekorush14-plugins": true,
+    "typescript-tools@nekorush14-plugins": false,
+    "engineering-tools@nekorush14-plugins": false,
+    "rails-tools@nekorush14-plugins": false,
+    "nextjs-tools@nekorush14-plugins": false,
+    "python-tools@nekorush14-plugins": false,
+    "react-tools@nekorush14-plugins": false
+  },
   "alwaysThinkingEnabled": true
 }
