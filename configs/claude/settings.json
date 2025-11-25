@@ -168,5 +168,6 @@
     "python-tools@nekorush14-plugins": false,
     "react-tools@nekorush14-plugins": false
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "model": "sonnet"
 }
