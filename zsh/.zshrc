@@ -117,6 +117,8 @@ alias bvim='/bin/vim'
 alias v='nvim'
 alias vim='nvim'
 alias ocat='/bin/cat'
+alias tree='eza --tree --icons --git-ignore'
+alias treeall='eza --tree --all --icons --git-ignore'
 alias fd='fdfind'
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
 alias spt='spotify_player'

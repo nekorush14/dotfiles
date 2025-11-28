@@ -18,3 +18,7 @@ vim.g.lazyvim_python_ruff = "ruff"
 -- For VSCode Neovim extension.
 vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
+
+-- Disable spell checking for Japanese and Markdown files
+vim.opt.spell = false
+vim.opt.spelllang = { "en" }

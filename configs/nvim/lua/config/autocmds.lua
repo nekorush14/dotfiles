@@ -7,6 +7,9 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Disable LazyVim's auto spell checking
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
 -- Restore Ctrl+l clear functionality in terminal mode
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function(ev)
