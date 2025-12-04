@@ -1,5 +1,34 @@
 #!/usr/bin/env bun
 
+// Type for the optional local module
+type GetModelDisplayName = (displayName: string | undefined) => string;
+
+// Default implementation for model display name
+function defaultGetModelDisplayName(displayName: string | undefined): string {
+  if (!displayName) {
+    return "Unknown";
+  }
+
+  // AWS Inference Profile ARN pattern: arn:aws:bedrock:...
+  if (displayName.startsWith("arn:aws:")) {
+    return "by AWS";
+  }
+
+  return displayName;
+}
+
+// Try to load local configuration, fallback to default
+let getModelDisplayName: GetModelDisplayName = defaultGetModelDisplayName;
+
+try {
+  const localModule = await import("./statusline.extends");
+  if (typeof localModule.getModelDisplayName === "function") {
+    getModelDisplayName = localModule.getModelDisplayName;
+  }
+} catch {
+  // statusline.extends.ts not found, use default implementation
+}
+
 interface SessionData {
   model: {
     display_name: string;
@@ -201,14 +230,7 @@ async function main() {
   const color = getColorForPercentage(percentage);
 
   // Format output: Opus 4.1 | Tokens: 1.0k | Context: 10%
-  let modelName = "Unknown";
-
-  // if data.model?.display_name begins with "arn" then set modelName to "Provided by AWS Bedrock"
-  if (data.model?.display_name?.startsWith("arn:aws:")) {
-    modelName = "by AWS Bedrock";
-  } else {
-    modelName = data.model?.display_name || "Unknown";
-  }
+  const modelName = getModelDisplayName(data.model?.display_name);
 
   const tokensDisplay = formatTokens(totalTokens);
   const gtitBranch = getGitBranch();
