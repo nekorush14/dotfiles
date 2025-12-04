@@ -85,13 +85,26 @@ return {
 					{ section = "keys", gap = 1, padding = 1 },
 					function()
 						local in_git = Snacks.git.get_root() ~= nil
+						local has_remote = false
+						if in_git then
+							-- Check if git remote exists
+							local handle = io.popen("git remote 2>/dev/null")
+							if handle then
+								local result = handle:read("*a")
+								handle:close()
+								has_remote = result and result:match("%S") ~= nil
+							end
+						end
+
 						local cmds = {
 							{
 								title = "Open Issues",
-								cmd = "gh issue list -L 3",
+								cmd = has_remote and "gh issue list -L 3" or "echo 'No remote repository'",
 								key = "i",
 								action = function()
-									vim.fn.jobstart("gh issue list --web", { detach = true })
+									if has_remote then
+										vim.fn.jobstart("gh issue list --web", { detach = true })
+									end
 								end,
 								icon = " ",
 								height = 7,
@@ -99,10 +112,12 @@ return {
 							{
 								icon = " ",
 								title = "Open PRs",
-								cmd = "gh pr list -L 3",
+								cmd = has_remote and "gh pr list -L 3" or "echo 'No remote repository'",
 								key = "P",
 								action = function()
-									vim.fn.jobstart("gh pr list --web", { detach = true })
+									if has_remote then
+										vim.fn.jobstart("gh pr list --web", { detach = true })
+									end
 								end,
 								height = 7,
 							},
