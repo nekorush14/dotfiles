@@ -131,6 +131,7 @@ alias ghqu='ghq get -p -u'
 alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
 alias tdw="tmux-default-window.sh"
 alias wm-reset="yabai --restart-service && skhd --restart-service"
+alias imgcat="viu"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

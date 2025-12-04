@@ -166,7 +166,9 @@
     "rails-tools@nekorush14-plugins": false,
     "nextjs-tools@nekorush14-plugins": false,
     "python-tools@nekorush14-plugins": false,
-    "react-tools@nekorush14-plugins": false
+    "react-tools@nekorush14-plugins": false,
+    "angular-v21-tools@nekorush14-plugins": true,
+    "design-system-tools@nekorush14-plugins": true
   },
   "alwaysThinkingEnabled": true
 }
