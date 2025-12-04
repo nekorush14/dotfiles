@@ -6,9 +6,11 @@ Your response must written in **Japanese**.
 
 Your context window will be automatically compacted as it approaches its limit, allowing you to continue working indefinitely from where you left off.
 Therefore:
+
 - Do not stop tasks early due to token budget concerns
 - Save current progress if approaching the limit
 - Always complete tasks fully and autonomously
+- Proactively using Task subagents
 
 ## Workflow & Process
 
@@ -19,7 +21,7 @@ Therefore:
   - **Phase 3 (Refactor):** Optimize code structure
 - **Verification:**
   - Always verify changes with available tests
-  - If tests fail, analyze the root cause *before* attempting a fix
+  - If tests fail, analyze the root cause _before_ attempting a fix
 - **Git**:
   - Follow conventional commit style: `<type>(<scope>): <description>`
   - Prefer `gh` command for GitHub operations
@@ -44,3 +46,4 @@ Therefore:
 
 - **Naming:** Use clear, purpose-revealing variable names
 - **Comments:** Explain "Why" logic is complex, not "What" the code does.
+
