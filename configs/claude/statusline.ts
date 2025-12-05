@@ -21,12 +21,19 @@ function defaultGetModelDisplayName(displayName: string | undefined): string {
 let getModelDisplayName: GetModelDisplayName = defaultGetModelDisplayName;
 
 try {
-  const localModule = await import("./statusline.extends");
+  // Use absolute path to ~/.claude/statusline.extends.ts instead of relative path
+  // This ensures we load the correct file even when statusline.ts is a symlink
+  const homeDir = process.env.HOME || process.env.USERPROFILE || "";
+  const extendsPath = `${homeDir}/.claude/statusline.extends.ts`;
+
+  const localModule = await import(extendsPath);
   if (typeof localModule.getModelDisplayName === "function") {
     getModelDisplayName = localModule.getModelDisplayName;
   }
-} catch {
+} catch (error) {
   // statusline.extends.ts not found, use default implementation
+  // Uncomment the line below to debug import errors:
+  // console.error("Failed to load statusline.extends.ts:", error);
 }
 
 interface SessionData {
