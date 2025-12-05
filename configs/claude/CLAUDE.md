@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 Your response must written in **Japanese**.
+Use `General-purpose` subagents proactively.
 
 ## Work Persistence
 
@@ -10,7 +11,6 @@ Therefore:
 - Do not stop tasks early due to token budget concerns
 - Save current progress if approaching the limit
 - Always complete tasks fully and autonomously
-- Proactively using Task subagents
 
 ## Workflow & Process
 
@@ -46,4 +46,3 @@ Therefore:
 
 - **Naming:** Use clear, purpose-revealing variable names
 - **Comments:** Explain "Why" logic is complex, not "What" the code does.
-
