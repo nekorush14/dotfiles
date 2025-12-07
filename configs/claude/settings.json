@@ -168,7 +168,20 @@
     "python-tools@nekorush14-plugins": false,
     "react-tools@nekorush14-plugins": false,
     "angular-v21-tools@nekorush14-plugins": true,
-    "design-system-tools@nekorush14-plugins": true
+    "design-system-tools@nekorush14-plugins": true,
+    "agent-sdk-dev@claude-code-plugins": false,
+    "claude-opus-4-5-migration@claude-code-plugins": false,
+    "code-review@claude-code-plugins": false,
+    "commit-commands@claude-code-plugins": false,
+    "explanatory-output-style@claude-code-plugins": false,
+    "feature-dev@claude-code-plugins": false,
+    "frontend-design@claude-code-plugins": false,
+    "hookify@claude-code-plugins": false,
+    "learning-output-style@claude-code-plugins": false,
+    "plugin-dev@claude-code-plugins": false,
+    "pr-review-toolkit@claude-code-plugins": false,
+    "ralph-wiggum@claude-code-plugins": false,
+    "security-guidance@claude-code-plugins": false
   },
   "alwaysThinkingEnabled": true
 }
