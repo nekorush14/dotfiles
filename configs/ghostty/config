@@ -11,7 +11,7 @@ window-height = 40
 mouse-hide-while-typing
 macos-non-native-fullscreen = true
 # macos-titlebar-style = hidden
-title = " "
+# title = " "
 window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = true
@@ -29,3 +29,7 @@ cursor-style-blink = true
 
 keybind = "global:ctrl+shift+t=toggle_quick_terminal"
 keybind = shift+enter=text:\x1b\r
+
+# Split keybindings
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+d=new_split:right
