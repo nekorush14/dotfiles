@@ -1,6 +1,7 @@
 ---
-description: "Create a commit message and exetute commit, also push to remote repository."
-argument-hint: ["scope"]
+description: Create a commit message and execute commit, also push to remote repository.
+allowed-tools: Bash(git status:*), Bash(git add:*), Bash(git diff:*), Bash(git log:*)
+argument-hint: [scope]
 ---
 # Create a commit and Push to remote repository
 
@@ -9,15 +10,11 @@ You must follow the flow section.
 
 ## Flow
 
-1. YOU **DO NOT** run `git add .` command to stage file. (You must run `git add <file>` command to stage file.)
+1. YOU **DO NOT** run `git add .` command to stage file. (You must run `git add <file>`
+command to stage file.)
 2. Run `git status` to confirm the files to be committed.
 3. Commit it by following the rule of [conversational commit](https://www.conventionalcommits.org/en/v1.0.0/).
 4. Push it to remote repository.
-
-## Commit message rule
-
-You must follow the rule of [conversational commit](https://www.conventionalcommits.org/en/v1.0.0/) and you must write commit message by English.
-You also follow the following type.
 
 ### Available types
 
@@ -43,3 +40,9 @@ feat(auth_controller): Add login functionality
 fix(example_api_handler): Resolve user data fetching issue
 docs(readme): Update installation instructions
 ```
+
+## Security Considerations
+
+- NEVER use `git push --force` without explicit user approval
+- **DO NOT** commit sensitive files (.env, credentials.json, *.pem, etc.)
+- Warn the user if such files are staged
