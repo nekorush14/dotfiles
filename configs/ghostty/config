@@ -4,7 +4,7 @@ font-size = 14
 font-thicken
 
 # Terminal UI configs
-theme = "Github Dark"
+theme = "TokyoNight"
 background = #1a1b2c
 window-width = 140
 window-height = 40
@@ -23,8 +23,9 @@ quick-terminal-animation-duration = 0
 # Shell configs
 command = /bin/zsh
 shell-integration = zsh
+shell-integration-features = no-cursor
 cursor-style = block
-cursor-style-blink = false
+cursor-style-blink = true 
 
 keybind = "global:ctrl+shift+t=toggle_quick_terminal"
 keybind = shift+enter=text:\x1b\r
