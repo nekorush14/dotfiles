@@ -3,6 +3,14 @@
 Your response must written in **Japanese**.
 Use `General-purpose` subagents proactively.
 
+## Subagent Aliases
+
+When the user mentions the following aliases, use the corresponding subagent:
+
+| Alias | Subagent Type | Description |
+|-------|---------------|-------------|
+| `gpagent` | `General-purpose` | General-purpose agent for complex, multi-step tasks |
+
 ## Work Persistence
 
 Your context window will be automatically compacted as it approaches its limit, allowing you to continue working indefinitely from where you left off.
