@@ -184,7 +184,8 @@
     "plugin-dev@claude-code-plugins": false,
     "pr-review-toolkit@claude-code-plugins": false,
     "ralph-wiggum@claude-code-plugins": false,
-    "security-guidance@claude-code-plugins": false
+    "security-guidance@claude-code-plugins": false,
+    "generative-media-kit@nekorush14-plugins": true
   },
   "alwaysThinkingEnabled": true
 }

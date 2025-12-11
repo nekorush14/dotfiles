@@ -37,18 +37,33 @@ try {
 }
 
 interface SessionData {
+  hook_event_name?: string;
+  session_id?: string;
+  transcript_path?: string;
+  cwd?: string;
   model: {
+    id: string;
     display_name: string;
   };
   workspace: {
     current_dir: string;
+    project_dir: string;
   };
-  transcript_path?: string;
-  session_id?: string;
-  cwd?: string;
   version?: string;
+  output_style: {
+    name: string;
+  };
   cost: {
     total_cost_usd?: number;
+    total_duration_ms?: number;
+    total_api_duration_ms?: number;
+    total_lines_added?: number;
+    total_lines_removed?: number;
+  };
+  context_window: {
+    total_input_tokens: number;
+    total_output_tokens: number;
+    context_window_size: number;
   };
 }
 
@@ -232,9 +247,11 @@ async function main() {
   }
 
   // Auto-compact threshold is 80% of 200K tokens
-  const autoCompactThreshold = 160_000;
-  const percentage = Math.round((totalTokens / autoCompactThreshold) * 100);
-  const color = getColorForPercentage(percentage);
+  // const autoCompactThreshold = 160_000;
+  // const percentage = Math.round((totalTokens / autoCompactThreshold) * 100);
+  const percentageRaw = (totalTokens / data.context_window.context_window_size) * 100;
+  const percentage = (Math.round(percentageRaw * 100) / 100).toFixed(2);
+  const color = getColorForPercentage(percentageRaw);
 
   // Format output: Opus 4.1 | Tokens: 1.0k | Context: 10%
   const modelName = getModelDisplayName(data.model?.display_name);
@@ -251,6 +268,7 @@ async function main() {
   const currentDir = formatCurrentDir(data.workspace?.current_dir || "");
   const usageCostUsd = `${(data.cost?.total_cost_usd || 0).toFixed(2)} USD`;
   const claudeVersion = getClaudeVersion();
+  const outputStyle = data.output_style?.name || "";
 
   process.stdout.write(
     `\x1b[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
@@ -265,9 +283,8 @@ async function main() {
     )} (${color}${percentage}%\x1b[0m) | ${colorize(
       `  ${usageCostUsd}`,
       colors.brightMagenta
-    )}${
-      claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""
-    }\x1b[0m `
+    )}${outputStyle ? ` | ${colorize(` ${outputStyle}`, colors.cyan)}` : ""
+    }${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""}\x1b[0m `
   );
 }
 
