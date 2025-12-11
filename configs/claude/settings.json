@@ -2,7 +2,10 @@
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
   },
-  "includeCoAuthoredBy": true,
+  "attribution": {
+    "commit": "Generated with Claude Code",
+    "pr": "Generated with Claude Code"
+  },
   "permissions": {
     "allow": [
       "Bash(ls:*)",
