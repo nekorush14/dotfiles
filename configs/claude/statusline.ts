@@ -283,7 +283,7 @@ async function main() {
     )} (${color}${percentage}%\x1b[0m) | ${colorize(
       `  ${usageCostUsd}`,
       colors.brightMagenta
-    )}${outputStyle ? ` | ${colorize(` ${outputStyle}`, colors.cyan)}` : ""
+    )}${outputStyle && outputStyle !== "default" ? ` | ${colorize(` ${outputStyle}`, colors.cyan)}` : ""
     }${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""}\x1b[0m `
   );
 }
