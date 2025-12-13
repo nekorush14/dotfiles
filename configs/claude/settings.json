@@ -3,8 +3,8 @@
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
   },
   "attribution": {
-    "commit": "Generated with Claude Code",
-    "pr": "Generated with Claude Code"
+    "commit": "Created with Claude Code",
+    "pr": "Created with Claude Code"
   },
   "permissions": {
     "allow": [
@@ -136,11 +136,22 @@
   "hooks": {
     "Notification": [
       {
-        "matcher": "",
+        "matcher": "permission_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Claude Code request to grant a permission\" with title \"🚧 Claude Code\" subtitle \"Request permission\" sound name \"Glass\"'"
+            "command": "$HOME/.claude/hooks/notify.sh permission"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/notify.sh plan"
           }
         ]
       }
@@ -151,7 +162,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"Task completed\" with title \"✅ Claude Code\" subtitle \"Completed\" sound name \"Hero\"'"
+            "command": "$HOME/.claude/hooks/notify.sh stop"
           }
         ]
       }
