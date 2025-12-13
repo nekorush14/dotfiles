@@ -1,6 +1,6 @@
 # Font configs
 font-family = "Moralerspace Neon"
-font-size = 14 
+font-size = 20 
 font-thicken
 
 # Terminal UI configs
@@ -10,11 +10,12 @@ window-width = 140
 window-height = 40
 mouse-hide-while-typing
 macos-non-native-fullscreen = true
-# macos-titlebar-style = hidden
+macos-titlebar-style = transparent
 # title = " "
-window-padding-x = 5
-window-padding-y = 5
+window-padding-x = 10
+window-padding-y = 10
 window-padding-balance = true
+window-colorspace = "display-p3"
 
 quick-terminal-position = "top"
 quick-terminal-screen = "main"
@@ -39,3 +40,30 @@ keybind = all:shift+page_up=scroll_page_up
 keybind = all:shift+page_down=scroll_page_down
 keybind = all:shift+home=scroll_to_top
 keybind = all:shift+end=scroll_to_bottom
+
+
+# Prefix based keybindings
+keybind = cmd+g>r=reload_config
+keybind = cmd+g>x=close_surface
+
+## Tab
+keybind = cmd+g>c=new_tab
+keybind = cmd+g>w=close_tab
+keybind = cmd+g>shift+l=next_tab
+keybind = cmd+g>shift+h=previous_tab
+keybind = cmd+g>comma=move_tab:-1
+keybind = cmd+g>period=move_tab:1
+
+## Pane
+keybind = cmd+g>backslash=new_split:right
+keybind = cmd+g>quote=new_split:down
+
+keybind = cmd+g>j=goto_split:bottom
+keybind = cmd+g>k=goto_split:top
+keybind = cmd+g>h=goto_split:left
+keybind = cmd+g>l=goto_split:right
+
+keybind = cmd+g>z=toggle_split_zoom
+
+keybind = cmd+g>e=equalize_splits
+
