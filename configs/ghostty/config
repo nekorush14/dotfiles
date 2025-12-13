@@ -33,3 +33,9 @@ keybind = shift+enter=text:\x1b\r
 # Split keybindings
 keybind = cmd+shift+d=new_split:down
 keybind = cmd+d=new_split:right
+
+# Scroll keybindings (all: prefix to work in Claude Code, etc.)
+keybind = all:shift+page_up=scroll_page_up
+keybind = all:shift+page_down=scroll_page_down
+keybind = all:shift+home=scroll_to_top
+keybind = all:shift+end=scroll_to_bottom

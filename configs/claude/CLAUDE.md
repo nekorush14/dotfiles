@@ -7,8 +7,8 @@ Use `General-purpose` subagents proactively.
 
 When the user mentions the following aliases, use the corresponding subagent:
 
-| Alias | Subagent Type | Description |
-|-------|---------------|-------------|
+| Alias     | Subagent Type     | Description                                         |
+| --------- | ----------------- | --------------------------------------------------- |
 | `gpagent` | `General-purpose` | General-purpose agent for complex, multi-step tasks |
 
 ## Work Persistence
@@ -49,6 +49,7 @@ Therefore:
 
 - **Secrets:** NEVER output hardcoded API keys or passwords. Suggest environment variables.
 - **Commands:** When suggesting shell commands, ensure they are non-destructive or include warnings.
+  - Use `safe-rm` command instead of `rm` for deletions.
 
 ## Universal Coding Style
 
