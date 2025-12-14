@@ -5,7 +5,7 @@
 
 # MCP | LLM
 .serena
-.mcp.json
+# .mcp.json
 
 # Developments
 .idea/
