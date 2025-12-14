@@ -40,6 +40,7 @@ Therefore:
 
 ## Writing
 
+- Use tree symbols (e.g., `└─`, `├─`) only for directory structures or text-based diagrams when Mermaid is unavailable.
 - **When writing in Japanese, follow these rules**:
   - Insert a half-width space between half-width alphanumeric characters and full-width characters
   - Always use half-width punctuation marks (e.g., parentheses (), exclamation/question marks (!, ?), colons (:))
