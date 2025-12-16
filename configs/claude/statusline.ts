@@ -64,20 +64,15 @@ interface SessionData {
     total_input_tokens: number;
     total_output_tokens: number;
     context_window_size: number;
+    current_usage: {
+      input_tokens: number;
+      output_tokens: number;
+      cache_creation_input_tokens: number;
+      cache_read_input_tokens: number;
+    }
   };
 }
 
-interface TranscriptEntry {
-  type: string;
-  message?: {
-    usage?: {
-      input_tokens?: number;
-      output_tokens?: number;
-      cache_creation_input_tokens?: number;
-      cache_read_input_tokens?: number;
-    };
-  };
-}
 
 function formatTokens(tokens: number): string {
   if (tokens >= 1_000_000) {
@@ -210,40 +205,15 @@ async function main() {
   const input = await Bun.stdin.text();
   const data: SessionData = JSON.parse(input);
 
-  // Calculate total tokens from transcript file
+  // Calculate current tokens from context_window.current_usage
   let totalTokens = 0;
 
-  if (data.transcript_path) {
-    try {
-      const file = Bun.file(data.transcript_path);
-      const content = await file.text();
-      const lines = content.trim().split("\n");
-
-      // Get only the last assistant message with usage info
-      let lastUsage = null;
-
-      for (const line of lines) {
-        try {
-          const entry: TranscriptEntry = JSON.parse(line);
-          if (entry.type === "assistant" && entry.message?.usage) {
-            lastUsage = entry.message.usage;
-          }
-        } catch {
-          // Skip invalid JSON lines
-        }
-      }
-
-      // Use the cumulative tokens from the last assistant message
-      if (lastUsage) {
-        totalTokens =
-          (lastUsage.input_tokens || 0) +
-          (lastUsage.output_tokens || 0) +
-          (lastUsage.cache_creation_input_tokens || 0) +
-          (lastUsage.cache_read_input_tokens || 0);
-      }
-    } catch (error) {
-      // If we can't read the transcript, tokens remain 0
-    }
+  const usage = data.context_window?.current_usage;
+  if (usage) {
+    totalTokens =
+      (usage.input_tokens || 0) +
+      (usage.cache_creation_input_tokens || 0) +
+      (usage.cache_read_input_tokens || 0);
   }
 
   // Auto-compact threshold is 80% of 200K tokens
