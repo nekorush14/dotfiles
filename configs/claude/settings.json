@@ -139,7 +139,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/notify.sh permission"
+            "command": "claude-notify permission"
           }
         ]
       }
@@ -150,7 +150,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/notify.sh plan"
+            "command": "claude-notify plan"
           }
         ]
       }
@@ -161,7 +161,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/notify.sh stop"
+            "command": "claude-notify stop"
           }
         ]
       }
