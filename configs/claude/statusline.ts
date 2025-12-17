@@ -83,6 +83,53 @@ function formatTokens(tokens: number): string {
   return tokens.toString();
 }
 
+// Context percentage calculation modes
+type ContextCalculationMode = "buffer" | "threshold" | "raw";
+
+// Auto-compact buffer size (reserved space for compaction)
+const AUTO_COMPACT_BUFFER = 45_000;
+
+// Auto-compact threshold (95% of context window)
+const AUTO_COMPACT_THRESHOLD_RATIO = 0.95;
+
+/**
+ * Calculate context usage percentage based on the specified mode.
+ *
+ * @param usedTokens - Current token usage
+ * @param contextWindowSize - Total context window size (e.g., 200K)
+ * @param mode - Calculation mode:
+ *   - "buffer": Use effective context (total - 45K buffer). Recommended.
+ *   - "threshold": Use 95% auto-compact threshold.
+ *   - "raw": Use total context window size (less accurate).
+ * @returns Percentage of context used
+ */
+function calculateContextPercentage(
+  usedTokens: number,
+  contextWindowSize: number,
+  mode: ContextCalculationMode = "buffer"
+): number {
+  let effectiveSize: number;
+
+  switch (mode) {
+    case "buffer":
+      // Effective context = total - autocompact buffer (45K)
+      // This matches /context command's "Free space" calculation
+      effectiveSize = contextWindowSize - AUTO_COMPACT_BUFFER;
+      break;
+    case "threshold":
+      // Use 95% threshold (official auto-compact trigger point)
+      effectiveSize = contextWindowSize * AUTO_COMPACT_THRESHOLD_RATIO;
+      break;
+    case "raw":
+    default:
+      // Use total context window (less accurate)
+      effectiveSize = contextWindowSize;
+      break;
+  }
+
+  return (usedTokens / effectiveSize) * 100;
+}
+
 function getColorForPercentage(percentage: number): string {
   if (percentage < 70) {
     return "\x1b[32m"; // Green
@@ -216,10 +263,13 @@ async function main() {
       (usage.cache_read_input_tokens || 0);
   }
 
-  // Auto-compact threshold is 80% of 200K tokens
-  // const autoCompactThreshold = 160_000;
-  // const percentage = Math.round((totalTokens / autoCompactThreshold) * 100);
-  const percentageRaw = (totalTokens / data.context_window.context_window_size) * 100;
+  // Calculate context percentage using effective context (excluding autocompact buffer)
+  // Change the mode to "threshold" or "raw" if needed
+  const percentageRaw = calculateContextPercentage(
+    totalTokens,
+    data.context_window.context_window_size,
+    "buffer" // "buffer" (recommended) | "threshold" | "raw"
+  );
   const percentage = (Math.round(percentageRaw * 100) / 100).toFixed(2);
   const color = getColorForPercentage(percentageRaw);
 

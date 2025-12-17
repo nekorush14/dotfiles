@@ -33,13 +33,19 @@ quick-terminal-position = "top"
 quick-terminal-screen = "main"
 quick-terminal-animation-duration = 0
 
+background-opacity = 0.85
+background-blur-radius = 50
+
 # Shell configs
 command = /bin/zsh
 shell-integration = zsh
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true 
+copy-on-select = true
 
+# Key configs
+macos-option-as-alt = true
 keybind = "global:ctrl+shift+t=toggle_quick_terminal"
 keybind = shift+enter=text:\x1b\r
 
@@ -52,7 +58,6 @@ keybind = all:shift+page_up=scroll_page_up
 keybind = all:shift+page_down=scroll_page_down
 keybind = all:shift+home=scroll_to_top
 keybind = all:shift+end=scroll_to_bottom
-
 
 # Prefix based keybindings
 keybind = cmd+g>r=reload_config
