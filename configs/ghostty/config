@@ -35,6 +35,7 @@ quick-terminal-animation-duration = 0
 
 background-opacity = 0.85
 background-blur-radius = 50
+unfocused-split-opacity = 0.75
 
 # Shell configs
 command = /bin/zsh
