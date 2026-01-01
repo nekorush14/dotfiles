@@ -1,10 +1,8 @@
 {
   "env": {
-    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
-  },
-  "attribution": {
-    "commit": "Created with Claude Code",
-    "pr": "Created with Claude Code"
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+    "ENABLE_TOOL_SEARCH": "true",
+    "ENABLE_EXPERIMENTAL_MCP_CLI": "false"
   },
   "permissions": {
     "allow": [
@@ -91,6 +89,7 @@
       "Bash($HOME/.rbenv/shims/bundle exec rspec:*)",
       "Bash(safe-rm:*)",
       "Read($HOME/.claude/skills/**)",
+      "Read(.claude/skills/**)",
       "mcp__context7__get_library_docs"
     ],
     "deny": [
@@ -116,6 +115,7 @@
       "Bash(git checkout:*)",
       "Bash(git remote set-url:*)",
       "Bash(git remote add:*)",
+      "Bash(git rm:*)",
       "Bash(ssh:*)",
       "Bash(scp:*)",
       "Bash(rsync:*)",
