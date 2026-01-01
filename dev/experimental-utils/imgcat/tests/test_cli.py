@@ -23,11 +23,13 @@ class TestCLI:
         result = runner.invoke(main, ["/nonexistent/file.png"])
         assert result.exit_code != 0
 
-    def test_main_no_files(self):
-        """Test CLI without any files."""
+    def test_main_no_files_empty_directory(self, tmp_path, monkeypatch):
+        """Test CLI without any files in empty directory."""
+        monkeypatch.chdir(tmp_path)
         runner = CliRunner()
         result = runner.invoke(main, [])
         assert result.exit_code != 0
+        assert "No image files found" in result.output
 
     def test_get_terminal_pixel_size(self):
         """Test terminal pixel size detection."""
