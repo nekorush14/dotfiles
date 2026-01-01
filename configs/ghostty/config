@@ -85,3 +85,18 @@ keybind = cmd+g>z=toggle_split_zoom
 
 keybind = cmd+g>e=equalize_splits
 
+## Vim mode
+# # Entry point
+# keybind = alt+v=activate_key_table:vim
+# 
+# # Key table definition
+# keybind = vim/
+# 
+# # Line movement
+# keybind = vim/j=scroll_page_lines:1
+# keybind = vim/k=scroll_page_lines:-1
+# 
+# # Page movement
+# keybind = vim/ctrl+d=scroll_page_down
+# keybind = vim/ctrl+u=scroll_page_up
+# keybind = vim/ctrl+f=scroll_page_down
