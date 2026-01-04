@@ -8,6 +8,7 @@
   autocrlf = input
   pager = delta
 	excludesfile = ~/.gitignore_global
+	quotePath = false
 
 [alias]
   a = add -p
