@@ -76,20 +76,20 @@ keybind = cmd+g>period=move_tab:1
 keybind = cmd+g>backslash=new_split:right
 keybind = cmd+g>quote=new_split:down
 
-keybind = cmd+g>j=goto_split:bottom
-keybind = cmd+g>k=goto_split:top
-keybind = cmd+g>h=goto_split:left
-keybind = cmd+g>l=goto_split:right
+# keybind = cmd+g>j=goto_split:bottom
+# keybind = cmd+g>k=goto_split:top
+# keybind = cmd+g>h=goto_split:left
+# keybind = cmd+g>l=goto_split:right
 
 keybind = cmd+g>z=toggle_split_zoom
 
 keybind = cmd+g>e=equalize_splits
 
 ### Resize
-keybind = cmd+g>alt+h=resize_split:left,50
-keybind = cmd+g>alt+j=resize_split:down,30
-keybind = cmd+g>alt+k=resize_split:up,30
-keybind = cmd+g>alt+l=resize_split:right,50
+keybind = cmd+g>h=resize_split:left,50
+keybind = cmd+g>j=resize_split:down,30
+keybind = cmd+g>k=resize_split:up,30
+keybind = cmd+g>l=resize_split:right,50
 
 ## Vim mode
 # # Entry point

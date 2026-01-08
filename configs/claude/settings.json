@@ -130,7 +130,8 @@
       "Write(.env*)",
       "Write(**/secrets/**)",
       "NotebookEdit"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "hooks": {
     "Notification": [
