@@ -85,6 +85,12 @@ keybind = cmd+g>z=toggle_split_zoom
 
 keybind = cmd+g>e=equalize_splits
 
+### Resize
+keybind = cmd+g>alt+h=resize_split:left,50
+keybind = cmd+g>alt+j=resize_split:down,30
+keybind = cmd+g>alt+k=resize_split:up,30
+keybind = cmd+g>alt+l=resize_split:right,50
+
 ## Vim mode
 # # Entry point
 # keybind = alt+v=activate_key_table:vim
