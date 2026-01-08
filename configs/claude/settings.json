@@ -176,5 +176,6 @@
     "generative-media-kit@nekorush14-plugins": true,
     "basic-kit@nekorush14-plugins": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "language": "Japanese"
 }
