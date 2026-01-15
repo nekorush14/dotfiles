@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 Your response must written in **Japanese**.
-Use `General-purpose` subagents proactively.
+Use `general-purpose` subagents proactively.
 
 ## Subagent Aliases
 
@@ -9,7 +9,7 @@ When the user mentions the following aliases, use the corresponding subagent:
 
 | Alias     | Subagent Type     | Description                                         |
 | --------- | ----------------- | --------------------------------------------------- |
-| `gpagent` | `General-purpose` | General-purpose agent for complex, multi-step tasks |
+| `gpagent` | `general-purpose` | General-purpose agent for complex, multi-step tasks |
 
 ## Work Persistence
 
@@ -32,11 +32,13 @@ Therefore:
   - If tests fail, analyze the root cause _before_ attempting a fix
 - **Git**:
   - Follow conventional commit style: `<type>(<scope>): <description>`
-  - Prefer `gh` command for GitHub operations
+  - Use `gh` command for any GitHub operations: such as getting PR details, issue info, creating PRs, etc.
   - Write code comments in English
   - One commit per logical change
   - Create new reverting commit instead of rewriting history
   - Always specify origin and branch: `git push <origin> <branch>`
+- Grep:
+  - Use `rg` (ripgrep) for searching codebase instead of `grep`
 
 ## Writing
 
