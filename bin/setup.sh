@@ -153,6 +153,9 @@ main() {
     # Single file symlinks
     "tmux/.tmux.conf:$HOME/.tmux.conf"
     "zsh/.zshrc:$HOME/.zshrc"
+
+    # ~/.local/bin targets
+    "claude/hooks/notify.sh:$HOME/.local/bin/claude-notify"
   )
 
   # Process each mapping
