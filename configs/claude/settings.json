@@ -175,8 +175,10 @@
   },
   "enabledPlugins": {
     "generative-media-kit@nekorush14-plugins": true,
-    "basic-kit@nekorush14-plugins": true
+    "basic-kit@nekorush14-plugins": true,
+    "learning-output-style@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true,
-  "language": "Japanese"
+  "language": "Japanese",
+  "alwaysThinkingEnabled": true
 }
