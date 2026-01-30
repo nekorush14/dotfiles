@@ -7,9 +7,10 @@ Use `general-purpose` subagents proactively.
 
 When the user mentions the following aliases, use the corresponding subagent:
 
-| Alias     | Subagent Type     | Description                                         |
-| --------- | ----------------- | --------------------------------------------------- |
-| `gpagent` | `general-purpose` | General-purpose agent for complex, multi-step tasks |
+| Alias | Subagent Type | Description |
+| ----- | ------------- | ----------- |
+| `ogpagent` | `general-purpose` | Builtin general-purpose agent for complex, multi-step tasks |
+| `gpagent` | `general-purpose-inherit` | Inherits agent model from the main agent for general-purpose tasks |
 
 ## Work Persistence
 

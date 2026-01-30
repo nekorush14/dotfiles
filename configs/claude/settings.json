@@ -2,7 +2,7 @@
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "ENABLE_TOOL_SEARCH": "true",
-    "ENABLE_EXPERIMENTAL_MCP_CLI": "false"
+    "USE_BUILTIN_RIPGREP": "1"
   },
   "permissions": {
     "allow": [
@@ -133,6 +133,17 @@
     ],
     "defaultMode": "plan"
   },
+  "showTurnDuration": false,
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "(=^･ω･^=) にゃんぷっぷー",
+      "(=^･ω･^=) にゃーん",
+      "(=^･ω･^=) 作業は偉業",
+      "(=^･ω･^=) ウルトラ偉業",
+      "(=^･ω･^=) レターパックで現金を送れは全て詐欺です"
+    ]
+  },
   "hooks": {
     "Notification": [
       {
@@ -178,5 +189,6 @@
     "basic-kit@nekorush14-plugins": true
   },
   "alwaysThinkingEnabled": true,
+  "model": "opus",
   "language": "Japanese"
 }
