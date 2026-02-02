@@ -2,6 +2,7 @@
 name: ask
 description: Analyze repository and answer user questions through systematic code exploration, GitHub issue/PR search (gh command), and web document search. Outputs in Japanese Markdown format. Use when users ask about codebase, architecture, implementation details, or when /ask command is invoked. Read-only, no code changes.
 argument-hint: question
+disable-model-invocation: true
 context: fork
 agent: general-purpose-inherit
 allowed-tools: [Read, Glob, Grep, Bash, WebFetch]
