@@ -1,6 +1,7 @@
 {
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "ENABLE_TOOL_SEARCH": "true",
     "USE_BUILTIN_RIPGREP": "1"
   },
@@ -133,6 +134,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -177,7 +179,8 @@
     "generative-media-kit@nekorush14-plugins": true,
     "basic-kit@nekorush14-plugins": true,
     "learning-output-style@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true
+    "code-simplifier@claude-plugins-official": true,
+    "cc-utils-kit@nekorush14-plugins": true
   },
   "language": "Japanese",
   "spinnerVerbs": {
@@ -192,5 +195,6 @@
     ]
   },
   "alwaysThinkingEnabled": true,
+  "teammateMode": "in-process",
   "showTurnDuration": false
 }
