@@ -26,6 +26,7 @@ Therefore:
 - **TDD (Test Driven Development):**
   - **Pre-requisite:** Do NOT generate implementation code immediately
   - **Phase 1 (Red):** Outline or write the failing test case first
+    - In Plan mode, list test cases to add or modify in a table (Test Case Name, Input, Expected Result)
   - **Phase 2 (Green):** Write minimal code to satisfy the test
   - **Phase 3 (Refactor):** Optimize code structure
 - **Verification:**
