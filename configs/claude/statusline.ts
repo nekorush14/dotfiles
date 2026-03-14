@@ -87,7 +87,7 @@ function formatTokens(tokens: number): string {
 type ContextCalculationMode = "buffer" | "threshold" | "raw";
 
 // Auto-compact buffer size (reserved space for compaction)
-const AUTO_COMPACT_BUFFER = 45_000;
+const AUTO_COMPACT_BUFFER = 33_000;
 
 // Auto-compact threshold (95% of context window)
 const AUTO_COMPACT_THRESHOLD_RATIO = 0.95;
