@@ -35,6 +35,7 @@ Therefore:
 - **Git**:
   - Follow conventional commit style: `<type>(<scope>): <description>`
   - Use `gh` command for any GitHub operations: such as getting PR details, issue info, creating PRs, etc.
+  - When using `gh api`, always use GraphQL (`gh api graphql`) instead of REST endpoints
   - Write code comments in English
   - One commit per logical change
   - Create new reverting commit instead of rewriting history
