@@ -1,6 +1,6 @@
 {
   // Editor
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.fontFamily": "'moralerspace neon', monospace",
   "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
   "editor.minimap.enabled": false,
@@ -8,8 +8,11 @@
   "editor.smoothScrolling": true,
   "editor.tabSize": 2,
 
+  // Miscs
+  "telemetry.telemetryLevel": "off",
+
   // Terminal
-  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "'moralerspace neon', monospace",
   "terminal.integrated.fontLigatures.enabled": true,
   "terminal.integrated.fontLigatures.featureSettings": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
@@ -18,8 +21,10 @@
   // Workbench
   "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
 
   // Extention: Claude Code
   "claudeCode.initialPermissionMode": "plan",
   "claudeCode.preferredLocation": "panel",
+  "claudeCode.hideOnboarding": true,
 }
