@@ -99,6 +99,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+export CLAUDE_CODE_NO_FLICKER=1
+
 # Set alias
 alias g='$(brew --prefix)/bin/git'
 alias ls='eza --icons --git'
