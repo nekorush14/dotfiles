@@ -71,6 +71,16 @@ interface SessionData {
       cache_read_input_tokens: number;
     }
   };
+  rate_limits?: {
+    five_hour?: {
+      used_percentage: number;
+      resets_at: number;
+    };
+    seven_day?: {
+      used_percentage: number;
+      resets_at: number;
+    };
+  };
 }
 
 
@@ -165,6 +175,53 @@ const colors = {
   brightWhite: "\x1b[97m",
   brightOrange: "\x1b[38;5;214m",
 };
+
+// Format remaining time until a Unix epoch (seconds) as a short relative label.
+// Examples: "6d 14h", "2h15m", "45m", "now"
+function formatTimeUntil(resetsAt: number): string {
+  const diffSec = resetsAt - Math.floor(Date.now() / 1000);
+  if (diffSec <= 0) return "now";
+
+  const days = Math.floor(diffSec / 86_400);
+  const hours = Math.floor((diffSec % 86_400) / 3_600);
+  const minutes = Math.floor((diffSec % 3_600) / 60);
+
+  if (days > 0) return `${days}d${hours}h`;
+  if (hours > 0) return `${hours}h${minutes}m`;
+  return `${minutes}m`;
+}
+
+// Build the rate limit segment for the second status line row.
+// Returns an empty string when the section should be hidden:
+//   - model name contains "by AWS" (Bedrock sessions never include rate_limits)
+//   - rate_limits is absent (pre-first-response, or non Pro/Max accounts)
+function formatRateLimits(
+  rateLimits: SessionData["rate_limits"],
+  modelName: string
+): string {
+  if (modelName.includes("by AWS")) return "";
+  if (!rateLimits) return "";
+
+  const segments: string[] = [];
+
+  const render = (
+    label: string,
+    pct: number | undefined,
+    resetsAt: number | undefined
+  ) => {
+    if (pct == null) return;
+    // Round to integer to align with Claude Code's /usage panel display
+    const rounded = Math.round(pct);
+    const color = getColorForPercentage(pct);
+    const remaining = resetsAt != null ? ` (${formatTimeUntil(resetsAt)})` : "";
+    segments.push(`${label}: ${color}${rounded}%\x1b[0m${remaining}`);
+  };
+
+  render("5h", rateLimits.five_hour?.used_percentage, rateLimits.five_hour?.resets_at);
+  render("7d", rateLimits.seven_day?.used_percentage, rateLimits.seven_day?.resets_at);
+
+  return segments.join(" / ");
+}
 
 function getGitDiffStats(): { additions: number; deletions: number } {
   try {
@@ -289,6 +346,7 @@ async function main() {
   const usageCostUsd = `${(data.cost?.total_cost_usd || 0).toFixed(2)} USD`;
   const claudeVersion = getClaudeVersion();
   const outputStyle = data.output_style?.name || "";
+  const rateLimits = formatRateLimits(data.rate_limits, modelName);
 
   process.stdout.write(
     `\x1b[0m${colorize(`  ${modelName}`, colors.brightYellow)} | ${colorize(
@@ -304,7 +362,7 @@ async function main() {
       `  ${usageCostUsd}`,
       colors.brightMagenta
     )}${outputStyle && outputStyle !== "default" ? ` | ${colorize(` ${outputStyle}`, colors.cyan)}` : ""
-    }${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""}\x1b[0m `
+    }${rateLimits ? ` | ${rateLimits}` : ""}${claudeVersion ? ` | ${colorize(`v${claudeVersion}`, colors.white)}` : ""}\x1b[0m `
   );
 }
 
