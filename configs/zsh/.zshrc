@@ -57,6 +57,7 @@ path=(
   /Library/Apple/usr/bin
   /Applications/JetBrains Toolbox.app/Contents/scripts
   $HOME/.local/bin
+  $HOME/.local/share/google-cloud-sdk/bin
   $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
   /opt/homebrew/bin
@@ -247,5 +248,15 @@ source <(ng completion script)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/nekorush14/.lmstudio/bin"
 # End of LM Studio CLI section
 
