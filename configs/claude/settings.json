@@ -135,6 +135,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opusplan",
   "hooks": {
     "Notification": [
       {
@@ -176,11 +177,10 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "generative-media-kit@nekorush14-plugins": true,
-    "basic-kit@nekorush14-plugins": true,
+    "generative-media-kit@nekorush14-plugins": false,
     "learning-output-style@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
-    "cc-utils-kit@nekorush14-plugins": true
+    "core@nekorush14-plugins": true
   },
   "language": "Japanese",
   "spinnerVerbs": {
@@ -195,6 +195,8 @@
     ]
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "advisorModel": "opus",
   "teammateMode": "in-process",
   "showTurnDuration": false
 }
