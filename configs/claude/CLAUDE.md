@@ -60,4 +60,4 @@ Therefore:
 ## Universal Coding Style
 
 - **Naming:** Use clear, purpose-revealing variable names
-- **Comments:** Explain "Why" logic is complex, not "What" the code does.
+- **Comments:** Always focus on "Why" (the reasoning, intent, or context behind the code), not "What" (what the code literally does). Avoid restating code behavior; instead explain the motivation, trade-offs, or non-obvious constraints.
