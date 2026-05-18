@@ -1,10 +1,13 @@
 git:
   pagers:
     - colorArg: always
-      pager: delta --dark --paging=never --line-numbers --side-by-side
+      # pager: delta --dark --paging=never --line-numbers --side-by-side
+      pager: hunk pager --wrap
   log:
-    pager: delta --dark --paging=never
+    # pager: delta --dark --paging=never
+    pager: hunk pager
   merging:
-    pager: delta --dark --paging=never
+    # pager: delta --dark --paging=never
+    pager: hunk pager --no-wrap
 gui:
   quitOnTopLevelReturn: false
