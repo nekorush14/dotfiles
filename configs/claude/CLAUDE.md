@@ -11,6 +11,7 @@ When the user mentions the following aliases, use the corresponding subagent:
 | ----- | ------------- | ----------- |
 | `ogpagent` | `general-purpose` | Builtin general-purpose agent for complex, multi-step tasks |
 | `gpagent` | `general-purpose-inherit` | Inherits agent model from the main agent for general-purpose tasks |
+| `expagent` | `Explore` | Builtin read-only explorer agent for fast codebase search and investigation |
 
 ## Work Persistence
 
@@ -40,6 +41,7 @@ Therefore:
   - One commit per logical change
   - Create new reverting commit instead of rewriting history
   - Always specify origin and branch: `git push <origin> <branch>`
+  - Run `git` directly when CWD is inside the repo; avoid `git -C <path>`.
 - Grep:
   - Use `rg` (ripgrep) for searching codebase instead of `grep`
 
