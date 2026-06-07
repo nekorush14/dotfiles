@@ -123,19 +123,25 @@
       "Bash(rsync:*)",
       "Bash(ssh-keygen:*)",
       "Bash(ssh-copy-id:*)",
-      "Read(.envrc)",
-      "Read(.env.*)",
+      "Bash(cat *.env*)",
+      "Bash(head *.env*)",
+      "Bash(tail *.env*)",
+      "Bash(less *.env*)",
+      "Bash(more *.env*)",
+      "Edit(*.env*)",
+      "Read(*.env*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
       "Read(**/*token*)",
       "Read(**/*key*)",
+      "Read(**/*.env*)",
+      "Read(**/*environment.*)",
       "Write(.env*)",
       "Write(**/secrets/**)",
       "NotebookEdit"
     ],
     "defaultMode": "plan"
   },
-  "model": "opusplan",
   "hooks": {
     "Notification": [
       {
@@ -177,10 +183,10 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "generative-media-kit@nekorush14-plugins": false,
-    "learning-output-style@claude-plugins-official": true,
+    "generative-media-kit@nekorush14-plugins": true,
     "code-simplifier@claude-plugins-official": true,
-    "core@nekorush14-plugins": true
+    "core@nekorush14-plugins": true,
+    "explanatory-output-style@claude-plugins-official": true
   },
   "language": "Japanese",
   "spinnerVerbs": {
@@ -195,8 +201,9 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "advisorModel": "opus",
+  "effortLevel": "xhigh",
+  "preferredNotifChannel": "notifications_disabled",
+  "showTurnDuration": false,
   "teammateMode": "in-process",
-  "showTurnDuration": false
+  "skipAutoPermissionPrompt": true
 }
