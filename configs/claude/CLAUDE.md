@@ -29,6 +29,7 @@ Do not omit or modify predetermined procedures.
   - One commit per logical change
   - Create new reverting commit instead of rewriting history
   - Always specify origin and branch: `git push <origin> <branch>`
+  - Run `git` directly when CWD is inside the repo; avoid `git -C <path>`.
 - Grep:
   - Use `rg` (ripgrep) for searching codebase instead of `grep`
 
