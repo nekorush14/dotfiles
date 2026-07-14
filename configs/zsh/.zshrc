@@ -138,6 +138,7 @@ alias rm="SAFE_RM_CONFIG=${HOME}/.config/safe-rm/safe-rm.conf safe-rm"
 alias tdw="tmux-default-window.sh"
 alias wm-reset="yabai --restart-service && skhd --restart-service"
 # alias imgcat="viu"
+alias kiro-cli-v3="kiro-cli --v3"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -260,3 +261,12 @@ if [ -f '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOM
 export PATH="$PATH:$HOME/nekorush14/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"

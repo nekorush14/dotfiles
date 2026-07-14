@@ -6,8 +6,8 @@
 [core]
 	editor = nvim
   autocrlf = input
-  pager = delta
-	excludesfile = ~/.gitignore_global
+  pager = hunk pager
+  excludesfile = ~/.gitignore_global
 	quotePath = false
 
 [alias]
@@ -46,11 +46,11 @@
 [interactive]
   diffFilter = delta --color-only
 
-[delta]
-  line-numbers = true
-  navigate = true    # use n and N to move between diff sections
-  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-  side-by-side = true
+; [delta]
+;   line-numbers = true
+;   navigate = true    # use n and N to move between diff sections
+;   light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+;   side-by-side = true
 
 [merge]
   conflictstyle = diff3

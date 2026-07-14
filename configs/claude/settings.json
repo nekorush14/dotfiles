@@ -186,7 +186,8 @@
     "generative-media-kit@nekorush14-plugins": true,
     "code-simplifier@claude-plugins-official": true,
     "core@nekorush14-plugins": true,
-    "explanatory-output-style@claude-plugins-official": true
+    "explanatory-output-style@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
   "language": "Japanese",
   "spinnerVerbs": {
@@ -201,9 +202,11 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "preferredNotifChannel": "notifications_disabled",
   "showTurnDuration": false,
   "teammateMode": "in-process",
-  "skipAutoPermissionPrompt": true
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "model": "fable"
 }
