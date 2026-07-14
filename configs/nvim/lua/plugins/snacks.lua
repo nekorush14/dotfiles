@@ -180,8 +180,16 @@ return {
 			return {
 				picker = {
 					hidden = true,
+					ignored = true,
+					exclude = {
+						"**/.git",
+						"**/.DS_Store",
+					},
 					sources = {
-						files = { hidden = false },
+						files = {
+							hidden = false,
+							ignored = true,
+						},
 					},
 				},
 				explorer = {

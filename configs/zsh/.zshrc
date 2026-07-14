@@ -60,6 +60,7 @@ path=(
   $HOME/.local/share/google-cloud-sdk/bin
   $HOME/.cargo/bin
   $HOME/Library/Android/sdk/platform-tools
+  $HOME/.bun/bin
   /opt/homebrew/bin
   $(brew --prefix)/bin
   /Applications/RubyMine.app/Contents/MacOS
@@ -257,6 +258,13 @@ if [ -f '$HOME/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.loc
 if [ -f '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/nekorush14/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
