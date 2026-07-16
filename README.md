@@ -2,7 +2,7 @@
 
 ## Description
 
-> [!ATTENTION]
+> [!WARNING]
 > This branch still under construction for v2.
 > DO NOT APPLIY THIS FOR MAIN ENVIRONMENT.
 
