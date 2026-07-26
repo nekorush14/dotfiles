@@ -1,0 +1,5 @@
+# ~/.kiro/settings/kiroignore
+.env
+.env.*
+secrets/
+*.pem

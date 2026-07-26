@@ -1,8 +1,12 @@
-theme = "midnight"
+theme = "Midnight"
 mode = "auto"
 vcs = "git"
-watch = false
+watch = true 
 exclude_untracked = false
 line_numbers = true
-wrap_lines = false
+tab_width = 4
+wrap_lines = true 
+menu_bar = true
 agent_notes = false
+prompt_save_view_preferences = true
+transparent_background = true 

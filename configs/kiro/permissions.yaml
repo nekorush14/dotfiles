@@ -1,0 +1,76 @@
+rules:
+  - capability: fs_write
+    effect: ask
+    match:
+      - "**/.env"
+      - "**/.env.*"
+      - secrets/**
+      - "**/*.pem"
+  - capability: shell
+    effect: allow
+    match:
+      - git commit*
+      - git push*
+      - git add*
+      - git status*
+      - git log*
+    exclude:
+      - git commit --amend*
+      - git push -u*
+  - capability: fs_read
+    effect: allow
+    match:
+      - /Users/nekorush14/Developer/ghq
+      - /Users/nekorush14/.kiro/settings/permissions.yaml
+  - capability: shell
+    effect: allow
+    match:
+      - ls *
+      - cd *
+      - rg *
+      - mkdir *
+      - wc *
+      - safe-rm *
+      - yarn install *
+      - yarn typecheck *
+      - yarn test *
+      - yarn lint *
+      - yarn dev *
+      - yarn build *
+      - yarn cdk synth
+      - yarn cdk diff
+      - grep *
+      - find *
+      - head *
+      - echo *
+      - npm run build
+      - npm run test
+      - npx tsc
+      - npx vitest run
+      - cat *
+      - tail *
+      - xxd *
+      - git diff *
+      - sort *
+      - uniq *
+  - capability: shell
+    effect: deny
+    match:
+      - rm *
+  - capability: web_search
+    effect: allow
+  - capability: web_fetch
+    effect: allow
+    match:
+      - typescript-eslint.io
+      - context7.com
+      - google.github.io
+      - strandsagents.com
+      - platform.claude.com
+      - claude.com
+  - capability: power
+    effect: allow
+    match:
+      - strands
+      - strands/strands-agents/search_docs
+      - strands/strands-agents/fetch_doc

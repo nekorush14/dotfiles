@@ -1,0 +1,15 @@
+[ui.sound]
+enabled = false
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[ui.sound.agents]
+claude = "off"
+
+[keys]
+split_vertical = "prefix+%"
