@@ -1,3 +1,5 @@
+onboarding = false
+
 [ui.sound]
 enabled = false
 
@@ -8,8 +10,30 @@ auto_switch = false
 [ui]
 show_agent_labels_on_pane_borders = true
 
+[ui.sidebar.agents]
+row_gap = 1
+rows = [["state_icon", "workspace", "tab"], ["agent"]]
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+  ["state_text"]
+]
+
+[ui.sidebar.spaces]
+row_gap = 1
+rows = [["state_icon", "workspace"], ["branch", "git_status"]]
+
 [ui.sound.agents]
 claude = "off"
 
 [keys]
-split_vertical = "prefix+%"
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+rename_tab = "prefix+,"
+focus_pane_right = ["prefix+l", "prefix+right"]
+split_vertical = ["prefix+v", "prefix+%"]
+split_horizontal = ["prefix+minus", "prefix+\""]
+
